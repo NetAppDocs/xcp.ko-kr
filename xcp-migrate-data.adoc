@@ -1,0 +1,14 @@
+---
+sidebar: sidebar 
+permalink: xcp-migrate-data.html 
+keywords: netapp, xcp, migrate, data, nfs, smb, copy, resume, sync, verify 
+summary: 데이터 마이그레이션 
+---
+= 데이터 마이그레이션
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

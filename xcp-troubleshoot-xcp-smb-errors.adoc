@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: xcp-troubleshoot-xcp-smb-errors.html 
+keywords: netapp, xcp, troubleshoot, troubleshooting, smb, 
+summary: xCP SMB 오류 문제 해결 
+---
+= xCP SMB 오류 문제 해결
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+문제를 해결할 수 있는 해결 방법을 검토합니다.
+
+|===
+| 문제 | 해결 방법 
+
+
+| xCP: error: 이 라이센스가 만료되었습니다 | 에서 새 xCP 라이센스를 갱신하거나 받으십시오 link:https://xcp.netapp.com/["xCP 사이트"^]. 
+
+
+| 이 사본은 라이센스가 없습니다 | 적절한 xCP 라이센스 파일을 얻습니다. xCP 호스트의 'c:\NetApp\xCP' 폴더에 xCP 라이센스를 복사합니다. xCP activate 명령을 실행하여 라이센스를 활성화합니다 
+
+
+| 'xCP: error': xCP가 활성화되지 않았습니다. 먼저 'activate'를 실행하십시오 | 에서 xCP 라이센스를 다운로드합니다 link:https://xcp.netapp.com/["xCP 사이트"^]. xCP 호스트의 'c:\NetApp\xCP'에 있는 xCP Linux 클라이언트 호스트에서 파일을 복사합니다. xCP activate 명령을 실행하여 라이센스를 활성화합니다. 
+
+
+| 'xCP:error': 라이센스 파일 C:\NetApp\xCP\라이센스를 찾을 수 없습니다 | 에서 XCP 라이센스를 등록합니다 link:https://xcp.netapp.com/["xCP 사이트"^]. xCP Windows 클라이언트 호스트에서 라이센스 파일을 'C:\NetApp\xCP\'에 다운로드하고 복사합니다. 
+
+
+| xCP 스캔 오류: 네트워크 이름을 찾을 수 없습니다 | 올바른 공유 이름으로 명령을 다시 실행합니다 
+
+
+| xCP 복사 오류: xcp.log 파일에 기록된 폴백 보안 주체 오류 메시지를 가져오지 못했습니다. "pywintypes.error: (1722, 'LookupAccountName', 'RPC 서버를 사용할 수 없습니다.') | 호스트 파일('C:\Windows\System32\drivers\etc\hosts')에 대상 상자를 추가합니다. NetApp 스토리지 대상 상자 항목은 다음 형식이어야 합니다: "<data vserver data interface ip>" 하나 이상의 공백 "<cifs server name>" 
+
+
+| ''xCP 복사: 오류''대체 보안 보안 주체(호스트 파일에 대상 상자 항목을 추가한 후)를 가져오지 못했습니다. xcp.log 파일에 기록되는 오류 메시지: ''계정 이름과 보안 ID 간의 매핑이 수행되지 않았습니다. | 대상 시스템(대상 상자) 또는 Active Directory에 대체 사용자/그룹이 없습니다. 올바른 대체 사용자/그룹 옵션을 사용하여 명령을 다시 실행합니다 
+
+
+| ''xCP copy: error' to obtain fallback security principal (Post adding destination box entry in the hosts files) 오류 메시지 xcp.log: ' pywintypes.error: (87, ' LookupAccountName ', ' the parameter is incorrect.')' | 대체 사용자/그룹 옵션에 대한 매개 변수가 잘못되었습니다. 대체 사용자/그룹 옵션에 대한 올바른 구문을 사용하여 명령을 다시 실행합니다 
+
+
+| ACL migration Erorr 메시지를 xcp.log 파일에 기록한 'xCP copy':'pywintypes.error':'(1314,'GetNamedSecurityInfo','필요한 권한이 클라이언트에 의해 보유되지 않습니다.' | 마이그레이션 사용자가 소유한 권한이 있는 경우 xCP는 소유자, 그룹 및 DACL만 가져올 수 있지만 SACL은 가져올 수 없기 때문에 사용자는 보안 설명자와 관련된 문제를 겪고 있습니다. 마이그레이션 사용자를 Active Directory의 "감사 및 보안 로그 관리" 정책에 추가합니다. 참조: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["감사 및 보안 로그를 관리합니다"^] 
+|===

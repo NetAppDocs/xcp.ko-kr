@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-xcp.html 
+keywords: netapp, xcp, install, installing, download, downloading, license, preparing, system 
+summary: xCP를 설치합니다 
+---
+= xCP를 설치합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+xCP를 설치합니다.
+
+
+
+== 워크플로를 설치하고 구성합니다
+
+이 문서에서는 NFS 및 SMB 시스템에 XCP를 설치하고 설정하기 위한 간단한 워크플로우를 제공합니다.
+
+image:xcp_image16.PNG["오류: 그래픽 이미지가 없습니다"]
+
+
+
+== xCP 다운로드
+
+NetApp Support 사이트에서 XCP를 다운로드하고 xCP 사이트에서 라이센스를 받으십시오.
+
+에서 XCP를 다운로드할 수 있습니다 link:https://mysupport.netapp.com/products/p/xcp.html["NetApp Support 사이트"^].
+
+
+
+== xCP 라이센스
+
+NetApp은 90일 XCP 라이센스를 무료로 제공합니다. 에서 라이센스 파일을 얻을 수 있습니다 link:https://xcp.netapp.com/["xCP 사이트"^]. 라이센스 포털에서는 다양한 라이센스 옵션을 제공합니다. 90일 후에는 동일한 포털을 사용하여 다른 90일 동안 라이센스를 갱신할 수 있습니다.
+
+XCP 라이센스는 오프라인 또는 온라인 라이센스로 제공됩니다. 마이그레이션 통계를 보내려면 온라인 라이센스를 사용하십시오. 온라인 라이센스에는 인터넷 연결이 필요합니다. 오프라인 라이센스에는 인터넷 연결이 필요하지 않습니다.
+
+
+
+== 시스템을 준비합니다
+
+를 사용하는 경우 link:xcp-prepare-linux-for-xcp-nfs.html["Linux 시스템의 xCP NFS"]카탈로그 및 스토리지를 준비해야 합니다.
+
+를 사용하는 경우 link:xcp-prepare-windows-for-xcp-smb.html["Microsoft Windows 시스템의 xCP SMB"]스토리지를 준비해야 합니다.

@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: xcp-plan-smb-data-migration.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, smb, file, analytics, 
+summary: SMB 데이터 마이그레이션 계획 
+---
+= SMB 데이터 마이그레이션 계획
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SMB 데이터 마이그레이션 계획
+
+
+
+=== 표시
+
+'show' 명령은 서버에서 사용 가능한 모든 SMB 공유를 사용 가능한 권한과 공간으로 표시합니다. 예:
+
+* 'xCP show\\<SMB 파일 서버 IP/FQDN>'
+* xCP 쇼 smb_server01.netapp.com`
+
+
+자세한 내용은 xCP 도움말을 실행하십시오.
+
+
+
+=== 스캔
+
+'스캔' 명령은 전체 SMB 공유를 재귀적으로 검색하고 검사 종료 시 모든 파일을 나열합니다. 예:
+
+* 'xCP 스캔\\smb 서버\share1'
+* xCP 스캔 smb_server01.netapp.com:/share1`
+
+
+자세한 내용은 xCP 도움말 검색을 실행하십시오.
+
+선택적으로 파일 분석을 사용하여 결과를 그래픽으로 볼 수 있습니다.

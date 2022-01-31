@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: xcp-filters.html 
+keywords: netapp, xcp, filters, 
+summary: xCP는 xCP 작업에 사용할 수 있는 필터 옵션을 제공합니다 
+---
+= 필터
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+xCP는 xCP 작업에 사용할 수 있는 필터 옵션을 제공합니다.
+
+xCP는 NFS와 SMB에 대해 '-match' 및 '-exclude' 옵션을 위한 필터를 사용합니다.
+
+NFS의 경우 xCP 도움말 정보를 실행하고 필터 섹션을 참조하여 '-match' 및 '-exclude' 필터를 사용하는 방법을 확인하십시오.
+
+SMB의 경우 xCP 도움말 매치나 xCP 도움말 제외를 실행하여 마치 필터와 제외 필터에 대한 자세한 내용을 확인하십시오.
+
+xCP 명령에서 필터를 사용하려면 'xCP 도움말 <command>'을 실행하여 지원되는 옵션이 있는지 확인하십시오.

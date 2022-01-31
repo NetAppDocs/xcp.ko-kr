@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-the-ini-file-for-xcp-nfs.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, 
+summary: INI 파일 xCP를 구성하는 단계입니다 
+---
+= INI 파일을 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP에 대한 INI 파일을 구성하는 단계입니다.
+
+
+
+== 루트 사용자에 대한 INI 파일을 구성합니다
+
+다음 절차에 따라 XCP NFS 루트 사용자에 대한 INI 파일을 구성할 수 있습니다.
+
+.단계
+. 'vi' 편집기를 사용하여 호스트 구성 파일에 xCP 서버의 카탈로그 위치를 추가합니다.
++
+
+NOTE: xcp.ini` xCP 구성 파일의 세부 정보를 수정하기 전에 카탈로그 위치를 내보내야 합니다. xCP Linux 호스트에서 카탈로그 위치(NFSv3)를 마운트할 수 있어야 하지만 반드시 마운트해야 하는 것은 아닙니다.
+
++
+[listing]
+----
+[root@localhost /]# vi /opt/NetApp/xFiles/xcp/xcp.ini
+----
+. 카탈로그에 대한 xCP Linux 클라이언트 호스트 구성 파일 항목이 수정되었는지 확인합니다.
++
+[listing]
+----
+[root@localhost /]# cat /opt/NetApp/xFiles/xcp/xcp.ini
+# Sample xcp config
+[xcp]
+catalog = 10.61.82.210:/vol/xcpvol/
+----
+
+
+
+
+== 루트가 아닌 사용자에 대해 INI 파일을 구성합니다
+
+루트 사용자가 아닌 사용자는 NFS 파일 시스템을 마운트할 권한이 없습니다. 루트 사용자는 먼저 카탈로그 볼륨을 마운트한 다음, xCP를 실행하는 루트 이외의 사용자로, 카탈로그 볼륨에 대한 읽기/쓰기 권한이 있는 경우 POSIX 커넥터를 사용하여 마운트된 카탈로그 볼륨에 액세스할 수 있습니다. 볼륨이 마운트되면 경로를 카탈로그로 추가할 수 있습니다.
+
+[listing]
+----
+(t/10.237.170.53_catalog_vol – This is the path where catalog volume is mounted)as follows.
+
+[user1@scspr2474004001 xcp]$ ls -ltr
+total 8
+drwxrwxr-x 2 user1 user1  21 Sep 20 02:04 xcplogs
+-rw-rw-r-- 1 user1 user1  71 Sep 20 02:04 xcp.ini
+-rwxr-xr-x 1 user1 user1 352 Sep 20 02:10 license
+[user1@scspr2474004001 xcp]$ cat /home/user1/NetApp/xFiles/xcp/xcp.ini
+
+Sample xcp config [xcp]
+catalog = file:///t/10.237.170.53_catalog_vol
+----

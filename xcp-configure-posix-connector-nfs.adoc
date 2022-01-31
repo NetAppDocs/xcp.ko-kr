@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-posix-connector-nfs.html 
+keywords: xcp, configure, nfs, posix, connector 
+summary: POSIX 커넥터를 통해 XCP는 NFSv4, XFS 및 Veritas와 같은 Linux 마운트 파일 시스템에 액세스할 수 있습니다. 
+---
+= POSIX 커넥터를 구성합니다
+
+
+[role="lead"]
+xCP NFS는 이제 POSIX 커넥터 사용을 지원하여 데이터 마이그레이션을 위한 소스 및 대상 경로를 제공합니다.
+
+POSIX 커넥터에는 다음 기능이 지원됩니다.
+
+* 나노초 시간, 시간, 시간을 지원하는 POSIX 파일 시스템의 경우 'CAN' 명령은 전체 값(초, 나노초)을 가져오고 'COPY' 명령은 이 값을 설정합니다
+* POSIX 커넥터는 NFSv3 TCP 소켓을 사용하는 XCP보다 안전합니다. 을 참조하십시오 link:xcp-configure-security-nfs.html["보안을 구성합니다"]
+
+
+POSIX 커넥터의 경로 구문은 '\file://<mounted path on Linux>'입니다.
+
+POSIX 커넥터를 설정하려면 다음 작업을 수행해야 합니다.
+
+* 소스 및 대상 볼륨을 마운트합니다
+* 대상 경로에 데이터를 쓰는 데 필요한 권한이 있는지 확인합니다
+
+
+대상 및 카탈로그가 다음 예에 마운트됩니다.
+
+[listing]
+----
+root@scspr2395903001 ~]# findmnt -t nfs4
+TARGET SOURCE FSTYPE OPTIONS
+/t/10.237.170.39_src_vol 10.237.170.39:/source_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_dest_vol 10.237.170.53:/dest_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_catalog_vol 10.237.170.53:/xcp_catalog nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+[root@scspr2395903001 ~]#
+----
+POSIX 커넥터는 POSIX 구문 'file://'을 사용하여 소스 및 대상 볼륨에 액세스합니다. 위의 예에서 소스 경로는 '\file:///t/10.237.170.39_src_vol'이고 대상 경로는 'file:///t/10.237.170.53_dest_vol'입니다.
+
+비루트 사용자가 공유하는 XCP 카탈로그의 샘플 구성을 관리하려면 XCP 사용자용 Linux 그룹을 만듭니다. 루트가 아닌 사용자의 경우 Linux 그룹 사용자가 마이그레이션을 수행하려면 다음과 같은 권한이 필요합니다.
+
+다음 샘플 출력에서는 demo가 비루트 사용자이고, 카탈로그 볼륨이 마운트되는 경로는 /mnt/xCP-catalog입니다.
+
+[listing]
+----
+sudo groupadd -g 7711 xcp_users
+sudo usermod -G xcp_users -a demo
+sudo chown -R :xcp_users /mnt/xcp-catalog
+sudo chmod -R g+w /mnt/xcp-catalog
+----
+xCP 카탈로그는 데이터를 저장하지 않지만 스캔 및 복사 파일 이름, 디렉토리 이름 및 기타 메타데이터를 저장합니다. 따라서 허용된 사용자가 저장된 메타데이터를 보호할 수 있는 기능을 제공하도록 카탈로그 파일 시스템 권한을 구성하는 것이 좋습니다.
+
+일반 사용자로 설정된 경우 기본적으로 POSIX 또는 NFS3 대상에 대한 "copy" 명령은 소유권(UID(사용자 ID) 및 GID(그룹 ID))를 설정하지 않습니다. 소유권 설정은 일반적으로 관리자가 수행합니다. 사용자 A가 사용자 B의 파일을 복사할 때 사용자 A는 대상을 소유해야 합니다. 그러나 루트 사용자가 파일을 복사할 때는 그렇지 않습니다. 루트 사용자가 파일을 복사할 때 '-chown' 옵션은 루트 이외의 '-chown' 명령이 UID와 GID를 설정하려고 시도하도록 동작을 변경합니다.

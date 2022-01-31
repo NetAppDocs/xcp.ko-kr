@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: xcp-ports-used.html 
+keywords: ports, xcp 
+summary: XCP 마이그레이션에 올바른 포트를 사용하고 있는지 확인합니다. 
+---
+= xCP에서 사용하는 포트
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+다음 포트는 XCP에서 사용됩니다.
+
+[cols="50,50"]
+|===
+| 서비스 | 포트 
+
+
+| CIFS를 선택합니다 | 445 TCP/UDP 
+
+
+| HTTP(httpd) | 80 
+
+
+| HTTPS | 443 
+
+
+| NFS 를 참조하십시오 | 111 TCP/UDP 및 2049 TCP/UDP 
+
+
+| PostgreSQL | 5432 
+
+
+| xCP(File Analytics용 서비스) | 5030 
+
+
+| HDFS입니다 | 7222 
+|===

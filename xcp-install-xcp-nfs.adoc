@@ -1,0 +1,198 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-xcp-nfs.html 
+keywords: netapp, xcp, install, installing, nfs 
+summary: xCP NFS 설치 
+---
+= xCP NFS를 설치합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+xCP를 업그레이드하려면 현재 설치를 삭제하고 최신 버전의 새 설치로 교체하십시오. 이 섹션에서는 Linux 클라이언트에서 XCP를 처음 설치하는 절차와 INI 파일 구성에 대한 시스템 요구 사항과 절차에 대해 자세히 설명합니다.
+
+* 시스템 요구 사항 *
+
+[cols="35,65"]
+|===
+| 항목 | 요구 사항 
+
+
+| 시스템 | 64비트 Intel 또는 AMD 서버, 최소 4코어 및 32GB RAM 
+
+
+| 운영 체제 및 소프트웨어 | RHEL8 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] 를 참조하십시오 
+
+
+| 특별 요구 사항 | 소스 및 대상 NFSv3 내보내기에 대한 네트워크 연결 및 루트 레벨 액세스 다른 활성 애플리케이션은 없습니다 
+
+
+| 스토리지 | xCP 바이너리를 위한 20MB의 디스크 공간 및 /opt/NetApp/xFiles/xCP/ 디렉토리에 저장된 로그를 위한 최소 50MB의 디스크 공간 
+
+
+| 지원되는 프로토콜 버전입니다 | NFSv3 및 NFSv4(POSIX 및 ACL) 
+
+
+| 지원되는 브라우저(파일 분석만 해당) | xCP File Analytics는 Google Chrome 버전 76 이상을 지원합니다. 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] 지원되는 모든 브라우저 버전에 대한 매트릭스 
+|===
+
+NOTE: 라이브 소스 마이그레이션에 권장되는 구성은 8코어 및 64GB RAM입니다.
+
+
+
+== 루트 사용자를 위해 xCP NFS를 설치합니다
+
+다음 절차에 따라 루트 사용자에 대해 xCP를 설치할 수 있습니다.
+
+.단계
+. Linux 시스템에 루트 사용자로 로그인하고 라이센스를 다운로드하여 설치합니다.
++
+[listing]
+----
+[root@scspr1980872003 ~]# ls -l
+total 36188
+-rw-r--r--  1 root root 37043983 Oct  5 09:36 NETAPP_XCP_<version>.tgz
+-rw-------. 1 root root     1994 Sep  4  2019 license
+----
+. 이 툴을 추출하려면 다음 명령을 실행하십시오. xCP
++
+[listing]
+----
+[root@scspr1980872003 ~]# tar -xvf NETAPP_XCP_<version>.tgz
+[root@scspr1980872003 ~]# ls
+NETAPP_XCP_<version>.tgz license xcp
+[root@scspr1980872003 ~]# cd xcp/linux/
+[root@scspr1980872003 linux]# ls
+xcp
+----
+. 이전 버전의 XCP에서 시스템에 '/opt/netapp/xFiles/xCP' 경로가 있는지 확인합니다.
++
+'/opt/netapp/xFiles/xCP'가 사용 가능한 경우 'xCP activate' 명령을 사용하여 라이센스를 활성화하고 데이터 마이그레이션을 진행합니다.
+
++
+'/opt/netapp/xFiles/xCP'를 사용할 수 없는 경우 'xCP activate' 명령을 처음 실행하면 시스템에서 '/opt/NetApp/xFiles/xCP'에 xCP 호스트 구성 디렉토리를 생성합니다.
+
++
+라이센스가 설치되지 않아 xCP activate 명령이 실패합니다.
+
++
+[listing]
+----
+[root@scspr1980872003 linux]# ./xcp activate
+(c) 2020 NetApp, Inc.
+xcp: Host config file not found. Creating sample at '/opt/NetApp/xFiles/xcp/xcp.ini'
+
+xcp: ERROR: License file /opt/NetApp/xFiles/xcp/license not found.
+Register for a license at https://xcp.netapp.com
+----
+. 라이센스를 '/opt/netapp/xFiles/xCP/'에 복사합니다.
++
+[listing]
+----
+[root@scspr1980872003 linux]# cp ~/license /opt/NetApp/xFiles/xcp/
+----
+. 라이센스 파일이 '/opt/netapp/xFiles/xCP/'에 복사되었는지 확인합니다.
++
+[listing]
+----
+[root@ scspr1980872003 ~]# ls -altr /opt/NetApp/xFiles/xcp/
+total 44
+drwxr-xr-x 3 root root    17 Oct  1 06:07 ..
+-rw-r--r-- 1 root root   304 Oct  1 06:07 license
+drwxr-xr-x 2 root root     6 Oct  1 10:16 xcpfalogs
+drwxr-xr-x 2 root root    21 Oct  1 10:16 xcplogs
+-rw-r--r-- 1 root root   110 Oct  5 00:48 xcp.ini
+drwxr-xr-x 4 root root    83 Oct  5 00:48 .
+[root@scspr1978802001 ~]#
+----
+. xCP 활성화:
++
+[listing]
+----
+[root@scspr1980872003 linux]# ./xcp activate
+XCP <version>; (c) 2020 NetApp, Inc.;
+XCP already activated
+----
+
+
+
+
+== 루트가 아닌 사용자에 대해 xCP를 설치합니다
+
+다음 절차에 따라 루트가 아닌 사용자에 대해 xCP를 설치할 수 있습니다.
+
+.단계
+. 비루트 사용자로 Linux 시스템에 로그인하고 라이센스를 다운로드하여 설치합니다.
++
+[listing]
+----
+[user1@scspr2474004001 ~]$ ls -l
+total 36640
+-rwxr-xr-x 1 user1 user1      352 Sep 20 01:56 license
+-rw-r--r-- 1 user1 user1 37512339 Sep 20 01:56 NETAPP_XCP_Nightly_dev.tgz
+[user1@scspr2474004001 ~]$
+----
+. 이 툴을 추출하려면 다음 명령을 실행하십시오. xCP
++
+[listing]
+----
+[user1@scspr2474004001 ~]$ tar -xvf NETAPP_XCP_Nightly_dev.tar
+[user1@scspr2474004001 ~]$ cd xcp/linux/
+[user1@scspr2474004001 linux]$ ls
+xcp
+[user1@scspr2474004001 linux]$
+----
+. 이전 버전의 XCP에서 시스템에 '/home/user1/NetApp/xFiles/xCP' 경로가 있는지 확인합니다.
++
+'/home/user1/netapp/xFiles/xCP' 경로가 사용 가능한 경우 'xCP activate' 명령을 사용하여 라이센스를 활성화하고 데이터 마이그레이션을 진행합니다.
+
++
+'/home/user1/netapp/xFiles/xCP'를 사용할 수 없는 경우 'xCP activate' 명령을 처음 실행하면 시스템에서 '/home/user1/NetApp/xFiles/xCP'에 xCP 호스트 구성 디렉토리를 생성합니다.
+
++
+라이센스가 설치되지 않아 xCP activate 명령이 실패합니다.
+
++
+[listing]
+----
+[user1@scspr2474004001 linux]$ /home/user1/xcp/linux/xcp activate
+(c) 2021 NetApp, Inc.
+xcp: Host config file not found. Creating sample at '/home/user1/NetApp/xFiles/xcp/xcp.ini'
+
+xcp: ERROR: License file /home/user1/NetApp/xFiles/xcp/license not found.
+Register for a license at https://xcp.netapp.com
+[user1@scspr2474004001 linux]$
+----
+. 라이센스를 '/home/user1/NetApp/xFiles/xCP/'에 복사합니다.
++
+[listing]
+----
+[user1@scspr2474004001 linux]$ cp ~/license /home/user1/NetApp/xFiles/xcp/
+[user1@scspr2474004001 linux]$
+----
+. 라이센스 파일이 '/home/user1/NetApp/xFiles/xCP/'에 복사되었는지 확인합니다.
++
+[listing]
+----
+[user1@scspr2474004001 xcp]$ ls -ltr
+total 8
+drwxrwxr-x 2 user1 user1  21 Sep 20 02:04 xcplogs
+-rw-rw-r-- 1 user1 user1  71 Sep 20 02:04 xcp.ini
+-rwxr-xr-x 1 user1 user1 352 Sep 20 02:10 license
+[user1@scspr2474004001 xcp]$
+----
+. xCP 활성화:
++
+[listing]
+----
+[user1@scspr2474004001 linux]$ ./xcp activate
+(c) 2021 NetApp, Inc.
+
+XCP already activated
+
+[user1@scspr2474004001 linux]$
+----
+

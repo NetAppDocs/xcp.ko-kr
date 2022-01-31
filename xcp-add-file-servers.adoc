@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: xcp-add-file-servers.html 
+keywords: netapp, xcp, file, servers, access, analytics, learn, about, graphs, hot, cold, count, size, entries in directory, distribution by size, directory depth, file space used by size 
+summary: 파일 서버 추가 중 
+---
+= 파일 서버를 추가합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+xCP File Analytics GUI에서 NFS 및 SMB로 내보낸 파일 시스템을 구성할 수 있습니다.
+
+XCP File Analytics는 이를 통해 파일 시스템에서 데이터를 검색하고 분석할 수 있습니다. NFS 또는 SMB 파일 서버를 추가하려면 다음 단계를 수행하십시오.
+
+.단계
+. 파일 서버를 추가하려면 * 파일 서버 추가 * 를 선택합니다.
+
+
+image:xcp_image3.png["파일 서버 추가 화면"]
+
+파일 서버 IP 주소를 추가하고 NFS 또는 SMB 옵션을 선택한 다음 * 추가 * 를 클릭합니다.
+
+
+NOTE: SMB 에이전트가 GUI에 표시되지 않으면 SMB 서버를 추가할 수 없습니다.
+
+파일 서버를 추가한 후 xCP에 다음이 표시됩니다.
+
+* 사용 가능한 총 파일 공유 수입니다
+* 분석 데이터와 파일 공유(초기 개수는 "0"이며, 이 업데이트는 스캔을 성공적으로 실행할 때 업데이트됩니다)
+* 총 공간 사용률 - 모든 내보내기에서 사용하는 공간의 합계입니다
+* 파일 공유 및 공간 활용률에 대한 데이터는 NFS/SMB 서버에서 직접 실시간 데이터입니다. 데이터를 수집하고 처리하는 데 몇 초 정도 걸립니다.
+
+
+
+NOTE: File Analytics에서 사용 가능한 공간과 사용된 공간은 NFS를 통해 사용 가능한 각 내보낸 파일 시스템에서 계산됩니다. 예를 들어, 볼륨이 qtree로 구성되고 내보내기가 qtree를 통해 생성되는 경우 전체 공간은 볼륨 크기와 qtree 크기의 누적 공간이 됩니다.

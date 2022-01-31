@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: get-more-information.html 
+keywords: netapp, xcp, more information, 
+summary: 자세한 정보를 확인하십시오. 
+---
+= 자세한 정보를 확인하십시오
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+다양한 리소스, 설명서 및 포럼을 통해 도움을 얻고 더 많은 정보를 찾을 수 있습니다.
+
+* link:https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064["xCP 문서"^] – 이 릴리즈 및 이전 릴리즈에 대한 릴리즈 노트 및 참조 자료를 포함합니다
+* link:https://www.youtube.com/user/NetAppTechCommTV/search?query=xcp["NetApp 기술 커뮤니케이션"^]NetApp XCP 비디오
+* link:https://xcp.netapp.com/["NetApp XCP"^] – 라이센스를 얻기 위한 링크를 포함합니다
+* link:https://www.netapp.com/search/#q=xcp&sort=relevancy&f:@language=English["NetApp 리소스"^] XCP의 경우 - 기술 보고서 및 기술 자료 문서에 대한 링크를 포함합니다
+* link:https://community.netapp.com/["NetApp 커뮤니티"^] – 포럼
+

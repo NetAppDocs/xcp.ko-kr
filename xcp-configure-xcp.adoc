@@ -1,0 +1,14 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-xcp.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, 
+summary: xCP 구성 단계 
+---
+= xCP NFS를 구성합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

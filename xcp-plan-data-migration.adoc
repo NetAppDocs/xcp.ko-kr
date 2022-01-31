@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: xcp-plan-data-migration.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, nfs, smb, file, analytics 
+summary: 데이터 마이그레이션 계획 
+---
+= 데이터 마이그레이션 계획
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+CLI 또는 File Analytics GUI를 사용하여 마이그레이션을 계획할 수 있습니다.
+
+다음 명령을 사용하여 마이그레이션을 계획하십시오.
+
+* 표시
+* 스캔
+
+
+파일 분석을 사용하여 내보내기 및 공유에 대한 통계를 시각화합니다.

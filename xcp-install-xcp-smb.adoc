@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-xcp-smb.html 
+keywords: netapp, xcp, install, smb 
+summary: xCP SMB 설치 
+---
+= xCP SMB를 설치합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+이 섹션에서는 시스템 요구 사항과 VC++ 재배포 가능 설치 절차 및 Windows 클라이언트에서 XCP 초기 설정에 대해 자세히 설명합니다.
+
+
+NOTE: 업그레이드할 수 있는 옵션이 없습니다. 기존 버전을 교체하려면 xCP를 다시 설치하십시오.
+
+* 시스템 요구 사항 *
+
+[cols="35,65"]
+|===
+| 항목 | 요구 사항 
+
+
+| 시스템 | 64비트 Intel 또는 AMD 서버, 최소 4코어 및 32GB RAM 
+
+
+| 운영 체제 및 소프트웨어 | Windows 2012 R2 이상 지원되는 Microsoft OS 버전은 를 참조하십시오 link:https://mysupport.netapp.com/matrix/#welcome["상호 운용성 매트릭스 툴"^]. XCP 호스트에 Visual C++ 2017 재배포 가능 파일이 설치되어 있어야 합니다. 
+
+
+| 특별 요구 사항 | 소스 스토리지 시스템, xCP 호스트 및 타겟 ONTAP 시스템은 동일한 Active Directory 도메인에 속해야 합니다 
+
+
+| 스토리지 | xCP 바이너리의 경우 20MB의 디스크 공간, C:\NetApp\xCP 디렉토리에 저장된 로그의 경우 최소 50MB의 디스크 공간 
+
+
+| 지원되는 프로토콜 버전입니다 | 모든 SMB 프로토콜 버전 
+
+
+| 지원되는 브라우저(파일 분석만 해당) | xCP File Analytics는 Google Chrome 버전 76 이상을 지원합니다. 지원되는 모든 브라우저 버전은 IMT 매트릭스를 참조하십시오 
+|===
+
+
+=== xCP SMB Microsoft VC++ 재배포 가능 패키지 설치
+
+VC++ 재배포 가능 설치에 대해 다음 단계를 따릅니다.
+
+.단계
+. 을 클릭합니다 link:https://go.microsoft.com/fwlink/?LinkId=746572["VC++ 2017 재배포 가능"^] 를 눌러 실행 파일을 기본 다운로드 폴더에 다운로드합니다.
+. 설치를 시작하려면 설치 프로그램을 두 번 클릭합니다. 약관에 동의하고 * Install * 을 선택합니다.
+. 설치가 완료되면 Windows 클라이언트를 다시 시작합니다.
+
+
+
+
+=== xCP SMB 초기 설정 절차
+
+다음 단계에 따라 xCP SMB의 초기 설정을 수행합니다.
+
+.단계
+. Windows 클라이언트에서 라이센스 및 xCP SMB 바이너리 "NetApp_xCP_<version>.tgz"를 다운로드하십시오.
+. 'NetApp_xCP_<version>.tgz' 파일의 압축을 풉니다.
+. Windows C: 드라이브에 'xCP.exe' 파일을 복사합니다. 이 바이너리는 'tgz' 파일의 압축을 푼 후 'NetApp_xCP_1.8\NetApp_xCP_1.8\xCP\windows'에서 사용할 수 있습니다.
+. 시스템에서 이전 버전의 XCP로 'C:\NetApp\xCP' 경로를 사용할 수 있는지 확인합니다. 'C:\NetApp\xCP'를 사용할 수 있는 경우 'xcp.exe activate' 명령을 사용하여 xCP를 활성화하고 데이터 마이그레이션을 진행합니다.
++
+'C:\NetApp\xCP'를 사용할 수 없는 경우, 'xcp.exe activate' 명령을 처음 실행하면 시스템에서 xCP 호스트 구성 디렉토리를 생성하여 'C:\NetApp\xCP'에 저장합니다. xcp.exe activate 명령이 실패하고 새 사용권을 요청하는 오류 메시지가 생성됩니다.
+
++
+[listing]
+----
+C:\>xcp.exe activate
+(c) yyyy NetApp, Inc.
+
+License file C:\NetApp\XCP\license not found.
+Register for a license at https://xcp.netapp.com
+----
+. 새로 생성된 폴더 'C:\NetApp\xCP:'에 라이센스를 복사합니다
++
+[listing]
+----
+C:\>copy license c:\NetApp\XCP
+        1 file(s) copied.
+----
+. xCP 활성화:
++
+[listing]
+----
+C:\>xcp.exe activate
+XCP SMB; (c) 2020 NetApp, Inc.;
+
+XCP already activated
+
+C:\>
+----
+

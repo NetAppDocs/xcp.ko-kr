@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: xcp-logging-for-nfs-and-smb.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, smb 
+summary: xCP NFS 및 SMB에 대한 로깅 
+---
+= NFS 및 SMB용 로깅(옵션)
+
+
+
+
+== NFS 및 SMB용 로깅(옵션)
+
+[role="lead"]
+xCP NFS 및 SMB에 대한 로깅.
+
+xCP는 'xcpLogConfig.json' JSON 구성 파일을 사용하여 여러 선택적 기능을 구성할 수 있도록 지원합니다. 특정 기능만 활성화하려면 xcpLogConfig.json 구성 파일을 수동으로 만듭니다. 'xcpLogConfig.json' 설정 파일을 사용하여 다음을 활성화할 수 있습니다.
+
+* 이벤트 로그 메시지
+* xCP용 syslog 클라이언트
+* 사용자 지정 xCP 로깅
+
+
+이벤트 로그 메시지와 syslog 클라이언트는 기본 구성에서 비활성화됩니다. NFS 및 SMB 모두에 대해 구성이 일반적입니다.
+
+|===
+| JSON 파일 위치를 구성 합니다 | NFS 를 참조하십시오 | 중소기업 
+
+
+| 구성 파일 기본 위치 | /opt/NetApp/xFiles/xCP/ | C:\NetApp\xCP\ConfigFile 
+
+
+| 사용자 정의 위치에는 xCP_Config_DIR 환경 변수가 필요합니다 | 오류! 참조 소스를 찾을 수 없습니다. | 해당 없음 
+|===
+JSON 구성 파일 옵션은 대소문자를 구분합니다. 이러한 옵션은 XCP NFS 및 XCP SMB에서 동일합니다.
+
+[cols="20,15,15,50"]
+|===
+| 하위 옵션 이름 | JSON 데이터 유형 | 기본값 | 설명 
+
+
+| 로그 구성 |  |  | xCP 로깅을 사용자 지정하는 옵션입니다. 
+
+
+| “수준” | 문자열 | 정보 | 로그 메시지 심각도 필터 수준입니다. xCP 로그 메시지는 심각도 수준을 줄이는 중요한, 오류, 경고, 정보, 디버그 등 5가지 심각도 레벨을 지원합니다(정보 또는 디버그 사용은 적극 권장). 
+
+
+| “maxBytes” | 정수 | 52428800 | 각 회전 로그 파일의 크기입니다. 지원되는 최대 회전 파일은 10개입니다. 
+
+
+| "이름" | 문자열 | xcp.log | 사용자 정의 로그 파일 이름을 설정하는 옵션입니다. 
+
+
+| 이벤트 로그 |  |  | 이벤트 로그 메시지를 구성하는 옵션입니다. 
+
+
+| “IsEnabled(활성화)” | 부울 | 거짓 | 이 부울 옵션은 이벤트 메시징을 설정하는 데 사용됩니다. "false"로 설정하면 이벤트 메시지가 생성되지 않으며 이벤트 로그 파일에 이벤트 로그가 게시되지 않습니다. 
+
+
+| “수준” | 문자열 | 정보 | 이벤트 메시지 심각도 필터 수준입니다. 이벤트 메시징은 심각도를 감소시키는 5가지 심각도 수준(위험, 오류, 경고, 정보, 디버그)을 지원합니다 
+
+
+| Syslog를 클릭합니다 |  |  | syslog 메시징을 구성하는 옵션입니다. 
+
+
+| “IsEnabled(활성화)” | 부울 | 거짓 | 이 부울 옵션은 XCP에서 syslog 클라이언트를 활성화하는 데 사용됩니다. 
+
+
+| “수준” | 문자열 | 정보 | 메시지 심각도 필터 수준입니다. xCP 이벤트 로그 메시지는 심각도를 줄이기 위해 5가지 심각도 수준(위험, 오류, 경고, 정보, 디버그)을 지원합니다 
+
+
+| “서버 IP” | 문자열 | 없음 | 원격 syslog 서버 IP 주소 또는 호스트 이름입니다. 
+
+
+| "포트" | 정수 | 514 | 원격 syslog 수신기 포트. 다른 포트에서 syslog 데이터그램을 받아들이는 syslog 수신기는 포트 옵션 UDP 포트 514로 구성할 수 있지만 원하는 포트로 구성할 수도 있습니다. 
+
+
+| "완전 삭제" | 부울 | 거짓  a| 
+xCP 지원을 위한 일반적인 옵션이며 이 값을 true로 설정하면 지원할 메시지(로깅, 이벤트, syslog 등)에서 중요한 정보(IP 및 사용자 이름)가 숨겨집니다. 예를 들어, 'anitize' 옵션을 'false'로 설정하면 * '2020-07-17 03:10:23,779-INFO-12806 xCP 경로: ['10.234.104.251:/cat_vol'] ' * '2020-07-17 03:10:23,778-INFO-12806 xCP 사용자 이름: root' -xCP '<0980:00:00-xCP' -17:00: XX.XX.XX:/cat_vol'] ``2020-07-17 03:13:51595-Info-12859 xCP 사용자 이름: * * '
+
+|===
+
+
+= JSON 구성 파일을 생성합니다
+
+이벤트 로그 메시지, syslog 클라이언트 또는 고객 로깅을 활성화하려면 다음 단계를 완료하십시오.
+
+.단계
+. 메모장이나 vi와 같은 텍스트 편집기를 엽니다.
+. 다음 JSON 템플릿을 사용하여 새 파일을 생성합니다.
++
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+. 사용하려는 기능에 대해 IsEnabled 값을 true로 변경합니다.
+. 파일 이름을 xcpLogConfig.json 로 지정하고 * Error! 참조 소스를 찾을 수 없습니다. *
+
+
+|===
+| 기본 구성 | json 구성 파일의 예 
+
+
+ a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "sanitize": false
+}
+---- a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+|===

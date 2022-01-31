@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: xcp-troubleshoot-xcp-file-analytics-errors.html 
+keywords: netapp, xcp, troubleshoot, troubleshooting, errors, file, anyalytics 
+summary: xCP File Analytics 오류 문제 해결 
+---
+= xCP File Analytics 오류 문제 해결
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+문제를 해결할 수 있는 해결 방법을 검토합니다.
+
+[cols="40,60"]
+|===
+| 문제 | 해결 방법 
+
+
+| PostgreSQL 서비스가 실패했습니다  a| 
+구성을 다시 실행하고 설치 옵션을 선택합니다. 이전 설치가 성공적으로 완료된 경우 복구 옵션을 선택할 수 있습니다. 여전히 오류가 발생하는 경우 다음과 같이 수동 단계를 수행하십시오.
+
+. PostgreSQL 서비스를 다시 시작합니다.
++
+sudo systemctl postgresql.service` 를 다시 시작합니다
+
+. 서비스 상태 확인:
++
+'SUDO systemctl status postgresql.service | grep Active
+
+
+
+
+
+| httpd 서비스가 실패했습니다  a| 
+구성을 다시 실행하고 설치 옵션을 선택합니다. 이전 설치가 성공적으로 완료된 경우 복구 옵션을 선택할 수 있습니다. 여전히 오류가 발생하는 경우 다음과 같이 수동 단계를 수행하십시오.
+
+. HTTPD 서비스를 다시 시작합니다.
++
+'SUDO systemctl restart httpd'입니다
+
+. HTTPD 서비스 상태 확인:
++
+'SUDO systemctl status httpd|grep Active
+
+
+
+
+
+| 설치 성공 후 로그인 페이지를 열 수 없습니다 | 시스템에서 XCP File Analytics가 설치되어 있고 HTTPD가 실행 중인 Linux 시스템을 ping할 수 있는지 확인합니다. 서비스가 실행되고 있지 않으면 '설정'을 실행하고 복구 옵션을 선택합니다. 지원되는 브라우저 버전을 사용하고 있는지 확인합니다. 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^]. 
+
+
+| 사용자 로그인에 실패했습니다  a| 
+* 지원되는 브라우저 버전을 사용하고 있는지 확인합니다. 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^].
+* 사용자가 "admin"이고 암호가 올바른지 확인합니다.
+* xCP 서비스 상태를 발행하여 xCP 서비스가 실행 중인지 확인합니다.
+* Linux에서 포트 5030이 열려 있는지 확인합니다. https://<linux ip>:5030/api/xCP * 에서 애플리케이션을 열고 messagereads msg: mising Authorization Header가 있는지 확인합니다.
+* xcp.ini` 파일이 '/opt/netapp/xFiles/xCP/' 위치에 있는지 확인하십시오. xcp.ini` 파일을 재설정하려면 구성 스크립트를 실행하고 * 복구 * 옵션을 선택합니다. 그런 다음, 메뉴 옵션을 선택하여 xcp.ini 파일을 재생성합니다 *.
+* CLI에서 xCP--Listen 명령을 수동으로 실행하고 로그인을 시도합니다. 서버에서 요청을 받지 못한 경우 설치 및 서버와 통신하는 데 사용되는 포트를 다시 확인하십시오. 설치가 올바른지 확인한 후 'service xCP start' 명령을 실행하여 서비스를 다시 시작합니다.
+
+
+
+
+| xCP GUI가 업데이트된 페이지를 표시하지 않습니다 | 캐시를 지우고 다시 시도하십시오 
+
+
+| xCP 서비스가 시작되지 않았습니다 | xCP 서비스를 실행하려면 UDO systemctl start xCP 명령을 사용합니다. 또는 구성 스크립트를 실행하고 * 복구 * 옵션을 선택하여 중지된 서비스를 시작합니다. 
+
+
+| 파일 공유를 검색하지 못했습니다 | 파일 공유/볼륨을 읽을 수 없습니다. xCP show 명령을 실행하여 파일 공유를 액세스/읽을 수 있는지 수동으로 확인합니다. xcp.ini` 파일이 삭제되는지 확인 삭제된 경우 configure.sh 스크립트 복구 옵션을 사용하여 xcp.ini` 파일을 재생성합니다. 
+
+
+| 파일 서버를 로드할 수 없습니다 | 페이지 새로 고침을 시도하십시오. 문제가 계속되면 프롬프트에서 수동으로 'xCP show' 명령을 실행하여 파일 서버를 검사할 수 있는지 확인하십시오. 성공하면 NetApp 고객 지원 팀에 티켓을 발행합니다. 실패하면 수동 검사를 수행하여 파일 서버가 활성 상태인지 확인합니다. xcp.ini` 파일과 사용권 파일이 올바른 위치에 있는지 확인합니다. xcp.ini` 파일을 재설정하려면 구성 스크립트를 실행하고 * 복구 * 옵션을 선택합니다. 그런 다음, xcp.ini 파일을 다시 빌드하기 위한 메뉴 옵션을 선택합니다. * 'xcpfoos' 로그를 확인하여 라이센스를 갱신해야 하는지 확인합니다. 
+
+
+| 시스템 재부팅 후 xCP File Analytics 페이지가 표시되지 않습니다 | xCP 서비스가 다운되었을 수 있습니다. 구성 스크립트를 실행하고 * 복구 * 옵션을 선택합니다. 그러면 중지된 모든 서비스가 다시 시작됩니다. 
+
+
+| 지정된 파일 서버에서 내보낸 파일 시스템의 총 공간은 할당된 물리적 스토리지에 비해 더 많은 공간을 표시할 수 있습니다. | 이 문제는 볼륨 내에 qtree 레벨의 내보내기가 있는 경우에 발생할 수 있습니다. 예를 들어, '/vol1'로 내보낸 볼륨 크기가 10GB이고 볼륨 '/vol1/qtree1' 안에 qtree가 있는 경우 xCP show 명령은 'vol1' 크기를 10GB로, qtree1' 크기를 10GB로 표시합니다. xCP File Analytics는 두 내보내기 모두의 공간을 합산하고 총 공간을 제공합니다. 이 경우 20GB입니다. qtree1(qtree1)이 논리적 공간이라는 것은 이해할 수 없습니다. 
+|===

@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-file-analytics-for-smb.html 
+keywords: netapp, xcp, install, installing, file, analytics, smb, upgrade, upgrading 
+summary: SMB용 File Analytics를 설치하거나 업그레이드합니다 
+---
+= SMB용 File Analytics를 설치합니다
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SMB용 File Analytics를 설치하거나 업그레이드합니다.
+
+SMB의 시스템 요구 사항은 을 참조하십시오 link:xcp-install-xcp-smb.html["xCP SMB를 설치합니다"].
+
+* 시작하기 전에 *
+
+* xCP SMB 서비스를 사용하려면 Linux 시스템에서 NFS용 xCP File Analytics를 구성해야 합니다.
+* Windows 시스템에서 xCP File Analytics를 구성하기 전에 Linux 시스템에서 xCP 서비스가 실행되고 있는지 확인하십시오.
+
+
+
+
+== SMB용 File Analytics를 새로 설치합니다
+
+SMB용 File Analytics를 새로 설치하려면 다음 단계를 수행하십시오.
+
+.단계
+. xCP.exe 파일을 Windows C: 드라이브에 복사합니다. 이 바이너리는 tgz의 압축을 풀고 /xCP/windows에서 사용할 수 있습니다.
+. 에서 xCP 라이센스 파일을 다운로드합니다 link:https://xcp.netapp.com/["xCP 사이트"^].
+. 'C:\\NetApp\xCP' 폴더를 생성하고 xCP 라이센스를 이 위치에 복사합니다.
+. 명령 프롬프트에서 다음 명령을 사용하여 xCP 라이센스를 활성화합니다. "xcp.exe activate"
+. xCP File Analytics가 이미 구성되어 있는 Linux 상자의 /opt/netapp/xFiles/xCP/'에서 'server.key' 및 'server.crt' 파일을 C:\NetApp\xCP로 복사합니다. 선택 사항 - CA 인증서가 있는 경우 동일한 이름과 확장명을 가진 이 위치에 인증서를 배치합니다.
+. Windows CLI 명령 프롬프트에서 'xCP configure'를 실행합니다.
+. 메시지가 표시되면 XCP File Analytics 서버가 구성된 Linux 시스템의 IP 주소를 입력합니다.
+. 메시지가 표시되면 XCP Linux File Analytics 구성 중에 입력한 데이터베이스의 암호를 입력합니다.
+. Linux 시스템으로 이동하여 ./configure.sh를 실행합니다.
+. 기본 메뉴에서 옵션 4(Update xCP Windows Agent IP)를 선택하고 Windows 시스템의 IP 주소를 입력합니다.
+. Windows 시스템으로 이동하여 'xCP Listen'을 실행합니다. 이제 SMB용 xCP File Analytics가 구성됩니다. 창을 열린 상태로 유지하여 서비스를 계속 실행합니다.
+. Google Chrome 브라우저에서 File Analytics를 실행하고 '\https://<ip address of Linux > /xCP' 페이지를 새로 고칩니다
+. 대화 상자가 표시되면 '확인'을 선택합니다. 새 탭이 열립니다. 차단된 경우 브라우저에서 팝업을 활성화하십시오. URL에 대한 개인 정보 보호 정책을 수락하면 'MB Agent is ready to use(MB 에이전트를 사용할 준비가 되었습니다)'라는 메시지가 표시됩니다. 분석 페이지를 새로 고치십시오
+. xCP File Analytics GUI가 호스팅되는 원본 탭으로 돌아가 페이지를 새로 고칩니다. 그러면 Agents 카드 아래에 SMB 에이전트가 표시됩니다.
+
+
+
+
+== SMB를 위한 파일 분석 업그레이드
+
+기존 File Analytics for SMB를 업그레이드하려면 다음 단계를 완료하십시오.
+
+. File Analytics를 실행하기 전에 File Analytics가 실행 중인 Linux 서버도 업그레이드되고 서비스가 실행 중인지 확인하십시오.
+. Windows에서는 명령줄에 CTRL-C를 입력하여 기존 XCP 서비스를 중지합니다.
+. xCP.exe를 최신 바이너리로 바꿉니다.
+. Linux 시스템으로 이동하여 ./configure.sh를 실행합니다.
+. 기본 메뉴에서 옵션 4(Update xCP Windows Agent IP)를 선택하고 Windows 시스템의 IP 주소를 입력합니다.
+. Windows 시스템으로 이동하여 'xCP Listen'을 실행합니다. 이제 SMB용 xCP File Analytics가 구성됩니다. 창을 열린 상태로 유지하여 서비스를 계속 실행합니다.
+. Google Chrome 브라우저에서 File Analytics를 실행하고 '\https://<ip address of Linux > /xCP' 페이지를 새로 고칩니다
+. 대화 상자가 표시되면 '확인'을 선택합니다. 새 탭이 열립니다. 차단된 경우 브라우저에서 팝업을 활성화하십시오. URL에 대한 개인 정보 보호 정책을 수락하면 'MB Agent is ready to use(MB 에이전트를 사용할 준비가 되었습니다)'라는 메시지가 표시됩니다. 분석 페이지를 새로 고치십시오
+. xCP File Analytics GUI가 호스팅되는 원본 탭으로 돌아가 페이지를 새로 고칩니다. 그러면 Agents 카드 아래에 SMB 에이전트가 표시됩니다.
+

@@ -1,0 +1,16 @@
+---
+sidebar: sidebar 
+permalink: xcp-supported-configurations.html 
+keywords: xcp, configurations, supported, supported, hosts 
+summary: 호스트, ONTAP 버전 및 지원되는 브라우저와 같은 XCP 지원 구성이 IMT에 나와 있습니다. 
+---
+= 지원되는 구성
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+호스트, ONTAP 버전 및 지원되는 브라우저와 같은 모든 XCP 지원 구성이 에 나와 있습니다 link:https://mysupport.netapp.com/matrix/["상호 운용성 매트릭스 툴(IMT)"^].

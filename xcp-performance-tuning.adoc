@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: xcp-performance-tuning.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, 
+summary: '성능 튜닝(NFS만 해당)' 
+---
+= 성능 튜닝
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+xCP NFS의 경우 'How' 및 'Can' 명령을 사용하여 마이그레이션을 계획하면 데이터를 마이그레이션할 수 있습니다.
+
+
+NOTE: 루트가 아닌 사용자로 데이터 마이그레이션을 수행하는 경우 루트 사용자가 다음 단계를 수행할 수 있습니다.
+
+최적의 성능과 안정성을 위해 XCP Linux 클라이언트 호스트의 '/etc/sysctl.conf'에서 다음 Linux 커널 TCP 성능 매개 변수를 설정하는 것이 좋습니다. 'sysctl -p' 또는 'reboot' 명령을 실행하여 변경 사항을 커밋합니다.
+
+[listing]
+----
+net.core.rmem_default = 1342177
+net.core.rmem_max = 16777216
+net.core.rmem_max = 16777216
+net.core.wmem_default = 1342177
+net.core.wmem_max = 16777216
+net.ipv4.tcp_rmem = 4096 1342177 16777216
+net.ipv4.tcp_wmem = 4096 1342177 16777216
+net.core.netdev_max_backlog = 300000
+net.ipv4.tcp_fin_timeout = 10
+----
+
+NOTE: 루트가 아닌 사용자의 경우 루트 사용자가 설정을 수행해야 합니다.
