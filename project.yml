@@ -82,6 +82,8 @@ sidebar:
       url: "/xcp-migrate-nfs-data.html"
     - title: SMB 데이터 마이그레이션
       url: "/xcp-migrate-smb-data.html"
+    - title: 추가 NFS 기능
+      url: "/xcp-migrate-nfs-additional-features.html"
   - title: 문제 해결
     entries:
     - title: xCP NFS 오류 문제 해결

@@ -244,7 +244,6 @@
   <block id="8b35e2113ce9ad7e63589964e0f33514" category="list-text">xCP 쇼 smb_server01.netapp.com`</block>
   <block id="0b38ead8cb81444a18a4c9660907007d" category="paragraph">자세한 내용은 xCP 도움말을 실행하십시오.</block>
   <block id="22efdbe132eabc102306bd7a334fb434" category="section-title">스캔</block>
-  <block id="596e26b9d2a2a09fabd119a1c7970617" category="paragraph">'스캔' 명령은 전체 SMB 공유를 재귀적으로 검색하고 검사 종료 시 모든 파일을 나열합니다. 예:</block>
   <block id="70cc69758e4efa422fa0bec10f65dffb" category="list-text">'xCP 스캔\\smb 서버\share1'</block>
   <block id="a8386d7454f57e945b9af398be1f740a" category="list-text">xCP 스캔 smb_server01.netapp.com:/share1`</block>
   <block id="57e9ab68ece2e80c1dd072f065c05577" category="paragraph">자세한 내용은 xCP 도움말 검색을 실행하십시오.</block>
@@ -518,8 +517,6 @@
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link-macro">NetApp Support 사이트</block>
   <block id="76c8844b91693e12fac2abf6d423c3f5" category="paragraph">xCP의 이전 릴리스에 대한 문서는 에서 확인할 수 있습니다 <block ref="a4ccf985ba56b702a384be031a3cd5f9" category="inline-link-macro-rx"></block>.</block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">새로운 기능, 업그레이드 정보, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
-  <block id="9e7f7d8fcefcabb2bc23ca143a628f7d" category="doc">xCP v1.8 릴리스 노트</block>
-  <block id="07adad35d292c43e7b7a18db9356fa50" category="paragraph">를 클릭합니다 <block ref="4f1f55060be6b492e2b23a003806f4ac" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">릴리즈 노트에 액세스하려면 NetApp Support 사이트에 로그인해야 합니다.</block>
   <block id="2cb211d6d9065080871b03dc58cc2f5f" category="summary">SMB 데이터 마이그레이션</block>
   <block id="28f2900c35a6a416b39cb9a71b13649a" category="paragraph">copy 명령은 전체 소스 디렉토리 구조를 검색하여 대상 SMB 공유에 복사합니다. copy 명령을 사용하려면 소스 경로와 대상 경로가 변수로 있어야 합니다. 스캔되고 복사된 파일, 처리량/속도 및 경과 시간 세부 정보가 5초마다 콘솔에 인쇄됩니다.</block>
@@ -706,4 +703,43 @@
   <block id="ef8cdecd9388166741c6ddeb9e648a30" category="sidebar">xCP를 구성합니다</block>
   <block id="43f3f6a392074dfc63604c7b136e457f" category="sidebar">XCP NFS용 INI 파일을 구성합니다</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">문제 해결</block>
+  <block id="c64a522ee6418ae33077670975c2798b" category="admonition">복사 작업 중에 '-preserve-atime' 플래그를 'copy' 명령과 함께 사용하여 소스의 액세스 시간을 보존할 수 있습니다.</block>
+  <block id="9d83a2ce37bac2516a6b570ccc972b69" category="admonition">동기화 작업 중에 '-preserve-atime' 플래그를 'Sync' 명령과 함께 사용하여 소스의 액세스 시간을 보존할 수 있습니다.</block>
+  <block id="7e4d5419d4fcf4ceade27ffac84d4e92" category="list-text">Verify 작업 중에 '-preserve-atime' 플래그를 riting 명령과 함께 사용하여 소스의 액세스 시간을 보존할 수 있습니다.</block>
+  <block id="0e97e9bc1c0f6d8ea9bc140cab258f9a" category="list-text">Verify 작업 중에 riting 명령과 함께 -nocatime 플래그를 사용하여 액세스 시간 차이를 제외할 수 있습니다.</block>
+  <block id="bfd97ee6bc45bf0c46cc517744e9e74f" category="doc">xCP v1.8.1 릴리스 노트</block>
+  <block id="2361f2046255643526d0bc654680e3f7" category="paragraph">를 클릭합니다 <block ref="658eea0f41de67e93f9c7baad3cdc904" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
+  <block id="d04f98cbab23bb984f10968cafdb77bf" category="section-title">Windows 클라이언트를 구성합니다</block>
+  <block id="8723065565846862b1fa4bd925384734" category="list-text">대상 스토리지 상자와 소스 스토리지 상자를 호스트 파일에 추가합니다.</block>
+  <block id="cf2408bbf2ce4b4de95513dd3053d13a" category="list-text">'(C:\Windows\System32\drivers\etc\hosts)' 위치로 이동합니다</block>
+  <block id="73510c08d5556b316226c808aaa9eca1" category="list-text">다음 형식으로 파일에 다음 호스트 항목을 삽입합니다.</block>
+  <block id="476073ef56fe1fff4342c5ca2a5df7b2" category="paragraph">'&lt;Source data vserver data interface ip&gt;&lt;Source CIFS server name&gt;&lt;Destination data vserver data interface ip&gt;&lt;Destination cifs server name&gt;'</block>
+  <block id="938f1047c15f00fdd0cbfc8e4cfa15e1" category="paragraph">* 예 *</block>
+  <block id="3b511dbccc3be54ef9ec0eb7891e0660" category="inline-image-macro">샘플 호스트 파일</block>
+  <block id="43ab6e97e5a245b30aa42dc31aab3fde" category="paragraph"><block ref="43ab6e97e5a245b30aa42dc31aab3fde" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f6d7a1a39c7e76b0a2ad7044af130caf" category="section-title">지원되는 기능</block>
+  <block id="020ec197b81e56345052745b2d507168" category="section-title">경로 구문</block>
+  <block id="e46c2c3b78dd65a39b82aaeb11382265" category="section-title">POSIX 커넥터를 설정합니다</block>
+  <block id="0d800eaa04aaecec3ceb6afe9d979e75" category="section-title">소유권(UID 및 GID)</block>
+  <block id="13da1aac842d8173bd42f8e52ae0233a" category="section-title">열린 파일 설명자의 최대 수를 늘립니다</block>
+  <block id="8fe282d6211426a6fd01df906b39997d" category="paragraph">최적의 성능과 안정성을 위해 모든 노드에서 xCP 사용자에 대해 최대 개수의 열린 파일 설명자를 늘릴 수 있습니다.</block>
+  <block id="167c2c4b3e4b8252ac2e7a794d520b60" category="list-text">'vi /etc/security/limits.conf' 명령을 사용하여 파일을 엽니다</block>
+  <block id="e86a0c50969f69caaf0846c01183351b" category="list-text">'&lt;username&gt;-nocfile 999999' 파일에 다음 줄을 추가합니다</block>
+  <block id="0db61995ae463b2910371fdee152cb88" category="inline-link-macro">Red Hat 솔루션</block>
+  <block id="ccdcaa8e5fef5673db21a65af6bc516b" category="paragraph">을 참조하십시오 <block ref="86f0b7d75368fee2dcdb28d15e03688c" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
+  <block id="258c43132f7d0ee8dca2932b84e55383" category="summary">xCP에는 NFS 공유 또는 POSIX 경로에 대한 파일 및 디렉토리의 소유권 및 권한을 쉽게 변경할 수 있는 몇 가지 추가 NFS 기능이 포함되어 있습니다.</block>
+  <block id="ce0d872fae9d962e1e9e1ff7397f5840" category="doc">추가 NFS 기능</block>
+  <block id="237f1be769ddaca2a6c7f5fb510296bc" category="paragraph">xCP에는 NFS 공유 또는 POSIX 경로에 대한 파일 및 디렉토리의 소유권 및 권한을 쉽게 변경할 수 있는 몇 가지 추가 NFS 기능이 포함되어 있습니다. xCP 'chown' 및 'chmod' 명령을 사용하여 지정된 NFS 공유 또는 POSIX 경로에 대한 모든 파일과 디렉토리를 재귀적으로 변경할 수 있습니다. 이렇게 하면 수백만 파일의 성능이 향상됩니다.</block>
+  <block id="c353351e2cab6270e61ca76351aa5192" category="paragraph">파일의 소유권을 변경하기 전에 새 소유자를 구성해야 합니다. 그렇지 않으면 명령이 실패합니다. xCP의 chown과 chmod 명령은 리눅스의 chown과 chmod 명령어와 비슷하게 동작한다.</block>
+  <block id="c8f43293a0d371a440cac8bb93307056" category="section-title">chmod</block>
+  <block id="a4d26be6e1a014201192b6f7a5db4c72" category="paragraph">chmod 명령은 선택한 디렉토리 구조의 모든 파일에 대한 파일 권한을 검사하고 변경합니다. chmod 명령을 사용하려면 모드 또는 참조와 NFS 공유 또는 POSIX 경로가 변수로 필요합니다. xCP의 chmod는 주어진 경로에 대한 권한을 재귀적으로 변경합니다. "chmod" 명령을 사용하면 스캔한 총 파일과 출력에서 변경된 사용 권한을 표시할 수 있습니다.</block>
+  <block id="ed4ffa57a1bdcb56aaf1d22b8d722821" category="paragraph">자세한 내용은 xCP help chmod 명령을 실행합니다.</block>
+  <block id="845fbaad258ca858251e4c4c0ad53eb0" category="section-title">직접</block>
+  <block id="12ef08f5f383690078c3df9936bfe139" category="paragraph">chown 명령은 선택한 디렉토리 구조에 있는 모든 파일의 소유권을 검색하고 변경합니다. chown 명령을 사용하려면 NFS 공유 또는 POSIX 경로가 변수로 필요합니다. xCP는 주어진 경로에 대한 소유권을 재귀적으로 변경합니다.</block>
+  <block id="8fa3ac473e7edac7e52a655e5271e49f" category="paragraph">자세한 내용은 xCP 도움말 chown 명령을 실행하십시오.</block>
+  <block id="fe3babe18b970588464b8384c50d8cb3" category="paragraph">'스캔' 명령은 전체 SMB 공유를 재귀적으로 검색하고 검사 종료 시 모든 파일을 나열합니다.</block>
+  <block id="e7cd4019e47684c4ac82ed229910b175" category="admonition">스캔 작업 중에 '-preserve-atime' 플래그를 '스캔' 명령과 함께 사용하여 소스에서 액세스 시간을 보존할 수 있습니다.</block>
+  <block id="8d79bfe51b141cbe8fb2c30741dbfe14" category="paragraph">* 예: *</block>
+  <block id="de71db72eafd60fc2c3c26a9416f0909" category="list-text">NFSv4 ACL 마이그레이션의 경우 NFSv4에서는 ACL 마이그레이션이 필요한 볼륨에 인코딩 언어 UTF-8을 사용해야 합니다.</block>
+  <block id="90e6485e4d08b9e0728e2671dfa4ced2" category="list-text">ONTAP에서는 진단 '-atime-update' 옵션을 사용하여 atime을 보존할 수 있습니다. 이 기능은 ONTAP에서만 사용할 수 있으며 xCP를 실행하는 동안 소스 객체에 atime을 보존하려는 경우에 유용합니다.</block>
 </blocks>

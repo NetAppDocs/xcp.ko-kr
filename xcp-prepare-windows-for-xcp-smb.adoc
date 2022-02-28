@@ -17,22 +17,22 @@ xCP SMB는 Windows 클라이언트 호스트 시스템을 사용하여 병렬 I/
 
 
 
-=== 스토리지를 구성합니다
+== 스토리지를 구성합니다
 
 xCP SMB 전환 및 마이그레이션에는 다음과 같은 사용자 로그인 요구 사항이 있습니다.
 
 * xCP 호스트 시스템: xCP 호스트 사용자에게 관리자 권한이 있어야 합니다(이 사용자는 xCP SMB 호스트 시스템에서 "BUILTIN\Administrators" 그룹에 속해야 함).
 * Active Directory의 감사 및 보안 로그 정책에 마이그레이션 또는 xCP 호스트 사용자를 추가합니다. Windows 10에서 '감사 및 보안 로그 관리' 정책을 찾으려면 다음 단계를 수행하십시오.
-
-
++
 .단계
-. 그룹 정책 편집기 * 대화 상자를 엽니다.
-. 컴퓨터 구성 > Windows 설정 > 보안 설정 > 로컬 정책 > 사용자 권한 할당 * 으로 이동합니다.
-. 관리 감사 및 보안 로그 * 를 선택합니다.
-. xCP 호스트 사용자를 추가하려면 * 사용자 또는 그룹 추가 * 를 선택합니다.
-
-
+.. 그룹 정책 편집기 * 대화 상자를 엽니다.
+.. 컴퓨터 구성 > Windows 설정 > 보안 설정 > 로컬 정책 > 사용자 권한 할당 * 으로 이동합니다.
+.. 관리 감사 및 보안 로그 * 를 선택합니다.
+.. xCP 호스트 사용자를 추가하려면 * 사용자 또는 그룹 추가 * 를 선택합니다.
++
 자세한 내용은 다음을 참조하십시오. link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953(v%3Dws.11)["감사 및 보안 로그를 관리합니다"^].
+
+
 
 * 타겟 스토리지 시스템: xCP 호스트 사용자는 읽기 및 쓰기 액세스 권한이 있어야 합니다.
 * 소스 스토리지 시스템:
@@ -45,3 +45,24 @@ xCP SMB 전환 및 마이그레이션에는 다음과 같은 사용자 로그인
 
 
 NOTE: xCP 옵션 '-preserve-atime'을 지원하려면 소스 스토리지 시스템에 쓰기 권한이 필요합니다.
+
+
+
+== Windows 클라이언트를 구성합니다
+
+* 대상 스토리지 상자와 소스 스토리지 상자를 호스트 파일에 추가합니다.
++
+.. '(C:\Windows\System32\drivers\etc\hosts)' 위치로 이동합니다
+.. 다음 형식으로 파일에 다음 호스트 항목을 삽입합니다.
++
+'<Source data vserver data interface ip><Source CIFS server name><Destination data vserver data interface ip><Destination cifs server name>'
+
++
+* 예 *
+
++
+image:xcp_image17.png["샘플 호스트 파일"]
+
+
+
+
