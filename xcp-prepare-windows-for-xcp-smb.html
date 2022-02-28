@@ -533,6 +533,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -682,6 +684,8 @@
         NFS 데이터 마이그레이션
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/xcp/xcp-migrate-smb-data.html">
         SMB 데이터 마이그레이션
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/xcp/xcp-migrate-nfs-additional-features.html">
+        추가 NFS 기능
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 문제 해결</div>
       </a>
@@ -757,11 +761,19 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 13:29:17 +0000">01/31/2022</time>
+    <time datetime="2022-02-28 14:46:22 +0000">02/28/2022</time>
     
   
 
 <span>기여자
+  <a target="_blank" href="https://github.com/netapp-aoife">
+    <img  class="avatar avatar-small"
+          alt="netapp-aoife"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/92876203?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
   <a target="_blank" href="https://github.com/ciarm">
     <img  class="avatar avatar-small"
           alt="ciarm"
@@ -786,14 +798,6 @@
           style="border-radius: 50%;"/>
   </a>
   
-  <a target="_blank" href="https://github.com/netapp-aoife">
-    <img  class="avatar avatar-small"
-          alt="netapp-aoife"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/92876203?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
   <a target="_blank" href="https://github.com/netapp-aherbin">
     <img  class="avatar avatar-small"
           alt="netapp-aherbin"
@@ -815,8 +819,9 @@
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="스토리지를-구성합니다">스토리지를 구성합니다</h3>
+<div class="sect1">
+<h2 id="스토리지를-구성합니다">스토리지를 구성합니다</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>xCP SMB 전환 및 마이그레이션에는 다음과 같은 사용자 로그인 요구 사항이 있습니다.</p>
 </div>
@@ -827,12 +832,9 @@
 </li>
 <li>
 <p>Active Directory의 감사 및 보안 로그 정책에 마이그레이션 또는 xCP 호스트 사용자를 추가합니다. Windows 10에서 '감사 및 보안 로그 관리' 정책을 찾으려면 다음 단계를 수행하십시오.</p>
-</li>
-</ul>
-</div>
-<div class="olist arabic">
+<div class="olist loweralpha">
 <div class="title">단계</div>
-<ol class="arabic">
+<ol class="loweralpha" type="a">
 <li>
 <p>그룹 정책 편집기 * 대화 상자를 엽니다.</p>
 </li>
@@ -844,14 +846,13 @@
 </li>
 <li>
 <p>xCP 호스트 사용자를 추가하려면 * 사용자 또는 그룹 추가 * 를 선택합니다.</p>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>자세한 내용은 다음을 참조하십시오. <a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953(v%3Dws.11)" target="_blank" rel="noopener">"감사 및 보안 로그를 관리합니다"</a>.</p>
 </div>
-<div class="ulist">
-<ul>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>타겟 스토리지 시스템: xCP 호스트 사용자는 읽기 및 쓰기 액세스 권한이 있어야 합니다.</p>
 </li>
@@ -881,6 +882,38 @@ xCP 옵션 '-preserve-atime&#8217;을 지원하려면 소스 스토리지 시스
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windows-클라이언트를-구성합니다">Windows 클라이언트를 구성합니다</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>대상 스토리지 상자와 소스 스토리지 상자를 호스트 파일에 추가합니다.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>'(C:\Windows\System32\drivers\etc\hosts)' 위치로 이동합니다</p>
+</li>
+<li>
+<p>다음 형식으로 파일에 다음 호스트 항목을 삽입합니다.</p>
+<div class="paragraph">
+<p>'&lt;Source data vserver data interface ip&gt;&lt;Source CIFS server name&gt;&lt;Destination data vserver data interface ip&gt;&lt;Destination cifs server name&gt;'</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>예 *</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/xcp_image17.png" alt="샘플 호스트 파일"></span></p>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 

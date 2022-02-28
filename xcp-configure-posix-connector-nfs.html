@@ -533,6 +533,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -682,6 +684,8 @@
         NFS 데이터 마이그레이션
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/xcp/xcp-migrate-smb-data.html">
         SMB 데이터 마이그레이션
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/xcp/xcp-migrate-nfs-additional-features.html">
+        추가 NFS 기능
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 문제 해결</div>
       </a>
@@ -757,7 +761,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 13:29:17 +0000">01/31/2022</time>
+    <time datetime="2022-02-28 14:46:22 +0000">02/28/2022</time>
     
   
 
@@ -770,15 +774,30 @@
           style="border-radius: 50%;"/>
   </a>
   
+  <a target="_blank" href="https://github.com/netapp-aoife">
+    <img  class="avatar avatar-small"
+          alt="netapp-aoife"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/92876203?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
 </span>
 
 
 </p>
 
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
 <p>xCP NFS는 이제 POSIX 커넥터 사용을 지원하여 데이터 마이그레이션을 위한 소스 및 대상 경로를 제공합니다.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="지원되는-기능">지원되는 기능</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>POSIX 커넥터에는 다음 기능이 지원됩니다.</p>
 </div>
@@ -792,9 +811,19 @@
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="경로-구문">경로 구문</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>POSIX 커넥터의 경로 구문은 'file://&lt;mounted path on Linux&gt;'입니다.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="posix-커넥터를-설정합니다">POSIX 커넥터를 설정합니다</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>POSIX 커넥터를 설정하려면 다음 작업을 수행해야 합니다.</p>
 </div>
@@ -847,8 +876,49 @@ sudo chmod -R g+w /mnt/xcp-catalog</pre>
 <div class="paragraph">
 <p>xCP 카탈로그는 데이터를 저장하지 않지만 스캔 및 복사 파일 이름, 디렉토리 이름 및 기타 메타데이터를 저장합니다. 따라서 허용된 사용자가 저장된 메타데이터를 보호할 수 있는 기능을 제공하도록 카탈로그 파일 시스템 권한을 구성하는 것이 좋습니다.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="소유권uid-및-gid">소유권(UID 및 GID)</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>일반 사용자로 설정된 경우 기본적으로 POSIX 또는 NFS3 대상에 대한 "copy" 명령은 소유권(UID(사용자 ID) 및 GID(그룹 ID))를 설정하지 않습니다. 소유권 설정은 일반적으로 관리자가 수행합니다. 사용자 A가 사용자 B의 파일을 복사할 때 사용자 A는 대상을 소유해야 합니다. 그러나 루트 사용자가 파일을 복사할 때는 그렇지 않습니다. 루트 사용자가 파일을 복사할 때 '-chown' 옵션은 루트 이외의 '-chown' 명령이 UID와 GID를 설정하려고 시도하도록 동작을 변경합니다.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="열린-파일-설명자의-최대-수를-늘립니다">열린 파일 설명자의 최대 수를 늘립니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>최적의 성능과 안정성을 위해 모든 노드에서 xCP 사용자에 대해 최대 개수의 열린 파일 설명자를 늘릴 수 있습니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>'vi /etc/security/limits.conf' 명령을 사용하여 파일을 엽니다</p>
+</li>
+<li>
+<p>'&lt;username&gt;-nocfile 999999' 파일에 다음 줄을 추가합니다</p>
+<div class="ulist">
+<ul>
+<li>
+<p>예 *</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>root - nofile 999999</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>을 참조하십시오 <a href="https://access.redhat.com/solutions/61334^">"Red Hat 솔루션"</a> 를 참조하십시오.</p>
+</div>
+</div>
 </div>
 
     </article>
