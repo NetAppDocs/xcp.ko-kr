@@ -6,6 +6,7 @@ summary: 자세한 정보를 확인하십시오.
 ---
 = 자세한 정보를 확인하십시오
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: xCP NFS 설치
 ---
 = xCP NFS를 설치합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

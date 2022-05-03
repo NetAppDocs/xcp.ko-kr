@@ -5,6 +5,7 @@ keywords: xcp, nfs, hdfs, connector, configure, security
 summary: XCP NFS 애드온 기능은 POSIX 및 HDFS 커넥터 사용을 지원하고, 보안을 강화하고, 스케일아웃 아키텍처를 사용하여 데이터 마이그레이션 속도를 높여줍니다. 
 ---
 = xCP NFS 애드온 기능
+:allow-uri-read: 
 
 
 [role="lead"]

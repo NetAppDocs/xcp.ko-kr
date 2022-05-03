@@ -6,6 +6,7 @@ summary: 파일 분석을 사용하여 데이터 마이그레이션을 준비하
 ---
 = 파일 분석 준비
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

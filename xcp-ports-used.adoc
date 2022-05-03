@@ -6,6 +6,7 @@ summary: XCP 마이그레이션에 올바른 포트를 사용하고 있는지 �
 ---
 = xCP에서 사용하는 포트
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

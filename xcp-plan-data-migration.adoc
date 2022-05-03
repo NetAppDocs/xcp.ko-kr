@@ -6,6 +6,7 @@ summary: 데이터 마이그레이션 계획
 ---
 = 데이터 마이그레이션 계획
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

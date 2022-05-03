@@ -6,6 +6,7 @@ summary: INI 파일 xCP를 구성하는 단계입니다
 ---
 = INI 파일을 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

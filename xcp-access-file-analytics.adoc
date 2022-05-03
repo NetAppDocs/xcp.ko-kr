@@ -6,6 +6,7 @@ summary: File Analytics는 검사 결과의 그래픽 보기를 제공합니다
 ---
 = 파일 분석 액세스
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

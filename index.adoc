@@ -6,6 +6,7 @@ summary: NetApp XCP는 확장 가능한 고성능 데이터 마이그레이션�
 ---
 = xCP를 시작하십시오
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

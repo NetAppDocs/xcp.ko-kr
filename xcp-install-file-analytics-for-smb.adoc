@@ -6,6 +6,7 @@ summary: SMB용 File Analytics를 설치하거나 업그레이드합니다
 ---
 = SMB용 File Analytics를 설치합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

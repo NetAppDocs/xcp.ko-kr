@@ -6,6 +6,7 @@ summary: '성능 튜닝(NFS만 해당)'
 ---
 = 성능 튜닝
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

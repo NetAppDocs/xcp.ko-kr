@@ -6,6 +6,7 @@ summary: xCP SMB 설치
 ---
 = xCP SMB를 설치합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: '환경 변수(NFS만 해당)'
 ---
 = 환경 변수
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

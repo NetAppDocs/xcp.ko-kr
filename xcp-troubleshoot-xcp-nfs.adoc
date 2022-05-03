@@ -6,6 +6,7 @@ summary: xCP NFS 오류 문제 해결
 ---
 = xCP NFS 오류 문제 해결
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

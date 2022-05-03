@@ -6,6 +6,7 @@ summary: xCP NFS용 Linux를 준비합니다
 ---
 = xCP NFS용 Linux를 준비합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

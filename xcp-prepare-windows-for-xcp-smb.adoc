@@ -6,6 +6,7 @@ summary: xCP SMB용 Windows를 준비합니다
 ---
 = xCP SMB용 Windows를 준비합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

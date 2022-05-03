@@ -6,6 +6,7 @@ summary: 호스트, ONTAP 버전 및 지원되는 브라우저와 같은 XCP 지
 ---
 = 지원되는 구성
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

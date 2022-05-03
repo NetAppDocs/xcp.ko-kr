@@ -6,6 +6,7 @@ summary: 파일 분석을 사용하여 계획
 ---
 = 파일 분석을 사용하여 계획
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

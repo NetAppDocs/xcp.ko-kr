@@ -6,6 +6,7 @@ summary: 파일 서버 추가 중
 ---
 = 파일 서버를 추가합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: JSON 구성 파일을 생성합니다
 ---
 = JSON 구성 파일을 생성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, smb
 summary: xCP NFS 및 SMB에 대한 로깅 
 ---
 = NFS 및 SMB용 로깅(옵션)
+:allow-uri-read: 
 
 
 
