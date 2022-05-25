@@ -33,7 +33,7 @@ sidebar:
     - title: xCP SMB용 Windows를 준비합니다
       url: "/xcp-prepare-windows-for-xcp-smb.html"
     - title: 파일 분석 준비
-      url: xcp-prepare-file-analytics.adoc.html
+      url: "/xcp-prepare-file-analytics.html"
     - title: xCP NFS를 설치합니다
       url: "/xcp-install-xcp-nfs.html"
     - title: xCP SMB를 설치합니다
