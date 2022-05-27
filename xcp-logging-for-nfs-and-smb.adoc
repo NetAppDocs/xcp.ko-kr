@@ -5,12 +5,13 @@ keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, smb
 summary: xCP NFS 및 SMB에 대한 로깅 
 ---
 = NFS 및 SMB용 로깅(옵션)
+:hardbreaks:
 :allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
 
-
-
-
-== NFS 및 SMB용 로깅(옵션)
 
 [role="lead"]
 xCP NFS 및 SMB에 대한 로깅.
@@ -82,7 +83,7 @@ xCP 지원을 위한 일반적인 옵션이며 이 값을 true로 설정하면 �
 |===
 
 
-= JSON 구성 파일을 생성합니다
+== JSON 구성 파일을 생성합니다
 
 이벤트 로그 메시지, syslog 클라이언트 또는 고객 로깅을 활성화하려면 다음 단계를 완료하십시오.
 
