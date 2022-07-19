@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/xcp/issues/new?body=Page%3A%20[SMB용 File Analytics를 설치합니다](https://docs.netapp.com/ko-kr/xcp/xcp-install-file-analytics-for-smb.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/xcp/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/xcp/blob/main/xcp-install-file-analytics-for-smb.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/xcp/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/xcp/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/xcp/issues/new?body=Page%3A%20[SMB용 File Analytics를 설치합니다](https://docs.netapp.com/ko-kr/xcp/xcp-install-file-analytics-for-smb.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/xcp/images/discuss-sm.svg" alt="" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/xcp/blob/main/xcp-install-file-analytics-for-smb.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/xcp/images/edit-sm.svg" alt="" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/xcp/images/article-sm.svg" alt="" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -258,11 +258,13 @@
           <div id="react-search" 
           data-search-html="/ko-kr/xcp/search.html"
           data-type="widget" 
-          data-placeholder="설명서 검색" 
-          data-no-results-found="{query}에 대한 결과를 찾을 수 없음" 
-          data-did-you-mean="{suggestion}을(를) 검색해보십시오." 
-          data-no-results-found-did-you-mean="{query}에 대한 결과를 찾을 수 없습니다. {suggestion}을(를) 검색하려 하셨습니까?" 
-          data-results-found="{hitCount}개의 결과를 찾음"  
+          data-placeholder="설명서 검색"
+          data-no-results-found="{query}에 대한 결과를 찾을 수 없음"
+          data-did-you-mean="{suggestion}을(를) 검색해보십시오."
+          data-no-results-found-did-you-mean="{query}에 대한 결과를 찾을 수 없습니다. {suggestion}을(를) 검색하려 하셨습니까?"
+          data-results-found="{hitCount}개의 결과를 찾음"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
           data-sk-es-pf-indexes=""
           data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
@@ -277,35 +279,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">한국어</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">한국어</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/xcp/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/xcp/xcp-install-file-analytics-for-smb.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/xcp/xcp-install-file-analytics-for-smb.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/xcp/xcp-install-file-analytics-for-smb.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/xcp/xcp-install-file-analytics-for-smb.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/xcp/xcp-install-file-analytics-for-smb.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/ko-kr/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/xcp/xcp-install-file-analytics-for-smb.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -349,7 +343,7 @@
   <div class="col-md-3" id="sidebar-height">
       <div class="n-pdf-header">
   <a id="toggleButtonPdf" class="n-pdf-button" type="button">
-    <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>사용 가능한 PDF<span>
+    <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>사용 가능한 PDF<span>
     </span>
   </a>
 </div>
@@ -359,7 +353,7 @@
         
         
         <a target="_blank" href="/ko-kr/xcp/pdfs/fullsite-sidebar/xCP를_시작하십시오.pdf" >
-          <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
+          <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>이 문서 사이트의 PDF</a>
 
 
 
@@ -376,7 +370,7 @@
               href="/ko-kr/xcp/pdfs/sidebar/xCP를_시작하십시오.pdf" 
             
           >
-            <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>
             xCP를 시작하십시오
           </a>
           
@@ -388,8 +382,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -409,7 +401,7 @@
               href="/ko-kr/xcp/pdfs/sidebar/xCP를_설치합니다.pdf" 
             
           >
-            <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>
             xCP를 설치합니다
           </a>
           
@@ -425,19 +417,10 @@
 
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ko-kr/xcp/pdfs/pages/xcp-install-file-analytics-for-smb.pdf" >
-    <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
   
 
 
-
-          
         </li>
       </ul>
     
@@ -457,7 +440,7 @@
               href="/ko-kr/xcp/pdfs/sidebar/xCP를_구성합니다.pdf" 
             
           >
-            <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>
             xCP를 구성합니다
           </a>
           
@@ -473,8 +456,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -494,7 +475,7 @@
               href="/ko-kr/xcp/pdfs/sidebar/데이터_마이그레이션_계획.pdf" 
             
           >
-            <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>
             데이터 마이그레이션 계획
           </a>
           
@@ -514,7 +495,7 @@
               href="/ko-kr/xcp/pdfs/sidebar/파일_분석을_사용하여_계획.pdf" 
             
           >
-            <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>
             파일 분석을 사용하여 계획
           </a>
           
@@ -524,8 +505,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -537,8 +516,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -558,7 +535,7 @@
               href="/ko-kr/xcp/pdfs/sidebar/데이터_마이그레이션.pdf" 
             
           >
-            <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>
             데이터 마이그레이션
           </a>
           
@@ -568,8 +545,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -589,7 +564,7 @@
               href="/ko-kr/xcp/pdfs/sidebar/문제_해결.pdf" 
             
           >
-            <img src="/ko-kr/xcp/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/xcp/images/pdf.png" alt="" width="16" height="16"/>
             문제 해결
           </a>
           
@@ -599,8 +574,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -609,11 +582,10 @@
 
 
 
-
 </li></ul>
   <div class="zip-pdf-link-container" style="display: none;">   
     <a href="#" id="zipPdf">
-      <img src="/ko-kr/xcp/images/pdf-zip.png" width="16" height="16"/>
+      <img src="/ko-kr/xcp/images/pdf-zip.png" alt="" width="16" height="16"/>
       <pre>별도의 PDF 문서 모음<span class="zip-size"></span></pre>
     </a><div id="zip-link-popup" class="hide">
     <div class="inner-modal">
@@ -646,7 +618,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ko-kr/xcp/home.html">
         홈
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/xcp/releasenotes.html">
@@ -798,6 +770,9 @@
     <time datetime="2022-05-03 06:10:21 +0000">05/03/2022</time>
     
   
+
+<span>기여자
+</span>
 
 
 </p>
@@ -1065,4 +1040,5 @@
     </script>
     <script src='/ko-kr/xcp/js/www-ntap.js'></script>
     <script src='/ko-kr/xcp/js/tabbed-blocks.js'></script>
+    <script src='/ko-kr/xcp/js/sidebar.js'></script>
   </body></html>
