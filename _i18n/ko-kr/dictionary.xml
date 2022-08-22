@@ -35,7 +35,6 @@
   <block id="e31d321ee0fdaaaf8ac9ef21026a1fd0" category="paragraph">HDFS 커넥터에는 HDFS에서 NFS로 복제 명령 작업이 지원됩니다.</block>
   <block id="2fcca0f204e97a80f73f130b2a96c173" category="paragraph">HDFS 커넥터의 경로 구문은 "HDFS://[user@host:port]/full-path"입니다.</block>
   <block id="895513c3073c7d8c0c3b54666a487132" category="admonition">사용자, 호스트, 포트를 지정하지 않으면 xCP는 호스트 세트가 'default'이고 포트가 '0'으로 설정된 hdfsConnect를 호출합니다.</block>
-  <block id="e47d29cbfac9b28d909784fb18f8d023" category="paragraph">HDFS "copy" 명령을 실행하려면 Linux 시스템에서 HDFS 클라이언트를 설정하고 Hadoop 공급업체에 따라 인터넷에서 사용 가능한 설정 구성을 따라야 합니다. 예를 들어, "https://docs.datafabric.hpe.com/60/AdvancedInstallation/SettingUptheClient- redhat.html"을 사용하여 MapR 클러스터에 대한 클라이언트를 설정할 수 있습니다.</block>
   <block id="c00c4274d8d993e8f4e353057a47bf05" category="paragraph">HFDS 클라이언트 설정을 완료한 후에는 클라이언트에서 구성을 완료해야 합니다. xCP 명령과 함께 HDFS 경로를 사용하려면 다음 환경 변수가 있어야 합니다.</block>
   <block id="daf45f14fc0d11979b90c046f09e7692" category="list-text">NHDFS_LIBHDFS_path입니다</block>
   <block id="ca3c0ce4cd4cbb196cc438fa98d8e563" category="list-text">NHDFS_LIBJVM_PATH</block>
@@ -149,16 +148,12 @@
   <block id="0ab4127ba4947453135e709735a6fc6c" category="cell">대상 시스템(대상 상자) 또는 Active Directory에 대체 사용자/그룹이 없습니다. 올바른 대체 사용자/그룹 옵션을 사용하여 명령을 다시 실행합니다</block>
   <block id="4be936fd7e612c47d18eaec68c3932c3" category="cell">''xCP copy: error' to obtain fallback security principal (Post adding destination box entry in the hosts files) 오류 메시지 xcp.log: ' pywintypes.error: (87, ' LookupAccountName ', ' the parameter is incorrect.')'</block>
   <block id="2e4e559c9f6001c3134b8795d8e47e81" category="cell">대체 사용자/그룹 옵션에 대한 매개 변수가 잘못되었습니다. 대체 사용자/그룹 옵션에 대한 올바른 구문을 사용하여 명령을 다시 실행합니다</block>
-  <block id="ca5b87c22d59ad15700c80cec3677245" category="cell">ACL migration Erorr 메시지를 xcp.log 파일에 기록한 'xCP copy':'pywintypes.error':'(1314,'GetNamedSecurityInfo','필요한 권한이 클라이언트에 의해 보유되지 않습니다.'</block>
   <block id="4ba21fa3f242b755c406321b6aa530de" category="inline-link-macro">감사 및 보안 로그를 관리합니다</block>
-  <block id="19989536bdfa1e7f11ff53bc7877ff66" category="cell">마이그레이션 사용자가 소유한 권한이 있는 경우 xCP는 소유자, 그룹 및 DACL만 가져올 수 있지만 SACL은 가져올 수 없기 때문에 사용자는 보안 설명자와 관련된 문제를 겪고 있습니다. 마이그레이션 사용자를 Active Directory의 "감사 및 보안 로그 관리" 정책에 추가합니다. 참조: <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-link-macro-rx"></block></block>
   <block id="bf86284529584845670edb0c3a95e5ec" category="summary">POSIX 커넥터를 통해 XCP는 NFSv4, XFS 및 Veritas와 같은 Linux 마운트 파일 시스템에 액세스할 수 있습니다.</block>
   <block id="4e8be65645e1c09ea65c5bf2fa334289" category="doc">POSIX 커넥터를 구성합니다</block>
   <block id="159d5dad3025108b6e9c7a70ebc1dcb0" category="paragraph">xCP NFS는 이제 POSIX 커넥터 사용을 지원하여 데이터 마이그레이션을 위한 소스 및 대상 경로를 제공합니다.</block>
   <block id="95ddd83f06b46164d9007a3fec84bd09" category="paragraph">POSIX 커넥터에는 다음 기능이 지원됩니다.</block>
   <block id="61d64caacf6145ab9260325232ace1f3" category="list-text">나노초 시간, 시간, 시간을 지원하는 POSIX 파일 시스템의 경우 'CAN' 명령은 전체 값(초, 나노초)을 가져오고 'COPY' 명령은 이 값을 설정합니다</block>
-  <block id="f17259fd5fd04df8d00de9bae40078cc" category="inline-link-macro">보안을 구성합니다</block>
-  <block id="efed384e39c6ae674248adc931cd6fe9" category="list-text">POSIX 커넥터는 NFSv3 TCP 소켓을 사용하는 XCP보다 안전합니다. 을 참조하십시오 <block ref="884f9726fabc578536c00929cd2fe7e3" category="inline-link-macro-rx"></block></block>
   <block id="d67f0d6f3689c0b2c96700d038812574" category="paragraph">POSIX 커넥터의 경로 구문은 '\file://&lt;mounted path on Linux&gt;'입니다.</block>
   <block id="9cdc4f2bba7e1f74ab797e2bfab30c1a" category="paragraph">POSIX 커넥터를 설정하려면 다음 작업을 수행해야 합니다.</block>
   <block id="974be5615abf4fe362f269edc57cc8b9" category="list-text">소스 및 대상 볼륨을 마운트합니다</block>
@@ -303,7 +298,6 @@
   <block id="3be2db89060ab9c2e383a1fbdd7213a2" category="list-text">HTTPD 서비스 상태 확인:</block>
   <block id="773d6c478422286a9fad650c3ddd09dd" category="paragraph">'SUDO systemctl status httpd|grep Active</block>
   <block id="2113faff27761298b76e18e9d9dc0831" category="cell">설치 성공 후 로그인 페이지를 열 수 없습니다</block>
-  <block id="7c6efba1432d256b5f2c9286332f395e" category="cell">시스템에서 XCP File Analytics가 설치되어 있고 HTTPD가 실행 중인 Linux 시스템을 ping할 수 있는지 확인합니다. 서비스가 실행되고 있지 않으면 '설정'을 실행하고 복구 옵션을 선택합니다. 지원되는 브라우저 버전을 사용하고 있는지 확인합니다. 를 참조하십시오 <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block>.</block>
   <block id="d50784b3674870554d4c3159c77d15ea" category="cell">사용자 로그인에 실패했습니다</block>
   <block id="fca5f9179b264aa12937804595452dfa" category="list-text">지원되는 브라우저 버전을 사용하고 있는지 확인합니다. 를 참조하십시오 <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block>.</block>
   <block id="3721f4d27bf1373c3dce1560f7ad4013" category="list-text">사용자가 "admin"이고 암호가 올바른지 확인합니다.</block>
@@ -338,9 +332,6 @@
   <block id="4467bdfaff09862977dbfe2f4fb9dca5" category="doc">환경 변수</block>
   <block id="36836fd13aeec5b924ea6cf294316fa1" category="paragraph">xCP NFS 시스템을 위한 선택적 환경 변수 구성.</block>
   <block id="9d7df06a85bdd4b5d7f134e518ba0eb5" category="admonition">루트가 아닌 사용자도 다음 변수를 사용할 수 있습니다.</block>
-  <block id="0dd6ca798bb0f2d45b2b59c074793ac6" category="paragraph">xCP_Config_DIR 환경 변수는 기본 위치 '/opt/NetApp/xFiles/xCP'를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. 사용자 지정 구성 디렉토리가 설정되면 로그 파일의 이름은 기본값인 xCP.log가 아니라 xCP.hostname.log입니다.</block>
-  <block id="ded2d02a4fd60f232dc6bbe8614960b6" category="paragraph">xCP_LOG_DIR 환경 변수는 xCP 로그를 구성 디렉토리에 저장하는 기본 위치를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. 사용자 지정 로그 디렉토리가 설정되면 로그 파일의 이름은 기본값인 xCP.log가 아니라 xCP.hostname.log입니다.</block>
-  <block id="b2a82a89c888f120cc61565aed8191c8" category="paragraph">환경 변수 xCP_catalog_path는 xcp.in 설정을 재정의합니다 설정된 경우 이 값은 xCP 경로 형식인 'server:export[:subdirectory]'여야 합니다.</block>
   <block id="8dec2942730a578afac995d1f6dbb48c" category="admonition">루트가 아닌 사용자의 경우 내보낸 경로에서 'xCP_catalog_path'를 POSIX 경로로 교체해야 합니다.</block>
   <block id="2bcb9e91d9726432ada974afa56bdf0f" category="summary">xCP는 xCP 작업에 사용할 수 있는 필터 옵션을 제공합니다</block>
   <block id="f3f43e30c8c7d78c6ac0173515e57a00" category="doc">필터</block>
@@ -510,8 +501,6 @@
   <block id="4c82d2eef29d76c200ed39d04be95fc0" category="section-title">루트가 아닌 사용자에 대해 INI 파일을 구성합니다</block>
   <block id="c9beec711f96849f59fc8b461a17c844" category="paragraph">루트 사용자가 아닌 사용자는 NFS 파일 시스템을 마운트할 권한이 없습니다. 루트 사용자는 먼저 카탈로그 볼륨을 마운트한 다음, xCP를 실행하는 루트 이외의 사용자로, 카탈로그 볼륨에 대한 읽기/쓰기 권한이 있는 경우 POSIX 커넥터를 사용하여 마운트된 카탈로그 볼륨에 액세스할 수 있습니다. 볼륨이 마운트되면 경로를 카탈로그로 추가할 수 있습니다.</block>
   <block id="7f9cccf134351e9df9c324fb764603f3" category="summary">XCP 정보 라이브러리에 오신 것을 환영합니다. 이전 릴리스에 대한 링크가 포함되어 있습니다.</block>
-  <block id="c3aaf0d0d35accc2221dcf51014b407d" category="doc">xCP v1.8 설명서</block>
-  <block id="5cf3f2c5fac08fae3fa80a4e2a9266eb" category="paragraph">XCP 정보 라이브러리에 오신 것을 환영합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 xCP v1.8 소프트웨어 설명서를 찾을 수 있습니다.</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link-macro">NetApp Support 사이트</block>
   <block id="76c8844b91693e12fac2abf6d423c3f5" category="paragraph">xCP의 이전 릴리스에 대한 문서는 에서 확인할 수 있습니다 <block ref="a4ccf985ba56b702a384be031a3cd5f9" category="inline-link-macro-rx"></block>.</block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">새로운 기능, 업그레이드 정보, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
@@ -703,8 +692,6 @@
   <block id="9d83a2ce37bac2516a6b570ccc972b69" category="admonition">동기화 작업 중에 '-preserve-atime' 플래그를 'Sync' 명령과 함께 사용하여 소스의 액세스 시간을 보존할 수 있습니다.</block>
   <block id="7e4d5419d4fcf4ceade27ffac84d4e92" category="list-text">Verify 작업 중에 '-preserve-atime' 플래그를 riting 명령과 함께 사용하여 소스의 액세스 시간을 보존할 수 있습니다.</block>
   <block id="0e97e9bc1c0f6d8ea9bc140cab258f9a" category="list-text">Verify 작업 중에 riting 명령과 함께 -nocatime 플래그를 사용하여 액세스 시간 차이를 제외할 수 있습니다.</block>
-  <block id="bfd97ee6bc45bf0c46cc517744e9e74f" category="doc">xCP v1.8.1 릴리스 노트</block>
-  <block id="2361f2046255643526d0bc654680e3f7" category="paragraph">를 클릭합니다 <block ref="658eea0f41de67e93f9c7baad3cdc904" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
   <block id="d04f98cbab23bb984f10968cafdb77bf" category="section-title">Windows 클라이언트를 구성합니다</block>
   <block id="8723065565846862b1fa4bd925384734" category="list-text">대상 스토리지 상자와 소스 스토리지 상자를 호스트 파일에 추가합니다.</block>
   <block id="cf2408bbf2ce4b4de95513dd3053d13a" category="list-text">'(C:\Windows\System32\drivers\etc\hosts)' 위치로 이동합니다</block>
@@ -725,22 +712,44 @@
   <block id="ccdcaa8e5fef5673db21a65af6bc516b" category="paragraph">을 참조하십시오 <block ref="86f0b7d75368fee2dcdb28d15e03688c" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
   <block id="258c43132f7d0ee8dca2932b84e55383" category="summary">xCP에는 NFS 공유 또는 POSIX 경로에 대한 파일 및 디렉토리의 소유권 및 권한을 쉽게 변경할 수 있는 몇 가지 추가 NFS 기능이 포함되어 있습니다.</block>
   <block id="ce0d872fae9d962e1e9e1ff7397f5840" category="doc">추가 NFS 기능</block>
-  <block id="237f1be769ddaca2a6c7f5fb510296bc" category="paragraph">xCP에는 NFS 공유 또는 POSIX 경로에 대한 파일 및 디렉토리의 소유권 및 권한을 쉽게 변경할 수 있는 몇 가지 추가 NFS 기능이 포함되어 있습니다. xCP 'chown' 및 'chmod' 명령을 사용하여 지정된 NFS 공유 또는 POSIX 경로에 대한 모든 파일과 디렉토리를 재귀적으로 변경할 수 있습니다. 이렇게 하면 수백만 파일의 성능이 향상됩니다.</block>
   <block id="c353351e2cab6270e61ca76351aa5192" category="paragraph">파일의 소유권을 변경하기 전에 새 소유자를 구성해야 합니다. 그렇지 않으면 명령이 실패합니다. xCP의 chown과 chmod 명령은 리눅스의 chown과 chmod 명령어와 비슷하게 동작한다.</block>
   <block id="c8f43293a0d371a440cac8bb93307056" category="section-title">chmod</block>
-  <block id="a4d26be6e1a014201192b6f7a5db4c72" category="paragraph">chmod 명령은 선택한 디렉토리 구조의 모든 파일에 대한 파일 권한을 검사하고 변경합니다. chmod 명령을 사용하려면 모드 또는 참조와 NFS 공유 또는 POSIX 경로가 변수로 필요합니다. xCP의 chmod는 주어진 경로에 대한 권한을 재귀적으로 변경합니다. "chmod" 명령을 사용하면 스캔한 총 파일과 출력에서 변경된 사용 권한을 표시할 수 있습니다.</block>
   <block id="ed4ffa57a1bdcb56aaf1d22b8d722821" category="paragraph">자세한 내용은 xCP help chmod 명령을 실행합니다.</block>
   <block id="845fbaad258ca858251e4c4c0ad53eb0" category="section-title">직접</block>
-  <block id="12ef08f5f383690078c3df9936bfe139" category="paragraph">chown 명령은 선택한 디렉토리 구조에 있는 모든 파일의 소유권을 검색하고 변경합니다. chown 명령을 사용하려면 NFS 공유 또는 POSIX 경로가 변수로 필요합니다. xCP는 주어진 경로에 대한 소유권을 재귀적으로 변경합니다.</block>
   <block id="8fa3ac473e7edac7e52a655e5271e49f" category="paragraph">자세한 내용은 xCP 도움말 chown 명령을 실행하십시오.</block>
   <block id="fe3babe18b970588464b8384c50d8cb3" category="paragraph">'스캔' 명령은 전체 SMB 공유를 재귀적으로 검색하고 검사 종료 시 모든 파일을 나열합니다.</block>
   <block id="e7cd4019e47684c4ac82ed229910b175" category="admonition">스캔 작업 중에 '-preserve-atime' 플래그를 '스캔' 명령과 함께 사용하여 소스에서 액세스 시간을 보존할 수 있습니다.</block>
-  <block id="8d79bfe51b141cbe8fb2c30741dbfe14" category="paragraph">* 예: *</block>
   <block id="de71db72eafd60fc2c3c26a9416f0909" category="list-text">NFSv4 ACL 마이그레이션의 경우 NFSv4에서는 ACL 마이그레이션이 필요한 볼륨에 인코딩 언어 UTF-8을 사용해야 합니다.</block>
-  <block id="90e6485e4d08b9e0728e2671dfa4ced2" category="list-text">ONTAP에서는 진단 '-atime-update' 옵션을 사용하여 atime을 보존할 수 있습니다. 이 기능은 ONTAP에서만 사용할 수 있으며 xCP를 실행하는 동안 소스 객체에 atime을 보존하려는 경우에 유용합니다.</block>
   <block id="3f2483126bfaf4f145dc2ccaaf50a96d" category="cell">xCP_Config_DIR 변수에 대해 설정한 위치를 사용합니다</block>
   <block id="422b2633c200093920a3504cacd40ac4" category="list-text">파일 이름을 'xcpLogConfig.json'으로 지정하고 기본 위치(/opt/NetApp/xFiles/xCP/)에 저장합니다</block>
   <block id="5a80d55457d11b6a6649cb8e31a68ae9" category="paragraph">xCP_CONFIG_DIR 환경 변수가 설정된 경우 xCP_CONFIG_DIR 변수에 대해 설정된 위치에 xcpLogConfig.json 파일을 저장한다.</block>
   <block id="eeb488eb1940aa6eb63fb96f6766209e" category="paragraph">ssh-keygen-b 2048-t rsa-f/root/.ssh/id_rsa-q-N''</block>
   <block id="6fa3c056ccd312364628a9d8779047d9" category="paragraph">ssh-copy-id-i/root/.ssh/id_rsa.pub root@worker1'을 참조하십시오</block>
+  <block id="e5970308b839bb1af1aefcf9dad2fed2" category="paragraph">환경 변수 'xCP_Config_DIR'은 기본 위치 '/opt/NetApp/xFiles/xCP'를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. xCP_CONFIG_DIR 변수가 설정되면 호스트 이름과 동일한 이름의 새 디렉토리가 사용자 지정 구성 디렉토리 경로 내에 생성됩니다. 이 위치에 새 로그가 저장됩니다.</block>
+  <block id="193182b59524f80db2dfb99b91b8e2d2" category="paragraph">환경 변수 'xCP_LOG_DIR'은 xCP 로그를 구성 디렉토리에 저장하는 기본 위치를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. xCP_LOG_DIR 변수가 설정되면 호스트 이름과 동일한 이름의 새 디렉토리가 사용자 정의 로그 디렉토리 경로 내에 생성됩니다. 이 위치에 새 로그가 저장됩니다.</block>
+  <block id="f9c9daf8c094d7173f6aa05e00e89394" category="paragraph">환경 변수 'xCP_catalog_path'는 xcp.in 설정을 재정의합니다 설정된 경우 이 값은 xCP 경로 형식인 'server:export[:subdirectory]'여야 합니다.</block>
+  <block id="0b5b78e477505196ea9cd8e57fe855fd" category="list-text">ONTAP에서 진단 '-atime-update' 옵션을 사용하여 소스 개체에 대한 atime을 보존할 수 있습니다. 이 기능은 ONTAP에서만 사용할 수 있으며 xCP를 실행하는 동안 소스 객체에 atime을 보존하려는 경우에 유용합니다.</block>
+  <block id="9d2ab81c393d1ef2f0a8cefba68af9a1" category="list-text">xCP에서는 '-preserve-atime' 옵션을 사용하여 소스 객체에 대한 atime을 보존할 수 있습니다. 이 옵션은 소스 객체를 액세스하는 모든 명령에 사용할 수 있습니다.</block>
+  <block id="fba36a51a969015158fea284508e24b5" category="paragraph">xCP에는 몇 가지 추가 NFS 기능이 포함되어 있습니다.</block>
+  <block id="5b014105285dfb3396658b56a0e6a980" category="section-title">Chown과 chmod</block>
+  <block id="e502bd5d6fd36f24fe83faf495b01250" category="paragraph">xCP 'chown' 및 'chmod' 명령을 사용하여 지정된 NFS 공유 또는 POSIX 경로에 대한 모든 파일과 디렉토리를 재귀적으로 변경할 수 있습니다. 이렇게 하면 수백만 파일의 성능이 향상됩니다.</block>
+  <block id="09d12addf13fc84e75f41dc976e24bd2" category="paragraph">chmod 명령은 선택한 디렉토리 구조의 모든 파일에 대한 파일 권한을 검사하고 변경합니다. chmod 명령을 사용하려면 모드 또는 참조와 NFS 공유 또는 POSIX 경로가 변수로 필요합니다. xCP의 chmod는 주어진 경로에 대한 권한을 재귀적으로 변경합니다. "chmod" 명령을 사용하면 스캔한 총 파일과 출력에서 변경된 사용 권한을 표시할 수 있습니다.</block>
+  <block id="d36f032e221f3900149f9473b5c0ce4f" category="paragraph">xCP "chown" 명령을 사용하여 지정된 NFS 공유 또는 POSIX 경로에 대한 모든 파일과 디렉토리를 재귀적으로 변경할 수 있습니다. 이렇게 하면 수백만 파일의 성능이 향상됩니다.</block>
+  <block id="a0b553d099f15801f1726ee64318e949" category="paragraph">chown 명령은 선택한 디렉토리 구조에 있는 모든 파일의 소유권을 검색하고 변경합니다. chown 명령을 사용하려면 NFS 공유 또는 POSIX 경로가 변수로 필요합니다. xCP 'chown'은 주어진 경로에 대한 소유권을 재귀적으로 변경합니다.</block>
+  <block id="d9b1d76e05f593fa781c1a1da0c9012b" category="list-text">POSIX 커넥터는 NFSv3 TCP 소켓을 사용하는 XCP보다 안전합니다.</block>
+  <block id="539be75a76dadebbca3424b2f7b46bde" category="doc">xCP v1.9 릴리스 정보</block>
+  <block id="0bd1668ea08c54bc067675d64e6f83a4" category="paragraph">를 클릭합니다 <block ref="08ad1ee2f6369863d444accaa8181f3c" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
+  <block id="18f2ba0369aea7a98cca4c137d4b6372" category="paragraph">HDFS "copy" 명령을 실행하려면 Linux 시스템에서 HDFS 클라이언트를 설정하고 Hadoop 공급업체에 따라 인터넷에서 사용 가능한 설정 구성을 따라야 합니다. 예를 들어, https://docs.datafabric.hpe.com/60/AdvancedInstallation/SettingUptheClient-redhat.html` 을 사용하여 MapR 클러스터에 대한 클라이언트를 설정할 수 있습니다.</block>
+  <block id="5477a542a80c11f2da04e8a045970ccc" category="section-title">xCP 문제 및 솔루션</block>
+  <block id="2c21e7858fb5fc86fe2510cb996c6926" category="cell">'xCP: error': 호환되지 않는 인덱스 파일입니다. 현재 버전의 xCP에서만 생성된 인덱스 파일을 사용하십시오. 또는 xcp.netapp.com 에서 이전 xCP 바이너리를 다운로드할 수도 있습니다.</block>
+  <block id="ee919e739e668a270db61ab6e8e94e16" category="cell">xCP 1.9 이전 버전의 XCP를 사용하여 생성된 인덱스에 대한 작업을 수행하려고 합니다. 이 작업은 지원되지 않습니다. 진행 중인 모든 마이그레이션을 완료한 다음 이 버전의 XCP로 전환하는 것이 좋습니다. 또 다른 방법으로 '수정', '복사' 또는 '거부' 명령을 다시 실행하여 xCP 1.9로 새로운 인덱스를 생성할 수도 있습니다.</block>
+  <block id="78e3c3d20c30f31e40219bc4fc26d005" category="section-title">로그 덤프</block>
+  <block id="f2223b790f3262b778f881ea47ce4191" category="paragraph">xCP 명령이나 작업에 문제가 발생하면 'logdump' 명령을 사용하여 문제와 관련된 로그 파일을 디버깅을 위해 NetApp에 보낼 수 있는 '.zip' 파일로 덤프할 수 있습니다. logdump 명령은 마이그레이션 ID나 작업 ID를 기준으로 로그를 필터링하고 해당 로그를 현재 디렉토리의 .zip 파일로 덤프합니다. zip 파일의 이름은 명령과 함께 사용되는 마이그레이션 또는 작업 ID와 같습니다.</block>
+  <block id="f6e8987d5e2d203c406379ba9e8b8a47" category="admonition">마이그레이션 후 기본 구성 위치 또는 로그 위치를 재정의하기 위해 'xCP_Config_DIR' 또는 'xCP_LOG_DIR' 환경 변수를 사용하는 경우 이전 마이그레이션 또는 작업 ID와 함께 사용하면 'logdump' 명령이 실패합니다. 이를 방지하려면 마이그레이션이 완료될 때까지 동일한 로그 경로를 사용하십시오.</block>
+  <block id="20f0f3784e710ced2f992c9e868a329f" category="cell">xcp.log 파일에 'xCP 복사' 및 ACL 마이그레이션 오류 메시지가 기록됨: 'pywintypes.error':'(1314, 'GetNamedSecurityInfo', '클라이언트에 필요한 권한이 없습니다.'</block>
+  <block id="ec548dc7e9c4428d0af475d94ed8628f" category="cell">마이그레이션 사용자가 소유한 권한이 있는 경우 xCP는 소유자, 그룹 및 DACL만 가져올 수 있고 SACL을 가져올 수 없기 때문에 사용자는 보안 설명자와 관련된 문제를 겪고 있습니다. 마이그레이션 사용자를 Active Directory의 "감사 및 보안 로그 관리" 정책에 추가합니다. 참조: <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-link-macro-rx"></block></block>
+  <block id="fdbdc0e84f617d7346b90d43e65e3e78" category="doc">xCP v1.9 설명서</block>
+  <block id="acca97deb653a678580117072b78b763" category="paragraph">XCP 정보 라이브러리에 오신 것을 환영합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 xCP v1.9 소프트웨어 설명서를 찾을 수 있습니다.</block>
+  <block id="8d199d68726e0baa3da715584c92e083" category="admonition">xCP 바이너리가 코드에 서명되었습니다. 자세한 내용은 'NetApp_xCP_&lt;버전&gt;.tgz'의 README를 참조하십시오.</block>
+  <block id="259c9d5f301d6e350422d2ebfe2bcc87" category="cell">시스템에서 XCP File Analytics가 설치되어 있고 HTTPD가 실행 중인 Linux 시스템을 ping할 수 있는지 확인합니다. 서비스가 실행되고 있지 않으면 '설정'을 실행하고 복구 옵션을 선택합니다. 지원되는 브라우저 버전을 사용하고 있는지 확인합니다. 를 참조하십시오 <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block>.</block>
 </blocks>

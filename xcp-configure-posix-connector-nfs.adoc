@@ -18,7 +18,7 @@ xCP NFS는 이제 POSIX 커넥터 사용을 지원하여 데이터 마이그레�
 POSIX 커넥터에는 다음 기능이 지원됩니다.
 
 * 나노초 시간, 시간, 시간을 지원하는 POSIX 파일 시스템의 경우 'CAN' 명령은 전체 값(초, 나노초)을 가져오고 'COPY' 명령은 이 값을 설정합니다
-* POSIX 커넥터는 NFSv3 TCP 소켓을 사용하는 XCP보다 안전합니다. 을 참조하십시오 link:xcp-configure-security-nfs.html["보안을 구성합니다"]
+* POSIX 커넥터는 NFSv3 TCP 소켓을 사용하는 XCP보다 안전합니다.
 
 
 

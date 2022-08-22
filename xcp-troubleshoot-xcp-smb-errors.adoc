@@ -44,5 +44,5 @@ summary: xCP SMB 오류 문제 해결
 | ''xCP copy: error' to obtain fallback security principal (Post adding destination box entry in the hosts files) 오류 메시지 xcp.log: ' pywintypes.error: (87, ' LookupAccountName ', ' the parameter is incorrect.')' | 대체 사용자/그룹 옵션에 대한 매개 변수가 잘못되었습니다. 대체 사용자/그룹 옵션에 대한 올바른 구문을 사용하여 명령을 다시 실행합니다 
 
 
-| ACL migration Erorr 메시지를 xcp.log 파일에 기록한 'xCP copy':'pywintypes.error':'(1314,'GetNamedSecurityInfo','필요한 권한이 클라이언트에 의해 보유되지 않습니다.' | 마이그레이션 사용자가 소유한 권한이 있는 경우 xCP는 소유자, 그룹 및 DACL만 가져올 수 있지만 SACL은 가져올 수 없기 때문에 사용자는 보안 설명자와 관련된 문제를 겪고 있습니다. 마이그레이션 사용자를 Active Directory의 "감사 및 보안 로그 관리" 정책에 추가합니다. 참조: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["감사 및 보안 로그를 관리합니다"^] 
+| xcp.log 파일에 'xCP 복사' 및 ACL 마이그레이션 오류 메시지가 기록됨: 'pywintypes.error':'(1314, 'GetNamedSecurityInfo', '클라이언트에 필요한 권한이 없습니다.' | 마이그레이션 사용자가 소유한 권한이 있는 경우 xCP는 소유자, 그룹 및 DACL만 가져올 수 있고 SACL을 가져올 수 없기 때문에 사용자는 보안 설명자와 관련된 문제를 겪고 있습니다. 마이그레이션 사용자를 Active Directory의 "감사 및 보안 로그 관리" 정책에 추가합니다. 참조: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["감사 및 보안 로그를 관리합니다"^] 
 |===

@@ -32,6 +32,9 @@ xCP는 NFS 및 SMB 프로토콜을 지원하는 단일 패키지로 제공되는
 
 xCP File Analytics는 파일 공유를 감지하고 파일 시스템에서 검사를 실행하며 파일 분석을 위한 대시보드를 제공하는 호스트 기반 소프트웨어입니다. xCP File Analytics는 NetApp 및 타사 시스템에서 모두 작동하며 Linux 또는 Windows 호스트에서 실행되어 NFS 및 SMB에서 내보낸 파일 시스템에 대한 분석 기능을 제공합니다. 파일 분석 GUI의 바이너리는 NFS 및 SMB 프로토콜을 지원하는 단일 패키지에 포함되어 있습니다.
 
+
+NOTE: xCP 바이너리가 코드에 서명되었습니다. 자세한 내용은 'NetApp_xCP_<버전>.tgz'의 README를 참조하십시오.
+
 xCP CLI는 강력합니다. 자세한 내용은 에서 _xCP Reference_를 다운로드하십시오 link:https://xcp.netapp.com/["xCP 사이트"^].
 
 * xCP 워크플로우 *

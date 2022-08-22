@@ -19,19 +19,19 @@ xCP NFS 시스템을 위한 선택적 환경 변수 구성.
 
 NOTE: 루트가 아닌 사용자도 다음 변수를 사용할 수 있습니다.
 
-xCP_Config_DIR 환경 변수는 기본 위치 '/opt/NetApp/xFiles/xCP'를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. 사용자 지정 구성 디렉토리가 설정되면 로그 파일의 이름은 기본값인 xCP.log가 아니라 xCP.hostname.log입니다.
+환경 변수 'xCP_Config_DIR'은 기본 위치 '/opt/NetApp/xFiles/xCP'를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. xCP_CONFIG_DIR 변수가 설정되면 호스트 이름과 동일한 이름의 새 디렉토리가 사용자 지정 구성 디렉토리 경로 내에 생성됩니다. 이 위치에 새 로그가 저장됩니다.
 
 [listing]
 ----
 [root@localhost /]# export XCP_CONFIG_DIR ='/tmp/xcp_config_dir_path'
 ----
-xCP_LOG_DIR 환경 변수는 xCP 로그를 구성 디렉토리에 저장하는 기본 위치를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. 사용자 지정 로그 디렉토리가 설정되면 로그 파일의 이름은 기본값인 xCP.log가 아니라 xCP.hostname.log입니다.
+환경 변수 'xCP_LOG_DIR'은 xCP 로그를 구성 디렉토리에 저장하는 기본 위치를 재정의합니다. 설정된 경우 값은 OS 파일 시스템 경로여야 하며, 마운트된 NFS 디렉토리일 수 있습니다. xCP_LOG_DIR 변수가 설정되면 호스트 이름과 동일한 이름의 새 디렉토리가 사용자 정의 로그 디렉토리 경로 내에 생성됩니다. 이 위치에 새 로그가 저장됩니다.
 
 [listing]
 ----
 [root@localhost /]# export XCP_LOG_DIR='/tmp/xcp_log_dir_path'
 ----
-환경 변수 xCP_catalog_path는 xcp.in 설정을 재정의합니다 설정된 경우 이 값은 xCP 경로 형식인 'server:export[:subdirectory]'여야 합니다.
+환경 변수 'xCP_catalog_path'는 xcp.in 설정을 재정의합니다 설정된 경우 이 값은 xCP 경로 형식인 'server:export[:subdirectory]'여야 합니다.
 
 [listing]
 ----

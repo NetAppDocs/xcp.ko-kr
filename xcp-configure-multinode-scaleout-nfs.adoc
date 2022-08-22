@@ -45,8 +45,8 @@ xCP 마스터 노드는 SSH를 사용하여 다른 노드에서 작업자를 실
 
 [listing]
 ----
-echo "MaxStartups 100" | sudo tee -a /etc/ssh/sshd_config sudo systemctl
-restart sshd
+echo "MaxStartups 100" | sudo tee -a /etc/ssh/sshd_config
+sudo systemctl restart sshd
 ----
 XCP가 클러스터 노드에서 작업자를 실행하면 작업자 프로세스가 마스터 노드의 기본 XCP 프로세스에서 환경 변수를 상속합니다. 특정 노드 환경을 사용자 정의하려면 마스터 노드의 구성 디렉토리에서만 nodes.ini` 파일에 변수를 설정해야 합니다(작업자 노드에는 구성 디렉토리나 카탈로그가 없음). 예를 들어, 웨이브(CentOS)와 같이 마스터 노드와 다른 위치에 "libjvm.so"가 있는 Ubuntu 서버 mars의 경우 Mars 작업자가 HDFS 커넥터를 사용할 수 있도록 구성 디렉토리가 필요합니다. 이 설정은 다음 예에 나와 있습니다.
 
