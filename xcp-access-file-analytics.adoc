@@ -28,10 +28,81 @@ NOTE: 지원되는 브라우저에서 파일 분석에 액세스하려면 를 �
 .. Proceed to "<IP address of Linux machine>" 링크를 선택합니다.
 
 
-. 사용자 이름 "admin"과 구성 중에 설정한 암호를 사용하여 GUI에 로그인합니다
+. File Analytics GUI에 로그인합니다.
++
+파일 분석 GUI에 로그인하는 방법은 두 가지가 있습니다.
+
++
+.. 사용자 이름 "admin"과 구성 중에 설정한 암호를 사용합니다.
 +
 image:xcp_image2.png["xCP File Analytics 로그인 화면"]
 
-. 로그인 시 NFS 에이전트가 추가된 것을 확인할 수 있습니다. 녹색 체크 표시가 있으면 Linux 시스템과 xCP 버전의 최소 시스템 구성을 나타냅니다.
+.. 전사적 SSO(Single Sign-On) 기능을 구성하고 사용하도록 설정합니다.
++
+이 로그인 기능을 사용하면 특정 시스템에서 XCP File Analytics를 설정하고 전사적으로 웹 UI URL을 공유할 수 있으므로 사용자가 SSO 자격 증명을 사용하여 UI에 로그인할 수 있습니다.
+
++
+
+NOTE: SSO 로그인은 선택 사항이며 영구적으로 구성 및 활성화할 수 있습니다. SAML(Security Assertion Markup Language) 기반 SSO 로그인을 설정하려면 을 참조하십시오  SSO credentials.
+
+
+
+. 로그인 후 NFS 에이전트가 표시됩니다. 녹색 확인 표시가 나타나면 Linux 시스템과 xCP 버전의 최소 시스템 구성을 나타냅니다.
 . SMB 에이전트를 구성한 경우 동일한 에이전트 카드에 추가된 SMB 에이전트를 볼 수 있습니다.
+
+
+
+
+== SSO 자격 증명을 구성합니다
+
+SSO 로그인 기능은 SAML을 사용하는 XCP File Analytics에서 구현되며 ADFS(Active Directory Federation Services) ID 공급자를 통해 지원됩니다. SAML은 인증 작업을 기업의 IDP(타사 ID 공급자)로 오프로드하여 MFA(다단계 인증)에 대한 다양한 접근 방식을 활용할 수 있습니다.
+
+.단계
+. 엔터프라이즈 ID 공급자에 xCP File Analytics 애플리케이션을 등록합니다.
++
+이제 파일 분석이 서비스 공급자로 실행되므로 엔터프라이즈 ID 공급자에 등록되어 있어야 합니다. 일반적으로 기업에는 이 SSO 통합 프로세스를 처리하는 팀이 있습니다. 첫 번째 단계는 관련 팀을 찾아 연락하고 파일 분석 애플리케이션 메타데이터 세부 정보를 해당 팀과 공유하는 것입니다.
+
++
+다음은 ID 공급자에 등록하기 위해 공유해야 하는 필수 세부 사항입니다.
+
++
+** * 서비스 공급자 엔티티 ID: * `\https://<IP address of linux machine>/xcp`
+** * 서비스 공급자 어설션 소비자 서비스(ACS) URL: * `\https://<IP address of linux machine>:5030/api/xcp/SAML/sp`
++
+File Analytics UI에 로그인하여 이러한 세부 정보를 확인할 수도 있습니다.
+
++
+... 사용자 이름 "admin"과 설치 중에 설정한 암호를 사용하여 UI에 로그인합니다.
+... 페이지 오른쪽 상단의 * 사용자 * 아이콘을 선택한 다음 * SAML settings * 를 선택합니다.
++
+나타나는 드롭다운 메뉴에서 * 서비스 공급자 설정 * 을 선택합니다.
+
++
+image:xcp_image18.png["SAML 설정의 예"]
+
++
+등록 후 기업에 대한 IDP 끝점 세부 정보를 받게 됩니다. 이 IDP 끝점 메타데이터를 파일 분석 UI에 제공해야 합니다.
+
+
+
+
+
+. IDP 세부 정보 제공:
++
+.. 대시보드 * 로 이동합니다. 페이지 오른쪽 상단의 * 사용자 * 아이콘을 선택하고 * SAML settings * 를 선택합니다.
+.. 등록 후 얻은 IDP 세부 정보를 입력합니다.
++
+* 예 *
+
++
+image:xcp_image19.png["IDP 설정 예"]
+
+.. SAML 기반 SSO를 영구적으로 활성화하려면 * SAML * 활성화 확인란을 선택합니다.
+.. 저장 * 을 선택합니다.
+.. File Analytics에서 로그아웃하고 다시 로그인합니다.
++
+엔터프라이즈 SSO 페이지로 리디렉션됩니다.
+
+
+
 
