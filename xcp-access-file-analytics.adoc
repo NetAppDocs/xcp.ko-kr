@@ -43,7 +43,7 @@ image:xcp_image2.png["xCP File Analytics 로그인 화면"]
 
 +
 
-NOTE: SSO 로그인은 선택 사항이며 영구적으로 구성 및 활성화할 수 있습니다. SAML(Security Assertion Markup Language) 기반 SSO 로그인을 설정하려면 을 참조하십시오  SSO credentials.
+NOTE: SSO 로그인은 선택 사항이며 영구적으로 구성 및 활성화할 수 있습니다. SAML(Security Assertion Markup Language) 기반 SSO 로그인을 설정하려면 을 참조하십시오 <<SSO 자격 증명을 구성합니다>>.
 
 
 
