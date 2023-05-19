@@ -22,7 +22,7 @@ xCP SMB는 Windows 클라이언트 호스트 시스템을 사용하여 병렬 I/
 
 xCP SMB 전환 및 마이그레이션에는 다음과 같은 사용자 로그인 요구 사항이 있습니다.
 
-* xCP 호스트 시스템: xCP 호스트 사용자에게 관리자 권한이 있어야 합니다(이 사용자는 xCP SMB 호스트 시스템에서 "BUILTIN\Administrators" 그룹에 속해야 함).
+* xCP 호스트 시스템: xCP 호스트 사용자에게 관리자 권한이 있어야 합니다(사용자는 타겟 SMB 서버의 "BUILTIN\Administrators" 그룹에 속해야 함).
 * Active Directory의 감사 및 보안 로그 정책에 마이그레이션 또는 xCP 호스트 사용자를 추가합니다. Windows 10에서 '감사 및 보안 로그 관리' 정책을 찾으려면 다음 단계를 수행하십시오.
 +
 .단계
