@@ -22,7 +22,7 @@ xCP를 업그레이드하려면 현재 설치를 삭제하고 최신 버전의 �
 | 항목 | 요구 사항 
 
 
-| 시스템 | 64비트 Intel 또는 AMD 서버, 최소 4코어 및 32GB RAM 
+| 시스템 | 64비트 Intel 또는 AMD 서버, 최소 8코어 및 64GB RAM 
 
 
 | 운영 체제 및 소프트웨어 | RHEL8 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] 를 참조하십시오 
@@ -37,7 +37,7 @@ xCP를 업그레이드하려면 현재 설치를 삭제하고 최신 버전의 �
 | 지원되는 프로토콜 버전입니다 | NFSv3 및 NFSv4(POSIX 및 ACL) 
 
 
-| 지원되는 브라우저(파일 분석만 해당) | xCP File Analytics는 Google Chrome 버전 76 이상을 지원합니다. 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] 지원되는 모든 브라우저 버전에 대한 매트릭스 
+| 지원되는 브라우저(파일 분석만 해당) | 을 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] XCP File Analytics에 지원되는 모든 브라우저 버전에 대한 매트릭스입니다. 
 |===
 
 NOTE: 라이브 소스 마이그레이션에 권장되는 구성은 8코어 및 64GB RAM입니다.

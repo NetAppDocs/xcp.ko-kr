@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: xcp-plan-hdfs-data-migration.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, hdfs, file, analytics 
+summary: NFS 데이터 마이그레이션 계획 
+---
+= HDFS 데이터 마이그레이션 계획
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+HDFS 데이터 마이그레이션 계획
+
+
+
+== 스캔
+
+를 클릭합니다 `scan` 명령을 재귀적으로 실행하면 전체 소스 경로가 스캔되고 스캔 종료 시 파일 구조에 대한 통계가 인쇄됩니다.
+
+* `xcp scan HDFS [hdfs://<hdfs mounted path> ]`
+* 'xCP 스캔 HDFS:///demo/user1'
+* `xcp scan s3://my-bucket`
+* `xcp scan -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> s3://my-bucket`
+
+
+자세한 내용은 xCP 도움말 검색을 실행하십시오.

@@ -40,7 +40,7 @@ NOTE: 업그레이드할 수 있는 옵션이 없습니다. 기존 버전을 교
 | 지원되는 프로토콜 버전입니다 | 모든 SMB 프로토콜 버전 
 
 
-| 지원되는 브라우저(파일 분석만 해당) | xCP File Analytics는 Google Chrome 버전 76 이상을 지원합니다. 지원되는 모든 브라우저 버전은 IMT 매트릭스를 참조하십시오 
+| 지원되는 브라우저(파일 분석만 해당) | 을 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] XCP File Analytics에 지원되는 모든 브라우저 버전에 대한 매트릭스입니다. 
 |===
 
 

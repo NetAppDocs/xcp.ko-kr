@@ -108,7 +108,23 @@ summary: xCP NFS 오류 문제 해결
 | ''xCP: error: batch 2: child process failed (exit code-6): recv <type 'exceptions.EOFError'>:' | 시스템 메모리를 늘리고 테스트를 다시 실행하십시오. 
 
 
-| `xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367` | 파일 경로에 콜론(:)이 있는 경우 콜론 3개(:::)를 대신 사용합니다. 
+| `xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367` | NFS 서버 공유 경로 이름에 콜론이 하나 이상 있는 경우 단일 콜론(:) 대신 이중 콜론(:)을 사용하여 NFS 서버 IP와 NFS 서버 공유 경로를 분리하십시오. 
+
+
+| SnapLock 볼륨은 이후에 WORM 파일을 유지하지 않습니다 `xcp copy` 작동.  a| 
+xCP는 WORM 파일을 볼륨에 성공적으로 복사하지만 파일은 SnapLock 볼륨에 의해 유지되지 않습니다.
+
+. 를 수행합니다 `xcp copy` 소스에서 타겟 볼륨으로의 작업:
+`xcp copy src_server:/src_export dst_server:/dst_export`
+. 를 사용합니다 `xcp chmod` 대상 볼륨의 파일 권한을 * readonly * 로 변경하는 명령:
+`xcp chmod -mode  a-w  dst_server:/dst_export`
+
+
+위 단계가 완료되면 SnapLock 볼륨이 복사된 파일을 보존하기 시작합니다.
+
+
+NOTE: SnapLock 볼륨의 보존 시간은 볼륨의 기본 보존 정책에 따라 결정됩니다. 마이그레이션을 시작하기 전에 볼륨 보존 설정을 확인합니다. link:https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.html["보존 시간을 설정합니다"^]
+
 |===
 
 

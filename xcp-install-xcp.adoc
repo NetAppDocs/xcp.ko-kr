@@ -4,7 +4,7 @@ permalink: xcp-install-xcp.html
 keywords: netapp, xcp, install, installing, download, downloading, license, preparing, system 
 summary: xCP를 설치합니다 
 ---
-= xCP를 설치합니다
+= xCP 설치를 준비합니다
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: xCP를 설치합니다
 
 
 [role="lead"]
-xCP를 설치합니다.
+설치 준비 과정에서 xCP를 다운로드하고 라이센스를 얻은 다음 시스템을 준비합니다.
 
 
 

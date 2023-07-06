@@ -4,10 +4,10 @@ sidebar: sidebar
 keywords: release, notes, new, features, fixed, issues, known, xcp 
 summary: 새로운 기능, 업그레이드 정보, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다. 
 ---
-= xCP v1.9.1 릴리스 정보
+= xCP v1.9.2 릴리스 정보
 :allow-uri-read: 
 
 
-를 클릭합니다 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2884968["xCP v1.9.1 릴리스 정보"^] 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.
+를 클릭합니다 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2885805["xCP v1.9.2 릴리스 정보"^] 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.
 
 릴리즈 노트에 액세스하려면 NetApp Support 사이트에 로그인해야 합니다.

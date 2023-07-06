@@ -60,9 +60,7 @@ C:\xcp>xcp sync \\<source SMB share> \\<destination SMB share>
 
 [NOTE]
 ====
-* Verify 작업 중에 '-preserve-atime' 플래그를 riting 명령과 함께 사용하여 소스의 액세스 시간을 보존할 수 있습니다.
-* Verify 작업 중에 riting 명령과 함께 -nocatime 플래그를 사용하여 액세스 시간 차이를 제외할 수 있습니다.
-
+Verify 작업 중에 '-preserve-atime' 플래그를 riting 명령과 함께 사용하여 소스의 액세스 시간을 보존할 수 있습니다.
 
 ====
 * 예: *

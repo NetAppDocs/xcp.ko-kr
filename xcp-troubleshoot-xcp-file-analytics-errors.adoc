@@ -81,4 +81,36 @@ sudo systemctl postgresql.service` 를 다시 시작합니다
 
 
 | 지정된 파일 서버에서 내보낸 파일 시스템의 총 공간은 할당된 물리적 스토리지에 비해 더 많은 공간을 표시할 수 있습니다. | 이 문제는 볼륨 내에 qtree 레벨의 내보내기가 있는 경우에 발생할 수 있습니다. 예를 들어, '/vol1'로 내보낸 볼륨 크기가 10GB이고 볼륨 '/vol1/qtree1' 안에 qtree가 있는 경우 xCP show 명령은 'vol1' 크기를 10GB로, qtree1' 크기를 10GB로 표시합니다. xCP File Analytics는 두 내보내기 모두의 공간을 합산하고 총 공간을 제공합니다. 이 경우 20GB입니다. qtree1(qtree1)이 논리적 공간이라는 것은 이해할 수 없습니다. 
+
+
+| 설치 성공 후 사이트에 연결할 수 없거나 사용자 로그인에 실패했습니다.  a| 
+. xCP 서비스가 실행 중인지 확인합니다.
+`service xcp status`
+. xCP 수신 작업을 시작하고 오류가 없는지 확인합니다.
++
+`xcp –listen`
+
+. 다음 오류가 표시되면 yum을 사용하여 과 같은 CodeReady 패키지를 설치합니다 `yum install codeready-builder-for-rhel-8-x86_64-rpms`:
+
+
+[listing]
+----
+Error:
+-------
+Traceback (most recent call last):
+  File "xcp.py", line 1146, in <module>
+  File "xcp.py", line 1074, in main
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "rest/routes.py", line 61, in <module>
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "onelogin/saml2/auth.py", line 14, in <module>
+xmlsec.Error: (1, 'cannot load crypto library for xmlsec.')
+[23891] Failed to execute script 'xcp' due to unhandled exception!
+----
 |===

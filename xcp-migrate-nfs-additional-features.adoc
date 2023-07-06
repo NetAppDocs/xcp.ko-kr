@@ -58,3 +58,25 @@ xcp chown -user-from user1 -user user2 file:///mnt/nfs_mount_point/
 xcp chown -group-from group1 -group group2 nfs_server01.netapp.com:/export1/
 ....
 자세한 내용은 xCP 도움말 chown 명령을 실행하십시오.
+
+
+
+== xCP 추정
+
+xCP 추정 기능은 기준을 완료하는 데 걸리는 시간을 예측합니다 `copy` 소스에서 대상으로 작업을 수행합니다. 기준선을 완료하는 데 필요한 예상 시간을 계산합니다 `copy` CPU, RAM, 네트워크 또는 기타 매개변수와 같이 현재 사용 가능한 모든 시스템 리소스를 사용하여 작업을 수행합니다. 를 사용할 때 `-target` xCP는 샘플 복사 작업을 실행하여 예상 시간을 찾습니다.
+
+* 예 *
+
+....
+server : NFS server IP
+export : NFS exported path for the above IP
+
+xcp static estimation
+xcp estimate -id <scan id>
+
+xcp live estimation with default time
+xcp estimate -id <scan id> -target server:/export
+
+xcp live estimation with -t option
+xcp estimate -id <scan id> -t <time for which estimation should run> -target server:/export
+....

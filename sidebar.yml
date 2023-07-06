@@ -47,6 +47,8 @@ entries:
     url: "/xcp-configure-hdfs-connector-nfs.html"
   - title: 다중 노드 스케일아웃 구성
     url: "/xcp-configure-multinode-scaleout-nfs.html"
+  - title: S3 커넥터를 구성합니다
+    url: "/xcp-configure-s3-connector-nfs.html"
 - title: 데이터 마이그레이션 계획
   url: "/xcp-plan-data-migration.html"
   entries:
@@ -54,6 +56,8 @@ entries:
     url: "/xcp-plan-nfs-data-migration.html"
   - title: SMB 데이터 마이그레이션 계획
     url: "/xcp-plan-smb-data-migration.html"
+  - title: HDFS 데이터 마이그레이션 계획
+    url: "/xcp-plan-hdfs-data-migration.html"
   - title: 파일 분석을 사용하여 계획
     url: "/xcp-using-file-analytics.html"
     entries:
@@ -73,6 +77,10 @@ entries:
     url: "/xcp-migrate-nfs-data.html"
   - title: SMB 데이터 마이그레이션
     url: "/xcp-migrate-smb-data.html"
+  - title: HDFS 데이터를 마이그레이션합니다
+    url: "/xcp-migrate-hdfs-data.html"
+  - title: 동일한 호스트에서 여러 xCP 작업을 실행합니다
+    url: "/xcp-run-multiple-jobs-on-same-host.html"
   - title: 추가 NFS 기능
     url: "/xcp-migrate-nfs-additional-features.html"
 - title: 문제 해결

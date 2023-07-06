@@ -14,9 +14,10 @@ sidebar:
   - title: 릴리즈 노트
     url: "/releasenotes.html"
   - title: xCP를 시작하십시오
-    url: "/index.html"
     type: solutions
     entries:
+    - title: xCP에 대해 자세히 알아보십시오
+      url: "/index.html"
     - title: xCP NFS 애드온 기능
       url: "/xcp-nfs-add-ons.html"
     - title: 지원되지 않는 기능입니다
@@ -26,8 +27,9 @@ sidebar:
     - title: xCP에서 사용하는 포트
       url: "/xcp-ports-used.html"
   - title: xCP를 설치합니다
-    url: "/xcp-install-xcp.html"
     entries:
+    - title: xCP 설치를 준비합니다
+      url: "/xcp-install-xcp.html"
     - title: xCP NFS용 Linux를 준비합니다
       url: "/xcp-prepare-linux-for-xcp-nfs.html"
     - title: xCP SMB용 Windows를 준비합니다
@@ -56,6 +58,8 @@ sidebar:
       url: "/xcp-configure-hdfs-connector-nfs.html"
     - title: 다중 노드 스케일아웃 구성
       url: "/xcp-configure-multinode-scaleout-nfs.html"
+    - title: S3 커넥터를 구성합니다
+      url: "/xcp-configure-s3-connector-nfs.html"
   - title: 데이터 마이그레이션 계획
     url: "/xcp-plan-data-migration.html"
     entries:
@@ -63,6 +67,8 @@ sidebar:
       url: "/xcp-plan-nfs-data-migration.html"
     - title: SMB 데이터 마이그레이션 계획
       url: "/xcp-plan-smb-data-migration.html"
+    - title: HDFS 데이터 마이그레이션 계획
+      url: "/xcp-plan-hdfs-data-migration.html"
     - title: 파일 분석을 사용하여 계획
       url: "/xcp-using-file-analytics.html"
       entries:
@@ -79,9 +85,15 @@ sidebar:
   - title: 데이터 마이그레이션
     entries:
     - title: NFS 데이터 마이그레이션
-      url: "/xcp-migrate-nfs-data.html"
+      entries:
+      - title: NFS 데이터를 마이그레이션하는 명령입니다
+        url: "/xcp-migrate-nfs-data.html"
     - title: SMB 데이터 마이그레이션
       url: "/xcp-migrate-smb-data.html"
+    - title: HDFS 데이터를 마이그레이션합니다
+      url: "/xcp-migrate-hdfs-data.html"
+    - title: 동일한 호스트에서 여러 xCP 작업을 실행합니다
+      url: "/xcp-run-multiple-jobs-on-same-host.html"
     - title: 추가 NFS 기능
       url: "/xcp-migrate-nfs-additional-features.html"
   - title: 문제 해결
