@@ -74,7 +74,7 @@ entries:
 - title: 데이터 마이그레이션
   entries:
   - title: NFS 데이터 마이그레이션
-    url: "/xcp-migrate-nfs-data.html"
+    url: "/xcp-migrate-data.html"
   - title: SMB 데이터 마이그레이션
     url: "/xcp-migrate-smb-data.html"
   - title: HDFS 데이터를 마이그레이션합니다
