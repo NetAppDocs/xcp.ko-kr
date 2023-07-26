@@ -812,9 +812,6 @@
   <block id="16933dfe56aff83cb6998c3667c2f0cf" category="paragraph">xCP 1.9.2부터 S3(Simple Storage Service) 커넥터를 사용하면 HDFS(Hadoop Distributed File System) 파일 시스템에서 S3 오브젝트 스토리지로 데이터를 마이그레이션할 수 있으므로 XCP 데이터 마이그레이션 범위가 향상됩니다.</block>
   <block id="677857bd3ebd1f41c85f70280b227d8f" category="paragraph-title">지원되는 마이그레이션 사용 사례</block>
   <block id="ed0f619faede22039440d1fe21bcb0e9" category="paragraph">S3 커넥터에 대해 지원되는 마이그레이션 사용 사례는 다음과 같습니다.</block>
-  <block id="2268dc053f46fc24ae89f30faa812246" category="list-text">HDFS 또는 NFS에서 NetApp StorageGRID로 마이그레이션</block>
-  <block id="f10c40e18ecc26639294205a739fbd18" category="list-text">HDFS 또는 NFS에서 Amazon S3로 마이그레이션</block>
-  <block id="d3457be5101b05e590b80f8f7107b022" category="list-text">HDFS 또는 NFS에서 NetApp ONTAP S3로 마이그레이션</block>
   <block id="9caa7c5b602fa58bf008c08a7e479da6" category="admonition">현재 MapR는 HDFS에 대해서만 검증 및 지원됩니다.</block>
   <block id="d006b10e4564e8049b786f2138530862" category="paragraph">에 대한 지원<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block>,<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block>,<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block>,<block ref="69f2afc2390cec954f7c208b07212d39" prefix=" " category="inline-code"></block> 및<block ref="099af53f601532dbd31e0ea99ffdeb64" prefix=" " category="inline-code"></block> S3 커넥터에 대해 명령을 사용할 수 있습니다.</block>
   <block id="c29d1e0e67cc2410608faeefbb62dcb8" category="paragraph-title">지원되지 않는 기능입니다</block>
@@ -888,4 +885,7 @@
   <block id="bd843a39d27307ca3a4420e90c5e228f" category="doc">xCP v1.9.2 문서</block>
   <block id="84f3449f04bbc191eb611f160d99dcfc" category="paragraph">NetApp XCP 정보 라이브러리에 오신 것을 환영합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 xCP v1.9.2 소프트웨어 설명서를 찾을 수 있습니다.</block>
   <block id="ac1b0e3122e91e04b7f9d9e2eea0accb" category="paragraph">NetApp는 1년 xCP 라이센스를 무료로 제공합니다. 에서 라이센스 파일을 얻을 수 있습니다 <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. 라이센스 포털에서는 다양한 라이센스 옵션을 제공합니다. 1년 후에는 동일한 포털을 사용하여 1년 동안 라이센스를 갱신할 수 있습니다.</block>
+  <block id="9351e261865c10b81be01c7298324b0f" category="list-text">HDFS에서 NetApp StorageGRID로 마이그레이션</block>
+  <block id="c19152294b5e6dfeaa6ca9c77e0f12e1" category="list-text">HDFS에서 Amazon S3로 마이그레이션</block>
+  <block id="3df8a75d6363358c9c30a90e1f018d65" category="list-text">HDFS에서 NetApp ONTAP S3로 마이그레이션</block>
 </blocks>

@@ -14,9 +14,9 @@ xCP 1.9.2부터 S3(Simple Storage Service) 커넥터를 사용하면 HDFS(Hadoop
 .지원되는 마이그레이션 사용 사례
 S3 커넥터에 대해 지원되는 마이그레이션 사용 사례는 다음과 같습니다.
 
-* HDFS 또는 NFS에서 NetApp StorageGRID로 마이그레이션
-* HDFS 또는 NFS에서 Amazon S3로 마이그레이션
-* HDFS 또는 NFS에서 NetApp ONTAP S3로 마이그레이션
+* HDFS에서 NetApp StorageGRID로 마이그레이션
+* HDFS에서 Amazon S3로 마이그레이션
+* HDFS에서 NetApp ONTAP S3로 마이그레이션
 
 
 
