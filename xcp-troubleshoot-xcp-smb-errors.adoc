@@ -20,6 +20,19 @@ summary: xCP SMB 오류 문제 해결
 | 문제 | 해결 방법 
 
 
+ a| 
+소스, 대상 또는 둘 다 디렉토리가 없는 교차점이고 온라인 라이센스가 마이그레이션에 사용되는 경우 추적 오류가 발생할 수 있습니다. 이 경우 XCP 명령의 상태는 입니다 `PASSED` 그러나 콘솔 출력 끝에 다음 오류가 반환됩니다.
+
+[listing]
+----
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "xcp\stats.py", line 214, in call_home
+  File "xcp\histograms.py", line 387, in calculate_averages
+ZeroDivisionError: division by zero
+----| 온라인 라이센스 대신 오프라인 라이센스를 사용합니다. 
+
+
 | xCP: error: 이 라이센스가 만료되었습니다 | 에서 새 xCP 라이센스를 갱신하거나 받으십시오 link:https://xcp.netapp.com/["xCP 사이트"^]. 
 
 
@@ -44,5 +57,10 @@ summary: xCP SMB 오류 문제 해결
 | ''xCP copy: error' to obtain fallback security principal (Post adding destination box entry in the hosts files) 오류 메시지 xcp.log: ' pywintypes.error: (87, ' LookupAccountName ', ' the parameter is incorrect.')' | 대체 사용자/그룹 옵션에 대한 매개 변수가 잘못되었습니다. 대체 사용자/그룹 옵션에 대한 올바른 구문을 사용하여 명령을 다시 실행합니다 
 
 
-| xcp.log 파일에 'xCP 복사' 및 ACL 마이그레이션 오류 메시지가 기록됨: 'pywintypes.error':'(1314, 'GetNamedSecurityInfo', '클라이언트에 필요한 권한이 없습니다.' | 마이그레이션 사용자가 소유한 권한이 있는 경우 xCP는 소유자, 그룹 및 DACL만 가져올 수 있고 SACL을 가져올 수 없기 때문에 사용자는 보안 설명자와 관련된 문제를 겪고 있습니다. 마이그레이션 사용자를 Active Directory의 "감사 및 보안 로그 관리" 정책에 추가합니다. 참조: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["감사 및 보안 로그를 관리합니다"^] 
+| `xcp copy` ACL 마이그레이션 포함
+
+xcp.log 파일에 기록된 오류 메시지:
+`pywintypes.error`: `(1314, 'GetNamedSecurityInfo', 'A required privilege is not held by the client.')` | 마이그레이션 사용자 계정에는 소유자, 그룹 및 DACL을 검색하는 데 필요한 권한만 있기 때문에 보안 설명자와 관련된 문제입니다. SACL을 검색할 수 없습니다.
+마이그레이션 사용자 계정을 Active Directory의 "감사 및 보안 로그 관리" 정책에 추가합니다.
+참조: link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["감사 및 보안 로그를 관리합니다"^] 
 |===
