@@ -9,15 +9,15 @@ settings:
   langs: ko-kr,us-en,ja-jp,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
 sidebar:
   entries:
-  - title: 홈
-    url: "/home.html"
+  - title: NetApp XCP 설명서
+    url: "/index.html"
   - title: 릴리즈 노트
     url: "/releasenotes.html"
   - title: xCP를 시작하십시오
     type: solutions
     entries:
     - title: xCP에 대해 자세히 알아보십시오
-      url: "/index.html"
+      url: "/xcp-index.html"
     - title: xCP NFS 애드온 기능
       url: "/xcp-nfs-add-ons.html"
     - title: 지원되지 않는 기능입니다
@@ -70,8 +70,9 @@ sidebar:
     - title: HDFS 데이터 마이그레이션 계획
       url: "/xcp-plan-hdfs-data-migration.html"
     - title: 파일 분석을 사용하여 계획
-      url: "/xcp-using-file-analytics.html"
       entries:
+      - title: 데이터 마이그레이션 계획 수립
+        url: "/xcp-file-analytics-plan-data-migration.html"
       - title: 파일 분석 액세스
         url: "/xcp-access-file-analytics.html"
       - title: 파일 서버를 추가합니다
@@ -102,5 +103,5 @@ sidebar:
       url: "/xcp-troubleshoot-xcp-smb-errors.html"
     - title: xCP File Analytics 오류 문제 해결
       url: "/xcp-troubleshoot-xcp-file-analytics-errors.html"
-  - title: 자세한 정보를 확인하십시오
-    url: "/get-more-information.html"
+  - title: 법적 고지
+    url: "/legal-notices.html"

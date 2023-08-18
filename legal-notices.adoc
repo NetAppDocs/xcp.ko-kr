@@ -1,0 +1,55 @@
+---
+permalink: legal-notices.html 
+sidebar: sidebar 
+keywords:  
+summary:  
+---
+= 법적 고지
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+법적 고지 사항은 저작권 선언, 상표, 특허 등에 대한 액세스를 제공합니다.
+
+
+
+== 저작권
+
+link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/company/legal/copyright/"^]
+
+
+
+== 상표
+
+NetApp, NetApp 로고, NetApp 상표 페이지에 나열된 마크는 NetApp Inc.의 상표입니다. 기타 회사 및 제품 이름은 해당 소유자의 상표일 수 있습니다.
+
+link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/company/legal/trademarks/"^]
+
+
+
+== 특허
+
+NetApp 소유 특허 목록은 다음 사이트에서 확인할 수 있습니다.
+
+link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf"^]
+
+
+
+== 개인 정보 보호 정책
+
+link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.com/company/legal/privacy-policy/"^]
+
+
+
+== 오픈 소스
+
+통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.
+
+* link:media/xcp_1.9.2_notice.pdf["NetApp XCP 1.9.2 참고 사항"^]
+* link:media/xcp_1.9.1_notice.pdf["NetApp XCP 1.9.1 공지"^]
+* link:media/xcp_1.9_notice.pdf["NetApp XCP 1.9에 대한 고지 사항"^]
+* link:media/xcp_1.8.1_notice.pdf["NetApp XCP 1.1.1에 대한 고지 사항"^]
+* link:media/xcp_1.8_notice.pdf["NetApp XCP 1.8에 대한 고지 사항"^]
+

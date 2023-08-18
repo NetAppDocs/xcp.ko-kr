@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: xcp-using-file-analytics.html 
+permalink: xcp-file-analytics-plan-data-migration.html 
 keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, file, analytics 
 summary: 파일 분석을 사용하여 계획 
 ---
-= 파일 분석을 사용하여 계획
+= 데이터 마이그레이션 계획 수립
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -79,9 +79,9 @@ hdfs:///user/demo/d1
 file:///mnt/nfs-server0/d3
 ----
 * 피의자지휘의 예:
-
-
++
 [listing]
 ----
 ./xcp verify hdfs:///user/demo/d2 file:///mnt/nfs-server0/d3
 ----
+

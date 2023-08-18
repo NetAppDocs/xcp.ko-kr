@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: xcp-index.html 
+keywords: netapp, xcp, about, migration, file analytics, nfs, smb 
+summary: NetApp XCP는 확장 가능한 고성능 데이터 마이그레이션을 지원합니다 
+---
+= xCP에 대해 자세히 알아보십시오
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp XCP는 사용 가능한 모든 시스템 리소스를 활용하여 대용량 데이터 세트 및 고성능 데이터 마이그레이션을 관리함으로써 확장성과 성능을 향상시키도록 설계되었습니다. xCP는 고객 보고서를 생성하는 옵션을 통해 파일 시스템에 대한 완벽한 가시성을 제공합니다. 일치 및 서식 지정 기능을 통해 모든 보고 요구 사항에 맞게 보고서를 사용자 지정할 수 있습니다.
+
+NFS 또는 SMB 시스템용 XCP를 다음 솔루션 중 하나로 사용하십시오.
+
+* 마이그레이션 솔루션
+* 파일 분석 솔루션
+
+
+xCP는 NFS 및 SMB 프로토콜을 지원하는 단일 패키지로 제공되는 명령줄 소프트웨어입니다. xCP는 NFS 데이터 세트를 위한 Linux 바이너리로 제공되며 SMB 데이터 세트를 위한 Windows 실행 파일로 제공됩니다.
+
+xCP File Analytics는 파일 공유를 감지하고 파일 시스템에서 검사를 실행하며 파일 분석을 위한 대시보드를 제공하는 호스트 기반 소프트웨어입니다. xCP File Analytics는 NetApp 및 타사 시스템에서 모두 작동하며 Linux 또는 Windows 호스트에서 실행되어 NFS 및 SMB에서 내보낸 파일 시스템에 대한 분석 기능을 제공합니다. 파일 분석 GUI의 바이너리는 NFS 및 SMB 프로토콜을 지원하는 단일 패키지에 포함되어 있습니다.
+
+
+NOTE: xCP 바이너리가 코드에 서명되었습니다. 자세한 내용은 'NetApp_xCP_<버전>.tgz'의 README를 참조하십시오.
+
+xCP CLI는 강력합니다. 자세한 내용은 에서 _xCP Reference_를 다운로드하십시오 link:https://xcp.netapp.com/["xCP 사이트"^].
+
+* xCP 워크플로우 *
+
+image:xcp_image1.png["xCP 워크플로우 이미지"]
