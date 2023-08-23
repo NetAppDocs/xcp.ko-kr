@@ -34,14 +34,6 @@ summary: 일부 기능은 XCP NFS 또는 XCP SMB에서 지원되지 않습니다
 
 
 
-| HDFS(Hadoop Distributed File System) 커넥터  a| 
-* '동기화' 명령은 HDFS 커넥터를 지원하지 않습니다
-* HDFS 파일 시스템은 심볼 링크(심볼 링크), 하드 링크 또는 특수 파일을 지원하지 않습니다
-* 소스가 활성 상태일 때는 'copy' 명령을 사용하지 않아야 합니다
-
-
-
-
 | 리눅스 | xCP 1.6.3에서 지원되던 이전 Linux 배포판에서는 더 이상 xCP가 지원되지 않습니다. 
 
 
