@@ -14,7 +14,7 @@ summary: POSIX 커넥터를 통해 XCP는 NFSv4, XFS 및 Veritas와 같은 Linux
 
 
 [role="lead"]
-xCP 1.9.2부터 "-minmem" 기능을 사용하여 각 작업에 충분한 리소스가 호스트에 있는 한 단일 xCP 호스트에서 여러 xCP 작업 또는 명령을 실행할 수 있습니다. "-minmem" 기능을 지원하는 명령을 실행하면 xCP는 최소 호스트 메모리를 사용하여 작업을 완료합니다. 이 작업은 동일한 호스트 구성에서 추가 작업을 실행할 용량을 생성합니다.
+xCP 1.9.2부터 호스트에 각 작업에 충분한 리소스가 있는 경우 단일 xCP 호스트에서 여러 개의 xCP 작업 또는 명령을 실행할 수 있습니다. 여러 작업을 지원하는 명령을 실행하면 XCP는 최소 호스트 메모리를 사용하여 작업을 완료하므로 동일한 호스트 구성에서 추가 작업을 실행할 수 있는 용량이 생성됩니다.
 
 
 
@@ -23,7 +23,7 @@ xCP 1.9.2부터 "-minmem" 기능을 사용하여 각 작업에 충분한 리소�
 각 XCP 작업에 대해 중간 규모에서 대규모 마이그레이션을 위해 최대 64GB의 호스트 메모리와 8개의 코어를 허용해야 합니다.
 
 
-NOTE: SMB 데이터 마이그레이션에서는 "-minmem" 기능이 지원되지 않습니다.
+NOTE: SMB 데이터 마이그레이션에는 동일한 호스트에서 여러 XCP 작업을 실행할 수 없습니다.
 
 
 
@@ -35,7 +35,7 @@ NOTE: SMB 데이터 마이그레이션에서는 "-minmem" 기능이 지원되지
 
 == 지원되는 명령
 
-"-minmem" 기능은 다음 xCP 명령을 통해 지원됩니다.
+동일한 호스트에서 여러 XCP 작업을 실행할 수 있는 경우 다음 XCP 명령을 사용할 수 있습니다.
 
 * `scan`
 * `copy`
@@ -51,28 +51,4 @@ NOTE: SMB 데이터 마이그레이션에서는 "-minmem" 기능이 지원되지
 
 == 지원되지 않는 명령입니다
 
-"-minmem" 기능은 에서 지원되지 않습니다 `sync` 명령.
-
-
-
-== 명령 예
-
-"-minmem" 기능을 사용하려면 다음 예제와 같이 xCP 명령에 "-minmem" 옵션을 포함해야 합니다.
-
-* `xcp copy -newid _new ID_ *-minmem* src_server:/src_export dst_server:/dst_export`
-* `xcp resume [options] -id *-minmem* _copy ID_`
-* `xcp verify *-minmem* src_server:/src_export dst_server:/dst_export`
-
-
-* HDFS 경로 예 *:
-
-* `xcp copy *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
-* `xcp verify *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
-* `xcp copy -minmem hdfs:///user/demo1/data s3://bucket1`
-
-
-* POSIX 경로 예 *:
-
-* `xcp copy *-minmem* -newid _new ID_ \file:///mnt/source \file:///mnt/dest`
-* `xcp verify *-minmem* \file:///mnt/source \file:///mnt/dest`
-
+동일한 호스트에서 여러 XCP 작업을 실행하는 것은 에서 지원되지 않습니다 `sync` 명령.

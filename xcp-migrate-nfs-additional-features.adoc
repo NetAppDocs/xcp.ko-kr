@@ -80,3 +80,16 @@ xcp estimate -id <scan id> -target server:/export
 xcp live estimation with -t option
 xcp estimate -id <scan id> -t <time for which estimation should run> -target server:/export
 ....
+
+
+== 인덱스 삭제
+
+를 사용할 수 있습니다 `indexdelete` 카탈로그 인덱스를 삭제하는 명령입니다.
+
+* 예 *
+
+[listing]
+----
+xcp indexdelete
+----
+실행 `xcp help indexdelete` 를 참조하십시오.

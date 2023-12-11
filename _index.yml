@@ -1,7 +1,7 @@
 ---
 indexpage:
   lead: NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터
-    마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 XCP 1.9.2 소프트웨어에 대한 설명서를 찾을 수 있습니다.
+    마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 XCP 1.9.3 소프트웨어에 대한 문서를 찾을 수 있습니다.
     이전 버전의 XCP에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.
   tiles:
   - title: 시작하십시오
@@ -12,6 +12,8 @@ indexpage:
       url: "/xcp-index.html"
   - title: 이전 버전
     links:
+    - title: NetApp XCP 1.9.2
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64804&language=en-US
     - title: NetApp XCP 1.9.1
       url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64637&language=en-US
     - title: NetApp XCP 1.9

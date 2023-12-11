@@ -89,6 +89,9 @@ sidebar:
       url: "/xcp-migrate-data.html"
     - title: SMB 데이터 마이그레이션
       url: "/xcp-migrate-smb-data.html"
+      entries:
+      - title: NTFS 대체 데이터 스트림 SMB를 위한 마이그레이션
+        url: "/xcp-smb-ads.html"
     - title: HDFS 데이터를 마이그레이션합니다
       url: "/xcp-migrate-hdfs-data.html"
     - title: 동일한 호스트에서 여러 xCP 작업을 실행합니다

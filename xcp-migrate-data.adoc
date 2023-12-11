@@ -34,7 +34,7 @@ xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
 ----
 xcp copy -newid <id> file:///mnt/source file:///mnt/dest
 ----
-자세한 내용은 xCP 도움말 사본을 참조하십시오.
+실행 `xcp help copy` 를 참조하십시오.
 
 
 
@@ -48,7 +48,7 @@ xcp copy -newid <id> file:///mnt/source file:///mnt/dest
 ----
 xcp resume [options] -id <id used for copy>
 ----
-자세한 내용은 xCP 도움말 이력서를 참조하십시오.
+실행 `xcp help resume` 를 참조하십시오.
 
 
 
@@ -62,7 +62,7 @@ xcp resume [options] -id <id used for copy>
 ----
 xcp sync [options] -id <id used for copy>
 ----
-자세한 내용은 xCP 도움말 동기화 를 참조하십시오.
+실행 `xcp help sync` 를 참조하십시오.
 
 
 
@@ -82,4 +82,30 @@ xcp verify src_server:/src_export dst_server:/dst_export
 ----
 xcp verify file:///mnt/source file:///mnt/dest
 ----
-자세한 내용은 xCP 도움말 검증 을 참조하십시오.
+실행 `xcp help verify` 를 참조하십시오.
+
+
+
+== iSync 를 선택합니다
+
+를 클릭합니다 `isync` 명령은 소스와 대상을 비교하고 카탈로그 인덱스를 사용하지 않고 타겟의 차이점을 동기화합니다.
+
+* 예 *
+
+[listing]
+----
+xcp isync <source_ip_address>:/src <destination_ip_address>:/dest
+
+----
+을 사용할 수 있습니다 `isync` 를 사용하여 `estimate` 에 걸리는 시간을 예측하는 옵션입니다 `isync` 증분 변경 내용을 동기화하는 명령입니다. 를 클릭합니다 `-id` 매개 변수는 이전 복사 작업의 카탈로그 이름을 지정합니다.
+
+
+NOTE: 사용된 데이터 세트 크기의 25% 이상을 변경하면 이(가) 사용됩니다 `isync estimate` 명령에 필요한 결과가 표시되지 않을 수 있습니다.
+
+* 예 *
+
+[listing]
+----
+xcp isync estimate -id <name>
+----
+실행 `xcp help isync` 를 참조하십시오.

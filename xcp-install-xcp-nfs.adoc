@@ -31,7 +31,7 @@ summary: xCP NFS 설치
 | 시스템 | 64비트 Intel 또는 AMD 서버, 최소 8코어 및 64GB RAM 
 
 
-| 운영 체제 및 소프트웨어 | RHEL8 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] 를 참조하십시오 
+| 운영 체제 및 소프트웨어 | 를 참조하십시오 link:https://mysupport.netapp.com/matrix/["IMT"^] 를 참조하십시오 
 
 
 | 특별 요구 사항 | 소스 및 대상 NFSv3 내보내기에 대한 네트워크 연결 및 루트 레벨 액세스 다른 활성 애플리케이션은 없습니다 

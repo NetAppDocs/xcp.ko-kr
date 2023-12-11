@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-ads.html 
+keywords: netapp, xcp, smb, ads, alternate, data, streams, ntfs 
+summary: NTFS 대체 데이터 스트림 SMB를 위한 마이그레이션 
+---
+= NTFS 대체 데이터 스트림 SMB를 위한 마이그레이션
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP 1.9.3부터 XCP SMB는 를 사용하여 NTFS ADS(대체 데이터 스트림)의 마이그레이션을 지원합니다 `-ads` XCP SMB 명령 옵션.
+
+
+
+== 지원되는 사용 사례
+
+XCP SMB를 사용할 수 있습니다 `copy` 및 `sync` ADS 및 XCP SMB를 포함하는 데이터를 마이그레이션하는 명령입니다 `scan` ADS에 대한 SMB 공유를 스캔하는 명령입니다.
+
+
+
+== 지원되는 XCP SMB 명령
+
+다음 XCP SMB 명령은 를 지원합니다 `-ads` 옵션:
+
+* `scan`
+* `copy`
+* `verify`
+* `sync`
+
+
+
+
+== 명령 예
+
+다음 명령 예는 를 사용하는 방법을 보여 줍니다 `-ads` 옵션:
+
+* `xcp scan -ads \\<SMB share>`
+* `xcp copy -ads \\<source SMB share>  \\<destination SB share>`
+* `xcp sync -ads \\<source SMB share>  \\<destination SB share>`
+* `xcp verify -ads \\<source SMB share>  \\<destination SB share>`
+

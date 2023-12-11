@@ -98,7 +98,6 @@
   <block id="e9f26e76bb6ef3ae1813e1df1d8cc8e2" category="paragraph">사용자가 차지하는 공간 그래프에는 사용자가 사용하는 공간이 표시됩니다. Username(사용자 이름) 열에는 사용자 이름(사용자 이름을 검색할 수 없는 경우 UID)이 포함되며 Space Used(사용된 공간) 열은 각 사용자 이름에 사용되는 공간을 나타냅니다.</block>
   <block id="41d6dafcb16f845ca70e42044e5de0dc" category="section-title">액세스된 파일/수정/작성된 그래프</block>
   <block id="ffe6eca8066769d129ed82d6dacd94c9" category="paragraph"><block ref="ffe6eca8066769d129ed82d6dacd94c9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1ba708bb040c1401145fd6696909842d" category="paragraph">액세스됨/수정됨/작성됨 그래프에는 초과 작업 시간이 변경된 파일 수가 표시됩니다. X축은 변경이 이루어진 기간을 나타내고 Y축은 변경된 파일 수를 나타냅니다.</block>
   <block id="58ef3ad87f99012fe52ae141775b7f98" category="admonition">SMB 스캔에서 액세스 시간(atime) 그래프를 얻으려면 스캔을 실행하기 전에 atime을 보존하려면 확인란을 선택합니다.</block>
   <block id="f3903eed8d82fea3de1576f67505c364" category="section-title">내선 번호별 파일 배포 그래픽</block>
   <block id="b6bb426f627b924dfa93dab5250445ea" category="paragraph"><block ref="b6bb426f627b924dfa93dab5250445ea" category="inline-image-macro-rx" type="image"></block></block>
@@ -174,7 +173,6 @@
   <block id="dfdcc7639b3e014792b21c9f7d5c85c0" category="summary">xCP NFS 설치</block>
   <block id="c8d71099d454656d5157731fb1f4830e" category="doc">xCP NFS를 설치합니다</block>
   <block id="c5dcd35af16918a17ee9c3a5c153f0af" category="inline-link-macro">IMT</block>
-  <block id="b7b4f4d0374211895e3064e560d36b51" category="cell">RHEL8 를 참조하십시오 <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block> 를 참조하십시오</block>
   <block id="cfca5f031a4e11845916d10e6d53c91e" category="cell">소스 및 대상 NFSv3 내보내기에 대한 네트워크 연결 및 루트 레벨 액세스 다른 활성 애플리케이션은 없습니다</block>
   <block id="306495a7669e8035296030fc21339366" category="cell">xCP 바이너리를 위한 20MB의 디스크 공간 및 /opt/NetApp/xFiles/xCP/ 디렉토리에 저장된 로그를 위한 최소 50MB의 디스크 공간</block>
   <block id="4265a6359621296a6a62e358a36f0c38" category="cell">NFSv3 및 NFSv4(POSIX 및 ACL)</block>
@@ -202,16 +200,12 @@
   <block id="fc7af6e6e28187c4a6802a620fab64b4" category="paragraph">copy 명령은 전체 소스 디렉토리 구조를 검사하여 대상 NFSv3 내보내기로 복사합니다. copy 명령을 사용하려면 소스 경로와 대상 경로가 변수로 있어야 합니다. 스캔 및 복사된 파일, 처리량/속도 및 경과 시간 세부 정보가 복사 작업 종료 시 표시됩니다.</block>
   <block id="c26fe677a830587ef1c141567a86c86a" category="paragraph">* 예: *</block>
   <block id="b2afea67c58251abc9cea9e00c6f6195" category="paragraph">* POSIX 경로 예: *</block>
-  <block id="09a50a5f71f40a01932aba8c86a8c6b2" category="paragraph">자세한 내용은 xCP 도움말 사본을 참조하십시오.</block>
   <block id="f1cefec9e2196c672a622347f1fbc325" category="section-title">다시 시작</block>
   <block id="8ca572f19659e7e1feff3c8dd1401ce1" category="paragraph">'reSUME' 명령은 카탈로그 인덱스 이름 또는 숫자를 지정하여 이전에 중단된 복사 작업을 다시 시작합니다. 카탈로그 인덱스 이름 또는 이전 복사 작업의 번호는 "&lt;catalog path&gt;:/catalog/index" 디렉토리에 저장됩니다.</block>
-  <block id="12c832a1abd774cf0f4601d95c913d20" category="paragraph">자세한 내용은 xCP 도움말 이력서를 참조하십시오.</block>
   <block id="d8e87c0927539672f54462c837be0b7f" category="section-title">동기화</block>
   <block id="1504bd4779c3c062c9078099fad0ac19" category="paragraph">'Sync' 명령어는 Catalog Index 태그 이름 또는 이전 복제 작업의 번호를 사용하여 소스 NFS 디렉토리에 대해 수행된 변경 및 수정 사항을 검사합니다. 소스 증분 변경 사항이 타겟 디렉토리에 복사 및 적용됩니다. 이전 카탈로그 인덱스 번호는 동기화 작업 # 다음에 새 [.underline]#으로 대체됩니다.</block>
-  <block id="02ab7688ebf75947479b5e30267d1d55" category="paragraph">자세한 내용은 xCP 도움말 동기화 를 참조하십시오.</block>
   <block id="5a750f86ef41f22f852c43351e3ff383" category="section-title">확인합니다</block>
   <block id="990d138c681bf32e178b6390caea1423" category="paragraph">카탈로그 인덱스 번호를 사용하지 않고 복제 작업 후 소스와 타겟 디렉토리 간의 전체 바이트 단위 데이터 비교를 수행한다. 명령은 사용 권한을 포함하여 수정 시간 및 기타 파일 또는 디렉토리 속성을 확인합니다. 또한 이 명령은 양쪽 모두에서 파일을 읽고 데이터를 비교합니다.</block>
-  <block id="8bcf9c6b645253521b5145414a80aecc" category="paragraph">자세한 내용은 xCP 도움말 검증 을 참조하십시오.</block>
   <block id="8c1d67b3b1e3cf97c5f054bf8d66089c" category="summary">SMB 데이터 마이그레이션 계획</block>
   <block id="f4eb381e275885c806213db1203bf102" category="paragraph">SMB 데이터 마이그레이션 계획</block>
   <block id="498f79c4c5bbde77f1bceb6c86fd0f6d" category="section-title">표시</block>
@@ -369,9 +363,6 @@
   <block id="ea5a201cf8a5f489b67f974cdbe8ec60" category="cell">POSIX 커넥터</block>
   <block id="b095640f647d7c14d7c809d0232cd3be" category="list-text">'동기화' 명령은 POSIX 커넥터를 지원하지 않습니다</block>
   <block id="be449fd5b6a09000629daade7fdd5583" category="list-text">소스가 활성 상태일 때는 'copy' 명령을 사용하지 않아야 합니다</block>
-  <block id="90637cbab382a9675c5bad0c7aeef15f" category="cell">HDFS(Hadoop Distributed File System) 커넥터</block>
-  <block id="b03665438ed7a747020c197d671b61c3" category="list-text">'동기화' 명령은 HDFS 커넥터를 지원하지 않습니다</block>
-  <block id="f5f0878108a9a99caae85df13ed2e0ac" category="list-text">HDFS 파일 시스템은 심볼 링크(심볼 링크), 하드 링크 또는 특수 파일을 지원하지 않습니다</block>
   <block id="edc9f0a5a5d57797bf68e37364743831" category="cell">리눅스</block>
   <block id="bd2cc77640d48204c25994ade9373d0d" category="cell">xCP 1.6.3에서 지원되던 이전 Linux 배포판에서는 더 이상 xCP가 지원되지 않습니다.</block>
   <block id="577d13f7684f9c1dad51523d52a28bf9" category="paragraph">다음 기능은 XCP SMB에서 지원되지 않습니다.</block>
@@ -379,8 +370,6 @@
   <block id="1645c787b92316670d1a71b780ece8d5" category="cell">xCP SMB에서는 NFS symlink가 지원되지 않습니다</block>
   <block id="0b3fd979e0d4902fd7e38deb4745c1a2" category="cell">스캔을 위한 ACL 옵션</block>
   <block id="d96217bc0f4d5233c2c5639e16dc5d01" category="cell">ACL은 스캔 옵션에 대해 지원되지 않습니다</block>
-  <block id="88f8d7ad6b44fe7948a187bb130df22d" category="cell">NTFS 대체 데이터 스트림</block>
-  <block id="3f48c017cdd30142ab0d06198fb84098" category="cell">xCP는 현재 대체 데이터 스트림을 지원하지 않습니다</block>
   <block id="f4915fbc2a7713a0eeea8adce10091de" category="cell">xCP 필터</block>
   <block id="ca2e34fd1c2de7fa4ca5bb236706760b" category="cell">xCP SMB 제외 옵션은 현재 필터의 패턴에 따라 디렉토리를 제외하고 해당 디렉토리의 파일 시스템을 통과합니다.</block>
   <block id="76e35710ec65c5c13523e53f9290946d" category="cell">활성 소스 지원</block>
@@ -498,30 +487,18 @@
   <block id="e9815aad4b6c2855f398a9360208dd65" category="doc">SMB용 File Analytics를 설치합니다</block>
   <block id="6a6947b743abcf4f9aaa1664bb88feba" category="paragraph">SMB용 File Analytics를 설치하거나 업그레이드합니다.</block>
   <block id="28f1937a3cc3eb0d6912c14361aae86a" category="paragraph">SMB의 시스템 요구 사항은 을 참조하십시오 <block ref="b1b298f808db7e093ee9abb7cc8bfdef" category="inline-link-macro-rx"></block>.</block>
-  <block id="17e2d63e3b45ecbfe13bcc32fec929d0" category="paragraph">* 시작하기 전에 *</block>
   <block id="e5e58d5cdf81973c4955d5ea6aede873" category="list-text">xCP SMB 서비스를 사용하려면 Linux 시스템에서 NFS용 xCP File Analytics를 구성해야 합니다.</block>
   <block id="1a192e854cfe5d8168d0d05ae2e502e3" category="list-text">Windows 시스템에서 xCP File Analytics를 구성하기 전에 Linux 시스템에서 xCP 서비스가 실행되고 있는지 확인하십시오.</block>
   <block id="b62051beb7fd4a143b6c815f0754ce91" category="section-title">SMB용 File Analytics를 새로 설치합니다</block>
   <block id="8d61f5ee9cebc1323e4406cd9c74bee3" category="paragraph">SMB용 File Analytics를 새로 설치하려면 다음 단계를 수행하십시오.</block>
-  <block id="202b59069600c80dee2f3b31bf33ce1a" category="list-text">xCP.exe 파일을 Windows C: 드라이브에 복사합니다. 이 바이너리는 tgz의 압축을 풀고 /xCP/windows에서 사용할 수 있습니다.</block>
   <block id="36cc7dd1df7adb145df0ee9cebe250c5" category="list-text">에서 xCP 라이센스 파일을 다운로드합니다 <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>.</block>
   <block id="6bbb03e83c8f1500cacb227482558dd0" category="list-text">'C:\\NetApp\xCP' 폴더를 생성하고 xCP 라이센스를 이 위치에 복사합니다.</block>
   <block id="f9a7c45c2f9e869ce9359173c559dd03" category="list-text">명령 프롬프트에서 다음 명령을 사용하여 xCP 라이센스를 활성화합니다. "xcp.exe activate"</block>
-  <block id="771f1f61b29ddab00383860a9b8fe8df" category="list-text">xCP File Analytics가 이미 구성되어 있는 Linux 상자의 /opt/netapp/xFiles/xCP/'에서 'server.key' 및 'server.crt' 파일을 C:\NetApp\xCP로 복사합니다. 선택 사항 - CA 인증서가 있는 경우 동일한 이름과 확장명을 가진 이 위치에 인증서를 배치합니다.</block>
   <block id="ad50f79627822b073378935381e28b0a" category="list-text">Windows CLI 명령 프롬프트에서 'xCP configure'를 실행합니다.</block>
   <block id="34a5eb12a40f3a927cd1680032a68a8c" category="list-text">메시지가 표시되면 XCP File Analytics 서버가 구성된 Linux 시스템의 IP 주소를 입력합니다.</block>
-  <block id="e43b30072e1c1e31e80bd2433db31830" category="list-text">메시지가 표시되면 XCP Linux File Analytics 구성 중에 입력한 데이터베이스의 암호를 입력합니다.</block>
-  <block id="cff644aa1716d68a9351188e54a1a712" category="list-text">Linux 시스템으로 이동하여 ./configure.sh를 실행합니다.</block>
-  <block id="d8da99a82dddfba37d491206159ee22d" category="list-text">기본 메뉴에서 옵션 4(Update xCP Windows Agent IP)를 선택하고 Windows 시스템의 IP 주소를 입력합니다.</block>
-  <block id="46be349b53621b4434308c0bbe45ebaf" category="list-text">Windows 시스템으로 이동하여 'xCP Listen'을 실행합니다. 이제 SMB용 xCP File Analytics가 구성됩니다. 창을 열린 상태로 유지하여 서비스를 계속 실행합니다.</block>
-  <block id="7ff768d8b3e0e35c252ee2e9baf28bc8" category="list-text">Google Chrome 브라우저에서 File Analytics를 실행하고 '\https://&lt;ip address of Linux &gt; /xCP' 페이지를 새로 고칩니다</block>
-  <block id="01f49d7de6d116ea373b4aef4a75b8bb" category="list-text">대화 상자가 표시되면 '확인'을 선택합니다. 새 탭이 열립니다. 차단된 경우 브라우저에서 팝업을 활성화하십시오. URL에 대한 개인 정보 보호 정책을 수락하면 'MB Agent is ready to use(MB 에이전트를 사용할 준비가 되었습니다)'라는 메시지가 표시됩니다. 분석 페이지를 새로 고치십시오</block>
-  <block id="d7c434c15db5d12a3bed35613610f824" category="list-text">xCP File Analytics GUI가 호스팅되는 원본 탭으로 돌아가 페이지를 새로 고칩니다. 그러면 Agents 카드 아래에 SMB 에이전트가 표시됩니다.</block>
   <block id="55b7006f6e8a19f0555a6b82ca85a801" category="section-title">SMB를 위한 파일 분석 업그레이드</block>
   <block id="1688d86172caf9b3ed1acabe15285a4f" category="paragraph">기존 File Analytics for SMB를 업그레이드하려면 다음 단계를 완료하십시오.</block>
-  <block id="a2c5f205fc0a35a88463bae625aa351b" category="list-text">File Analytics를 실행하기 전에 File Analytics가 실행 중인 Linux 서버도 업그레이드되고 서비스가 실행 중인지 확인하십시오.</block>
   <block id="a7a81082a60152f2eb36b8d78016b292" category="list-text">Windows에서는 명령줄에 CTRL-C를 입력하여 기존 XCP 서비스를 중지합니다.</block>
-  <block id="62001cf2823c6318575f560eaf3a11b2" category="list-text">xCP.exe를 최신 바이너리로 바꿉니다.</block>
   <block id="18debc7f1216480cd2c9cc97c9c22c12" category="summary">파일 분석을 사용하여 계획</block>
   <block id="384003e927f14a9663bcc9a576012dd1" category="paragraph">파일 분석을 사용하여 데이터 마이그레이션 계획</block>
   <block id="1bfd6c721b5b34a7c85fb0545cace8f2" category="admonition">xCP는 CLI인 반면 File Analytics에는 GUI가 있습니다.</block>
@@ -614,33 +591,17 @@
   <block id="23f08f66a8c926598f110a30ea423fdb" category="summary">File Analytics는 검사 결과의 그래픽 보기를 제공합니다</block>
   <block id="f0d39ea007ba94b40e0daf5ae44f9298" category="doc">파일 분석 액세스</block>
   <block id="c2fe5fdcb3117ff21509e23d6dfca2de" category="paragraph">File Analytics는 검사 결과의 그래픽 보기를 제공합니다.</block>
-  <block id="e660dfc676d8a29f573aee58d2bc89f9" category="paragraph">xCP File Analytics GUI는 파일 분석을 시각화하기 위한 그래프가 포함된 대시보드를 제공합니다. XCP File Analytics GUI는 Linux 시스템에서 XCP를 구성할 때 활성화됩니다.</block>
   <block id="471ff51c89daf6e35e8e2b5111039744" category="inline-link-macro">NetApp IMT를 참조하십시오</block>
   <block id="ae12aa4d83d4e71d628b8ca5184b9d66" category="admonition">지원되는 브라우저에서 파일 분석에 액세스하려면 를 참조하십시오 <block ref="dff6889ed90b9930dbb6c11bc90c8854" category="inline-link-macro-rx"></block>.</block>
   <block id="42f425824cc531c78175d67346f8f124" category="list-text">File Analytics GUI에 액세스하려면 '\https://&lt;IP address of Linux machine &gt; /xCP' 링크를 사용하십시오. 메시지가 표시되면 보안 인증서를 수락합니다.</block>
-  <block id="d1b673b157daeb18c4d73618946f7ef4" category="list-text">개인 정보 보호 정책 아래에서 고급을 선택합니다.</block>
-  <block id="d6d3a57c5e8a09cb5cc8bf5e2c0810ce" category="list-text">Proceed to "&lt;IP address of Linux machine&gt;" 링크를 선택합니다.</block>
   <block id="2ffe186b43f4d120ec24b17fcb23452a" category="inline-image-macro">xCP File Analytics 로그인 화면</block>
   <block id="289a5bc6b34705c66837c45715417ecd" category="paragraph"><block ref="289a5bc6b34705c66837c45715417ecd" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dcc65cd71fd805adc9f9914a4cf41d78" category="list-text">SMB 에이전트를 구성한 경우 동일한 에이전트 카드에 추가된 SMB 에이전트를 볼 수 있습니다.</block>
   <block id="95a35d9399a311a860a23c9c5ca666db" category="summary">File Analytics for NFS를 설치하거나 업그레이드합니다</block>
   <block id="acb7eae841bcc60d63918737629eaab5" category="doc">File Analytics for NFS를 설치합니다</block>
   <block id="65957491431a9d992b0f37939d999254" category="paragraph">File Analytics for NFS를 설치하거나 업그레이드합니다.</block>
-  <block id="1075ac7ace86aea85d4fb5c46d76893a" category="paragraph">NFS에 대한 시스템 요구 사항은 를 참조하십시오 <block ref="3cd449c1c5d47073a7e303a49efe123e" category="inline-link-macro-rx"></block>. configure.sh 스크립트는 Linux 서버에 사용할 수 있는 HTTPD 및 PostgreSQL의 기본 구성을 설치 및 활성화합니다. 필요에 따라 최신 버전으로 변경하거나 업데이트하고 보안 지침을 준수할 수 있습니다.</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="list-title">시작하기 전에</block>
-  <block id="bffa4fb11a93d7fe3b05e9a0ae6ca562" category="list-text">xCP 애플리케이션과 xCP를 동일한 호스트에서 동시에 실행할 수 없습니다. XCP 작업이 실행 중인 경우 구성을 시작하기 전에 작업을 완료합니다.</block>
   <block id="179301ccc5709fc7e02ecd874b26f686" category="list-text">Linux 시스템은 Yum 리포지토리 서버 또는 인터넷에 연결되어 있어야 합니다.</block>
-  <block id="0094a24d5be18635ed7692bb7af4b2cc" category="list-text">Linux 시스템에 방화벽이 구성되어 있는 경우 xCP, xCP 서비스 및 xCP File Analytics에서 사용하는 서비스를 사용하도록 방화벽 설정을 변경해야 합니다. 자세한 내용은 를 참조하십시오 <block ref="f0232e18255c6ead68096119d370fed7" category="inline-xref-macro-rx"></block>.</block>
-  <block id="0373d3a871a446e1453b9dac2f65fc16" category="list-text">xCP 폴더로 이동하여 "./configure.sh" 스크립트를 실행합니다. 이 스크립트는 Linux 시스템을 구성하고 다음 작업을 완료하는 데 3~10분이 소요됩니다.</block>
-  <block id="764d468e664b446f1d826729929ecfb9" category="list-text">PostgreSQL 패키지를 다운로드합니다</block>
-  <block id="95729f46d8929016635ddf649e35e2f2" category="list-text">PostgreSQL 서버를 설치합니다</block>
-  <block id="f2a5f5cc88869d4a87e6ec728f7b0c03" category="list-text">HTTPD를 장착하십시오</block>
-  <block id="94c38da4879043620e5524ff110c37f2" category="list-text">열린 SSL을 사용하여 자체 서명된 인증서('erver.key and server.crt')를 만듭니다.</block>
-  <block id="25209e61095bba68fa40e4487aa75db5" category="list-text">XCP File Analytics 데이터베이스를 생성합니다</block>
-  <block id="fc7df983e4500ca08968614afbec45ab" category="list-text">xCP 구성 메뉴에서 옵션 1 클라이언트 시스템 구성 을 선택합니다.</block>
-  <block id="651c2776198de248bf3626cd676b3f1c" category="list-text">새로 설치하려면 관리자 및 데이터베이스 사용자의 암호를 업데이트합니다. 업그레이드를 위해 XCP 서비스를 중지하라는 메시지가 표시됩니다. 완료되면 옵션 0을 선택합니다.</block>
-  <block id="4f6cea84c64bcd2cbef1950791410c78" category="list-text">xCP 서비스를 시작합니다. 다음 명령을 사용하여 xCP 서비스가 실행 중인지 확인합니다. service xCP status</block>
-  <block id="e58e3ebc6749ebd9f5c6ca3564e928e8" category="list-text">브라우저에서 File Analytics를 실행합니다. *\https://&lt;ip Linux 주소 &gt; /xCP *.</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">릴리즈 노트</block>
   <block id="ef8cdecd9388166741c6ddeb9e648a30" category="sidebar">xCP를 구성합니다</block>
   <block id="43f3f6a392074dfc63604c7b136e457f" category="sidebar">XCP NFS용 INI 파일을 구성합니다</block>
@@ -705,11 +666,7 @@
   <block id="481da41cf08734ac99d07aca58644781" category="cell"><block ref="6d7d8e19dacf4142870d92b873503ded" prefix="" category="inline-code"></block></block>
   <block id="410bc026d79ee8d7b9f82dd6b03feb98" category="list-text">File Analytics GUI에 로그인합니다.</block>
   <block id="fce3933747223b348680fa7fa109330b" category="paragraph">파일 분석 GUI에 로그인하는 방법은 두 가지가 있습니다.</block>
-  <block id="f54b0f1d442f1ec5a7de065a3541d957" category="list-text">사용자 이름 "admin"과 구성 중에 설정한 암호를 사용합니다.</block>
-  <block id="9232193990a75b1e49392f2b2617103d" category="list-text">전사적 SSO(Single Sign-On) 기능을 구성하고 사용하도록 설정합니다.</block>
-  <block id="2e3c9f20aee1951e2d90c60c3895ab58" category="paragraph">이 로그인 기능을 사용하면 특정 시스템에서 XCP File Analytics를 설정하고 전사적으로 웹 UI URL을 공유할 수 있으므로 사용자가 SSO 자격 증명을 사용하여 UI에 로그인할 수 있습니다.</block>
   <block id="69bb9c4e14480c847abc95d5c42499ad" category="admonition">SSO 로그인은 선택 사항이며 영구적으로 구성 및 활성화할 수 있습니다. SAML(Security Assertion Markup Language) 기반 SSO 로그인을 설정하려면 을 참조하십시오 <block ref="24bd22f7d0a05b19a03434bac975689d" category="inline-xref-macro-rx"></block>.</block>
-  <block id="5011fee80695c860b0a39f97d0dcb95c" category="list-text">로그인 후 NFS 에이전트가 표시됩니다. 녹색 확인 표시가 나타나면 Linux 시스템과 xCP 버전의 최소 시스템 구성을 나타냅니다.</block>
   <block id="bb589a1b8201c2239ba76232e361cafc" category="section-title">SSO 자격 증명을 구성합니다</block>
   <block id="fffd3dfdf9fa53044cdb134dcc69c528" category="paragraph">SSO 로그인 기능은 SAML을 사용하는 XCP File Analytics에서 구현되며 ADFS(Active Directory Federation Services) ID 공급자를 통해 지원됩니다. SAML은 인증 작업을 기업의 IDP(타사 ID 공급자)로 오프로드하여 MFA(다단계 인증)에 대한 다양한 접근 방식을 활용할 수 있습니다.</block>
   <block id="f2d88d647c936a165a3e77edcbea1d96" category="list-text">엔터프라이즈 ID 공급자에 xCP File Analytics 애플리케이션을 등록합니다.</block>
@@ -718,11 +675,9 @@
   <block id="9563382993688c51fdc3a46e81eb172f" category="list-text">* 서비스 공급자 엔티티 ID: *<block ref="e1fe6adfd56c8994795ceb238170e3b4" prefix=" " category="inline-code"></block></block>
   <block id="bf1e51171726684d1ee1b309557acd01" category="list-text">* 서비스 공급자 어설션 소비자 서비스(ACS) URL: *<block ref="21d0fedea22f326cba161956dc12f67c" prefix=" " category="inline-code"></block></block>
   <block id="f57c5b8986c37b4a0952ba786b74f802" category="paragraph">File Analytics UI에 로그인하여 이러한 세부 정보를 확인할 수도 있습니다.</block>
-  <block id="80dae1bc5036b7e9bda13b9e72ac846e" category="list-text">사용자 이름 "admin"과 설치 중에 설정한 암호를 사용하여 UI에 로그인합니다.</block>
   <block id="ccd1f9a4a3996dec7dcc1222859ee8f1" category="list-text">페이지 오른쪽 상단의 * 사용자 * 아이콘을 선택한 다음 * SAML settings * 를 선택합니다.</block>
   <block id="363cae04551b1b1a61f8792a42d5332c" category="paragraph">나타나는 드롭다운 메뉴에서 * 서비스 공급자 설정 * 을 선택합니다.</block>
   <block id="957c109b84ab3a9745776f942062afea" category="inline-image-macro">SAML 설정의 예</block>
-  <block id="82d38923543ba21104350ca2e054aed6" category="paragraph"><block ref="82d38923543ba21104350ca2e054aed6" category="inline-image-macro-rx" type="image"></block></block>
   <block id="231aa7872617b02f47d61c8a448d71d3" category="paragraph">등록 후 기업에 대한 IDP 끝점 세부 정보를 받게 됩니다. 이 IDP 끝점 메타데이터를 파일 분석 UI에 제공해야 합니다.</block>
   <block id="0fabd32fee9ac3582435784332323cf0" category="list-text">IDP 세부 정보 제공:</block>
   <block id="13cdf4657d47700947243dc2788b7179" category="list-text">대시보드 * 로 이동합니다. 페이지 오른쪽 상단의 * 사용자 * 아이콘을 선택하고 * SAML settings * 를 선택합니다.</block>
@@ -750,14 +705,11 @@
   <block id="6f59af5df257d27f8f7f83e150cb44c7" category="list-text">다음 오류가 표시되면 yum을 사용하여 과 같은 CodeReady 패키지를 설치합니다<block ref="195584d46184f28385e2ae5bd9f0af62" prefix=" " category="inline-code"></block>:</block>
   <block id="b326b5062b2f0e69046810717534cb09" category="cell">참</block>
   <block id="f11ba2ba1e8e44e293e56351fbc05edf" category="doc">동일한 xCP 호스트에서 여러 xCP 작업을 실행합니다</block>
-  <block id="328be41686da6fdb0454cdc13b57cf2d" category="paragraph">xCP 1.9.2부터 "-minmem" 기능을 사용하여 각 작업에 충분한 리소스가 호스트에 있는 한 단일 xCP 호스트에서 여러 xCP 작업 또는 명령을 실행할 수 있습니다. "-minmem" 기능을 지원하는 명령을 실행하면 xCP는 최소 호스트 메모리를 사용하여 작업을 완료합니다. 이 작업은 동일한 호스트 구성에서 추가 작업을 실행할 용량을 생성합니다.</block>
   <block id="d9647e192eec469f5ef0ff6b04e9a7f0" category="section-title">최소 시스템 요구 사항</block>
   <block id="9901879377c5f3682a62b2348ecc14ad" category="paragraph">각 XCP 작업에 대해 중간 규모에서 대규모 마이그레이션을 위해 최대 64GB의 호스트 메모리와 8개의 코어를 허용해야 합니다.</block>
-  <block id="b1db961ef892611c930b306acf2b45c9" category="admonition">SMB 데이터 마이그레이션에서는 "-minmem" 기능이 지원되지 않습니다.</block>
   <block id="8db7df66ab1d7ab5f1dc947acdb5fae4" category="section-title">로깅</block>
   <block id="6c5503e1799fc9bf884095cb4a7486c7" category="paragraph">기본적으로 각 xCP 작업은 작업 ID에 고유한 별도의 로그 파일에 기록됩니다. 이 로깅 메커니즘은 동일한 개별 호스트에서 여러 작업을 실행할 때 잘 작동합니다. NetApp은 를 변경하지 않는 것이 좋습니다<block ref="1f0167cf593b01d4e8c31f9bea306a0d" prefix=" " category="inline-code"></block> 파일 - 단일 파일 사용<block ref="4bfa73c989008743279ae857adc50faf" prefix=" " category="inline-code"></block> 동일한 호스트에서 여러 XCP 작업을 병렬로 로그할 수 있는 파일입니다.</block>
   <block id="26807eaed63a31814a5e1753d72676d8" category="section-title">지원되는 명령</block>
-  <block id="f0ca056f216466d7830147a4008903a4" category="paragraph">"-minmem" 기능은 다음 xCP 명령을 통해 지원됩니다.</block>
   <block id="644834e9d0415e057f1d7c2c00cdd281" category="list-text"><block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix="" category="inline-code"></block></block>
   <block id="cf1b3b1776d0d05e295618646490b382" category="list-text"><block ref="12cba3ee81cf4a793796a51b6327c678" prefix="" category="inline-code"></block></block>
   <block id="d64d8a3c311a3e34d98c5d12b0de2deb" category="list-text"><block ref="69f2afc2390cec954f7c208b07212d39" prefix="" category="inline-code"></block></block>
@@ -767,19 +719,7 @@
   <block id="7bfde840c21e45a59701f55f5c18ef2c" category="list-text"><block ref="4de53f769603f8e4542ee3267c08dd50" prefix="" category="inline-code"></block></block>
   <block id="3649b15e31d22a1e2210f014d843b9fa" category="list-text"><block ref="099af53f601532dbd31e0ea99ffdeb64" prefix="" category="inline-code"></block></block>
   <block id="777dd634078a1b960c79f15d2522db38" category="section-title">지원되지 않는 명령입니다</block>
-  <block id="d2e4f5ed82446cf3023ccba7b5646092" category="paragraph">"-minmem" 기능은 에서 지원되지 않습니다<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> 명령.</block>
   <block id="32ae6defbd536645e75bc85121b5564b" category="section-title">명령 예</block>
-  <block id="64e1323e5982bf7736f58f196316da1f" category="paragraph">"-minmem" 기능을 사용하려면 다음 예제와 같이 xCP 명령에 "-minmem" 옵션을 포함해야 합니다.</block>
-  <block id="36126c9a86541e7281b955ee81970a5f" category="list-text"><block ref="31a74c4f1c865e5c03256362a477c425" prefix="" category="inline-code"></block></block>
-  <block id="9cd9bbf0e790392cca7a73545353ed80" category="list-text"><block ref="4a4341530f7d16d6f7a7c281a83f9473" prefix="" category="inline-code"></block></block>
-  <block id="daaf865ea062be33e32fee7ce6361bf2" category="list-text"><block ref="2227f4f3166de257df2d86054647a1df" prefix="" category="inline-code"></block></block>
-  <block id="4200a251b90a3e6f4a8f03a96790e241" category="paragraph">* HDFS 경로 예 *:</block>
-  <block id="6d2258e0ac0187b32c49ef3d86153890" category="list-text"><block ref="3d4bfec43ba02eadffa6b680f5d2ff90" prefix="" category="inline-code"></block></block>
-  <block id="108808871f93d8eb5fadba5e5396e0b1" category="list-text"><block ref="d0ff481491922a2d0b61842bfc7e1e56" prefix="" category="inline-code"></block></block>
-  <block id="5b89894d695356bcaecabb4c87252ae5" category="list-text"><block ref="354e4935785b48c4def1303908b72905" prefix="" category="inline-code"></block></block>
-  <block id="1e84e83ba1d6a6831654831e04a6e7aa" category="paragraph">* POSIX 경로 예 *:</block>
-  <block id="97fb7d435610adf703b3ea0785c309d6" category="list-text"><block ref="638d56e1e6406263b5111d968a0e1f1d" prefix="" category="inline-code"></block></block>
-  <block id="b7e41451ca91ae23c0a331e9b88f3663" category="list-text"><block ref="a0910009e4d60445309dd8426ef78ded" prefix="" category="inline-code"></block></block>
   <block id="bdf61b3ecae5f29d6c6b402c1adf2536" category="section-title">xCP 추정</block>
   <block id="e151d1ab502d96991c424c6cbefae2f7" category="paragraph">xCP 추정 기능은 기준을 완료하는 데 걸리는 시간을 예측합니다<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> 소스에서 대상으로 작업을 수행합니다. 기준선을 완료하는 데 필요한 예상 시간을 계산합니다<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> CPU, RAM, 네트워크 또는 기타 매개변수와 같이 현재 사용 가능한 모든 시스템 리소스를 사용하여 작업을 수행합니다. 를 사용할 때<block ref="a02d29476c13ce0a516e16bcfe4535b6" prefix=" " category="inline-code"></block> xCP는 샘플 복사 작업을 실행하여 예상 시간을 찾습니다.</block>
   <block id="f943fe60d92b33d799a2c02de9061e3b" category="summary">XCP는 S3 커넥터를 통해 NFS 또는 HDFS 파일 시스템에서 S3 오브젝트 스토리지로 데이터를 마이그레이션할 수 있습니다</block>
@@ -852,15 +792,12 @@
   <block id="f3b812b32fdce09d7d06a9a0759b8546" category="cell">xCP는 마이그레이션 중에 소스에서 HDFS 파일 시스템의 데이터 수정을 지원하지 않습니다</block>
   <block id="e8a90b649b22fddc82d6ee4cc9429807" category="paragraph">S3(Simple Storage Service) 커넥터에는 다음 기능을 사용할 수 없습니다.</block>
   <block id="84b02ee2d0524eb08de32d9354ade34b" category="list-text">* S3 버킷을 소스로 마이그레이션 *:xCP는 S3 버킷을 소스로 사용하여 마이그레이션을 지원하지 않습니다.</block>
-  <block id="a8a17edcb9880059a216d63c9e0c2a18" category="doc">xCP v1.9.2 릴리스 정보</block>
-  <block id="27ce933e59d1bd3bfff8d6118fb7a35e" category="paragraph">를 클릭합니다 <block ref="b98ddb4c6025a76df69bcccfdb0bd760" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
   <block id="b179bbcf6f57100cffb18d2558916e9d" category="cell">64비트 Intel 또는 AMD 서버, 최소 8코어 및 64GB RAM</block>
   <block id="11db15a14a5186a893fe15b0e03f3213" category="sidebar">동일한 호스트에서 여러 xCP 작업을 실행합니다</block>
   <block id="ac1b0e3122e91e04b7f9d9e2eea0accb" category="paragraph">NetApp는 1년 xCP 라이센스를 무료로 제공합니다. 에서 라이센스 파일을 얻을 수 있습니다 <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>. 라이센스 포털에서는 다양한 라이센스 옵션을 제공합니다. 1년 후에는 동일한 포털을 사용하여 1년 동안 라이센스를 갱신할 수 있습니다.</block>
   <block id="9351e261865c10b81be01c7298324b0f" category="list-text">HDFS에서 NetApp StorageGRID로 마이그레이션</block>
   <block id="c19152294b5e6dfeaa6ca9c77e0f12e1" category="list-text">HDFS에서 Amazon S3로 마이그레이션</block>
   <block id="3df8a75d6363358c9c30a90e1f018d65" category="list-text">HDFS에서 NetApp ONTAP S3로 마이그레이션</block>
-  <block id="392f97fdb8ea70faba5877ca90ad7c42" category="paragraph">소스, 대상 또는 둘 다 디렉토리가 없는 교차점이고 온라인 라이센스가 마이그레이션에 사용되는 경우 추적 오류가 발생할 수 있습니다. 이 경우 XCP 명령의 상태는 입니다<block ref="269f3d1562cbd15624e7d2c4b10122e3" prefix=" " category="inline-code"></block> 그러나 콘솔 출력 끝에 다음 오류가 반환됩니다.</block>
   <block id="c1397a1836478812e944515ecd5ff969" category="cell">온라인 라이센스 대신 오프라인 라이센스를 사용합니다.</block>
   <block id="747dd4d48798d325d388dd4ba57db561" category="cell"><block ref="e64df9c2f5a72d0adb1dbea21a609c16" prefix="" category="inline-code"></block> ACL 마이그레이션 포함
 
@@ -900,7 +837,6 @@ xcp.log 파일에 기록된 오류 메시지:<block ref="e2ac862df70b5c80b24bb2e
   <block id="d010dc762575a62b4743cdf67aaca20a" category="list-text"><block ref="d010dc762575a62b4743cdf67aaca20a" category="inline-link-macro-rx"></block></block>
   <block id="bb56f67a148cc2f2b0fefdf3ad31d862" category="inline-link-macro">NetApp XCP 1.8에 대한 고지 사항</block>
   <block id="947d36e55b7e5eaafa3b9365e2c2f048" category="list-text"><block ref="947d36e55b7e5eaafa3b9365e2c2f048" category="inline-link-macro-rx"></block></block>
-  <block id="8460555eb240926a8ff0bb9963c60097" category="sidebar">NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터 마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 XCP 1.9.2 소프트웨어에 대한 설명서를 찾을 수 있습니다. 이전 버전의 XCP에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">시작하십시오</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">릴리스 정보</block>
   <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">이전 버전</block>
@@ -919,4 +855,100 @@ xcp.log 파일에 기록된 오류 메시지:<block ref="e2ac862df70b5c80b24bb2e
   <block id="d1bf561d563aa7c75c975ba869dd56ac" category="paragraph">를 사용하여 마이그레이션을 계획한 후<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> 명령을 사용하여 HDFS 데이터를 마이그레이션할 수 있습니다.</block>
   <block id="715c4a9e063aa9667b43f7d5478b9037" category="paragraph">NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터 마이그레이션을 지원합니다. XCP는 사용 가능한 모든 시스템 리소스를 활용하여 대용량 데이터 세트 및 고성능 데이터 마이그레이션을 관리함으로써 뛰어난 확장성과 성능을 달성하도록 설계되었습니다. xCP는 고객 보고서를 생성하는 옵션을 통해 파일 시스템에 대한 완벽한 가시성을 제공합니다. 일치 및 서식 지정 기능을 통해 모든 보고 요구 사항에 맞게 보고서를 사용자 지정할 수 있습니다.</block>
   <block id="e42bfcdf0ad235b13c49f73caf47eb14" category="paragraph">를 사용하여 마이그레이션을 계획한 후<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> 및<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> 명령을 사용하여 NFS 데이터를 마이그레이션할 수 있습니다.</block>
+  <block id="e85e0a89230fd13a1a22301e7fdd0e5e" category="doc">XCP v1.9.3 릴리스 정보</block>
+  <block id="d90e2bf5c75719e1544961b0bc5ad41c" category="paragraph">를 클릭합니다 <block ref="62a6eb00e9937cb1874623411cd165a0" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제, 알려진 제한 사항 및 알려진 문제에 대해 설명합니다.</block>
+  <block id="9a001090e66aa3b6396f3d4ed7942a29" category="admonition">파일 또는 디렉터리 이름에 UTF-8이 아닌 문자가 포함된 경우 이러한 문자는 UTF-8 형식으로 변환되어 를 실행할 때 표시됩니다<block ref="23147b001892247a3eeb087f6bfd481f" prefix=" " category="inline-code"></block> 명령. 소스 인코딩에서 UTF-8로의 변환에 따라 문자가 예상대로 표시되지 않을 수 있습니다.</block>
+  <block id="779996940c0c39c72a1fd46bbcb0c25c" category="paragraph">XCP 1.9.3 이상을 실행하려면 에서 새 XCP 라이센스를 얻어야 합니다 <block ref="f33ccbb3083b14f48de92a286ba83724" category="inline-link-macro-rx"></block>.</block>
+  <block id="0c753cdaef3cedcd38fd31f543c8d76a" category="admonition">XCP 1.9.2 이하에서 사용되는 라이센스는 XCP 1.9.3 이상에서 지원되지 않습니다. 마찬가지로, XCP 1.9.3 이상에서 사용된 라이선스는 XCP 1.9.2 이하에서 지원되지 않습니다.</block>
+  <block id="d0804a022efac2458fd8afd7432ab730" category="cell">를 참조하십시오 <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block> 를 참조하십시오</block>
+  <block id="23d2267c3060f49c5c4656d223c16500" category="section-title">File Analytics GUI에 로그인합니다</block>
+  <block id="b12b7bf427a82f1b7594d8e9c0642749" category="paragraph">XCP 파일 분석 GUI는 파일 분석을 시각화하기 위한 그래프가 포함된 대시보드를 제공합니다. XCP File Analytics GUI는 Linux 시스템에서 XCP를 구성할 때 활성화됩니다.</block>
+  <block id="7144e9d44908ac1a1e2d5d18a661e2bd" category="list-text">개인 정보 보호 정책 아래의 * 고급 * 을 선택합니다.</block>
+  <block id="8a8c4a7ad5df91ccdf4a658b580267a6" category="list-text">Proceed to(진행) 를 선택합니다<block ref="c40442705fd05f103d7897f22b0b9d54" prefix=" " category="inline-code"></block>* 링크.</block>
+  <block id="523c68391d340c09a68fbb25bc7b6cad" category="open-title">사용자 자격 증명을 사용하여 로그인합니다</block>
+  <block id="a6c68859111b43eac6f5a5ece12115ee" category="list-text">File Analytics를 설치할 때 얻은 사용자 자격 증명을 사용하여 GUI에 로그인합니다.</block>
+  <block id="147e6d0fad459c620088e2ffe927734f" category="list-text">필요한 경우 암호를 자신의 암호로 변경합니다.</block>
+  <block id="b2edd278ca1556cd65ff511dad1cff4b" category="paragraph">설치 중에 얻은 암호를 사용자 암호로 변경하려면 사용자 아이콘을 선택하고 * 암호 변경 * 을 선택합니다.</block>
+  <block id="f95855c75bd72ef06a584880630a948a" category="paragraph">새 암호는 8자 이상이어야 하며 숫자 하나, 대문자 하나, 소문자 하나 및 특수 문자(! @#$% &amp; *-_).</block>
+  <block id="59126595e3861c23ef1127db52d87bb2" category="admonition">암호를 변경하면 GUI에서 자동으로 로그아웃되며 새로 만든 암호를 사용하여 다시 로그인해야 합니다.</block>
+  <block id="11c9f8e61e36eaed8d3e1c1c7e200621" category="open-title">SSO 기능을 구성하고 활성화합니다</block>
+  <block id="bcac97375e974c11b495bce828d1a0ec" category="paragraph">이 로그인 기능을 사용하여 특정 컴퓨터에서 XCP File Analytics를 설정하고 전사적으로 웹 UI URL을 공유하여 사용자가 SSO(Single Sign-On) 자격 증명을 사용하여 UI에 로그인할 수 있습니다.</block>
+  <block id="2e4e4809dbbc27f75d2e60a86e2f0d6b" category="list-text">로그인한 후 NFS 에이전트를 볼 수 있습니다. 녹색 체크 표시는 Linux 시스템 및 XCP 버전의 최소 시스템 구성을 보여줍니다.</block>
+  <block id="82c1e69eb8d0968a34c018907e1f78e2" category="list-text">에 설명된 단계를 사용하여 GUI에 로그인합니다 <block ref="e05c6d6f0a0bb7cafe88d22482c70e47" category="inline-xref-macro-rx"></block>.</block>
+  <block id="8257e8343d5cd665a40e90c03e8338d5" category="paragraph"><block ref="8257e8343d5cd665a40e90c03e8338d5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d8e4071f8ff887ffcc153fb5d0b96e4c" category="paragraph">소스 또는 대상에서 접합 경로를 사용할 경우 XCP 명령이 예상 결과를 표시하지 않습니다.</block>
+  <block id="0799972e59c5570f8064c5d7c435f712" category="paragraph">XCP 명령을 실행할 때 접합 경로 대신 SMB 공유 경로를 사용하십시오.</block>
+  <block id="9afa0f0b30f216c0d2e442239c3fcb68" category="paragraph">소스, 대상 또는 둘 다 디렉토리가 없는 교차점이고 온라인 라이센스가 마이그레이션에 사용되는 경우 추적 오류가 발생할 수 있습니다. 이 경우 XCP 명령 상태는 입니다<block ref="269f3d1562cbd15624e7d2c4b10122e3" prefix=" " category="inline-code"></block> 그러나 콘솔 출력 끝에 다음 오류가 반환됩니다.</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">이 작업에 대해</block>
+  <block id="cccedc8829a344b387fb08c393ffa970" category="list-text">를 복사합니다<block ref="42dc92c99a13a4f3e1ce5f5dbffb3d77" prefix=" " category="inline-code"></block> 파일을 Windows에 저장합니다<block ref="d7aa32b0c582222819b91c8e0ccca765" prefix=" " category="inline-code"></block> 드라이브, 이 바이너리는 내부에서 사용할 수 있습니다<block ref="2e9d6141fdcc44d5e2fb72979401c9c5" prefix=" " category="inline-code"></block> 의 압축을 푼 후<block ref="05d1190d81e37d06607cc19e21f63ea7" prefix=" " category="inline-code"></block> 파일.</block>
+  <block id="ea2ba5409e2977c3e953a67de8026eb6" category="list-text">를 복사합니다<block ref="320b90518080edc05c5733db7267371a" prefix=" " category="inline-code"></block> 및<block ref="ad85a49f9eda6dfb5f9078894092f6dc" prefix=" " category="inline-code"></block> 에서 파일<block ref="0c8468e8bc6e9c8ce8e4de412fee0c10" prefix=" " category="inline-code"></block> (XCP File Analytics가 이미 구성되어 있는 Linux 상자에서)<block ref="0d4f2ad60efd19069346676a3fdc788c" prefix=" " category="inline-code"></block>.</block>
+  <block id="6c7d8f4f4f290787ef78f7018dfd4e2d" category="paragraph">필요한 경우 CA 인증서가 있는 경우 에 인증서를 배치합니다<block ref="0d4f2ad60efd19069346676a3fdc788c" prefix=" " category="inline-code"></block> 동일한 이름 및 확장명을 사용합니다.</block>
+  <block id="1236e8b02abb31c50db0b5adfed580fa" category="list-text">Windows 컴퓨터로 이동하여 실행합니다<block ref="824313c3e49c75ad7db49a6c3bb90627" prefix=" " category="inline-code"></block>이제 SMB용 XCP File Analytics가 구성되었습니다. 서비스를 계속 실행하려면 창을 열어 두십시오.</block>
+  <block id="215b4f9995d464c6d896badee64ee9b9" category="list-text">지원되는 브라우저에서 File Analytics 시작:<block ref="c1df14498e319bedff7cd295edf3fdbe" prefix=" " category="inline-code"></block></block>
+  <block id="bec265af43e5553bf128ad29d47f3ec2" category="paragraph">을 참조하십시오 <block ref="b1b298f808db7e093ee9abb7cc8bfdef" category="inline-link-macro-rx"></block> 지원되는 브라우저에 대한 자세한 내용은</block>
+  <block id="366cf6c0c26349e7fd57569a205e0118" category="list-text">를 선택합니다<block ref="e0aa021e21dddbd6d8cecec71e9cf564" prefix=" " category="inline-code"></block> 대화 상자가 표시되면</block>
+  <block id="e1654a0ebd1b4059457621d4f6159b2c" category="admonition">새 탭이 열립니다. 팝업이 차단되어 있는 경우 브라우저에서 팝업을 활성화합니다.</block>
+  <block id="aa25bb4d2ad259acab66b7c3aec0ff22" category="list-text">URL의 개인 정보 보호 정책을 수락합니다. 다음 메시지가 표시됩니다.<block ref="52a5e45b970aa1f0355aee216766bb82" prefix=" " category="inline-code"></block></block>
+  <block id="c120eb6bd0ec2886798025c46f211510" category="list-text">XCP 파일 분석 GUI를 호스팅하는 원래 탭으로 돌아가 페이지를 새로 고쳐 에이전트 카드 아래에 SMB 에이전트를 표시합니다.</block>
+  <block id="722b6c185c309d307c4b435ca45ddb73" category="list-text">File Analytics를 실행하기 전에 File Analytics가 실행 중인 Linux 서버도 업그레이드되고 서비스가 실행 중인지 확인합니다.</block>
+  <block id="47d43dfa43648919ae8e1597263e39b7" category="list-text">대치<block ref="42dc92c99a13a4f3e1ce5f5dbffb3d77" prefix=" " category="inline-code"></block> 최신 바이너리.</block>
+  <block id="32b3893a51a3d83bcf15ac914ac45246" category="list-text">Windows 컴퓨터로 이동하여 실행합니다<block ref="824313c3e49c75ad7db49a6c3bb90627" prefix=" " category="inline-code"></block> SMB에 대한 XCP 파일 분석을 구성합니다. 서비스를 계속 실행하려면 창을 열어 두십시오.</block>
+  <block id="eab515ad69a9c68d3ff4998a7a38c168" category="list-text">대화 상자가 표시되면 * 확인 * 을 선택합니다.</block>
+  <block id="2af1ae573e96f9c96edbfe34f2ecd144" category="section-title">인덱스 삭제</block>
+  <block id="ed394357d76e4a47c544b6679113b6b6" category="paragraph">를 사용할 수 있습니다<block ref="2af1ae573e96f9c96edbfe34f2ecd144" prefix=" " category="inline-code"></block> 카탈로그 인덱스를 삭제하는 명령입니다.</block>
+  <block id="269e3fa15ca9366f6cfcb1eac97c6cf0" category="paragraph">실행<block ref="1a1b0d47f4e6e0151b4df12640fe4bb0" prefix=" " category="inline-code"></block> 를 참조하십시오.</block>
+  <block id="ea7072dd30b8128f4d74568ed70d406c" category="paragraph">Files Accessed/Modified/Created 그래프에는 시간에 따라 변경된 파일 수가 표시됩니다. X축은 변경 기간을 나타내고 Y축은 변경된 파일 수를 나타냅니다.</block>
+  <block id="e66cb3e85cec55480dc46a379124f46a" category="section-title">파일 크기 액세스/수정/생성 그래프</block>
+  <block id="5eeb433a134b50fcf2d2d02005945304" category="paragraph"><block ref="5eeb433a134b50fcf2d2d02005945304" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b483a26f1bc7e903df1139b2bea4faca" category="paragraph">File Size Accessed/Modified/Created 그래프에는 시간에 따라 변경된 파일 크기가 표시됩니다. X축은 변경 기간을 나타내고 Y축은 변경된 파일의 크기를 나타냅니다.</block>
+  <block id="8105201d67059c07d533dcbbe25a3c67" category="section-title">확장자에 의한 파일 분포 그래프</block>
+  <block id="2506a5990488ccea13845b28b0df2496" category="paragraph">또한 SMB 공유의 경우 검사를 실행하기 전에 ADS 확인란을 선택하여 각 파일 확장자에 대한 ADS(대체 데이터 스트림) 파일 수를 가져올 수 있습니다.</block>
+  <block id="699e5e6ac0568498b21221ee949dd4a3" category="paragraph"><block ref="699e5e6ac0568498b21221ee949dd4a3" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="79f475897ad3ccfba85aa2fc2f2d9bad" category="section-title">확장자 그래프별 파일 크기 분포</block>
+  <block id="4ab3fb97b389232d625b03e49824e147" category="paragraph"><block ref="4ab3fb97b389232d625b03e49824e147" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a07e34309c0f4fe3914143661296e902" category="paragraph">확장자별 파일 크기 분포 그래프는 파일 공유에서 서로 다른 파일 확장자의 누적 크기를 나타냅니다. 확장자를 나타내는 분할의 크기는 각 확장자를 가진 파일의 크기를 기준으로 합니다.</block>
+  <block id="c88f5d7f64740c2ea459ec0992a08786" category="paragraph">또한 SMB 공유의 경우 검사를 실행하기 전에 ADS 확인란을 선택하여 여러 유형의 ADS(대체 데이터 스트림) 파일 수를 가져올 수 있습니다.</block>
+  <block id="fa089a630122acf5e9273fce49f4cf34" category="paragraph"><block ref="fa089a630122acf5e9273fce49f4cf34" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0c298119c26e2b6846ed04c0a3a19fc9" category="paragraph">실행<block ref="0b0f856b03e3ddcd7804298ac5bc4a97" prefix=" " category="inline-code"></block> 를 참조하십시오.</block>
+  <block id="1b8208be7fabaa97780c143eb5ae291e" category="paragraph">실행<block ref="dc7a0e5e50a6e16de630993f68e9061c" prefix=" " category="inline-code"></block> 를 참조하십시오.</block>
+  <block id="b802ccf3bd2b24d676e6542534797831" category="paragraph">실행<block ref="7aaf8f3c0f52b0fd5a97d37fbe81d5c5" prefix=" " category="inline-code"></block> 를 참조하십시오.</block>
+  <block id="661c53c14b5d725221aa32bea431d3e5" category="paragraph">실행<block ref="a11baf9e315624a8a210305ae8b743d0" prefix=" " category="inline-code"></block> 를 참조하십시오.</block>
+  <block id="364e9a46db7862ca5c256c97c53e1549" category="section-title">iSync 를 선택합니다</block>
+  <block id="9fec924044f566c44ac4b73a69159e55" category="paragraph">를 클릭합니다<block ref="a3e4a767ccc698fa80ecaf42af64deea" prefix=" " category="inline-code"></block> 명령은 소스와 대상을 비교하고 카탈로그 인덱스를 사용하지 않고 타겟의 차이점을 동기화합니다.</block>
+  <block id="bad38dd9274d1a634894e5113d9413a4" category="paragraph">을 사용할 수 있습니다<block ref="a3e4a767ccc698fa80ecaf42af64deea" prefix=" " category="inline-code"></block> 를 사용하여<block ref="94e7e210543475d2dc1ee610e7b4af1d" prefix=" " category="inline-code"></block> 에 걸리는 시간을 예측하는 옵션입니다<block ref="a3e4a767ccc698fa80ecaf42af64deea" prefix=" " category="inline-code"></block> 증분 변경 내용을 동기화하는 명령입니다. 를 클릭합니다<block ref="aac2d8e3007be7e24232c39330c3c010" prefix=" " category="inline-code"></block> 매개 변수는 이전 복사 작업의 카탈로그 이름을 지정합니다.</block>
+  <block id="9cd17ce87f50eb274407888411403ff8" category="admonition">사용된 데이터 세트 크기의 25% 이상을 변경하면 이(가) 사용됩니다<block ref="7bd0b9105a99766e080dee8fec4aeb60" prefix=" " category="inline-code"></block> 명령에 필요한 결과가 표시되지 않을 수 있습니다.</block>
+  <block id="459c6a9653c4611cfe403e0bb61cbf46" category="paragraph">실행<block ref="c5cec64402f12bcecd0de64291764ac1" prefix=" " category="inline-code"></block> 를 참조하십시오.</block>
+  <block id="523bf576f67a5d084abd1f8132e9502a" category="paragraph">NFS에 대한 시스템 요구 사항은 를 참조하십시오 <block ref="3cd449c1c5d47073a7e303a49efe123e" category="inline-link-macro-rx"></block>.</block>
+  <block id="05db61bcd816f14c22b7e7f5d67ba52b" category="paragraph">를 클릭합니다<block ref="735003ab6f5797c8b8bdecbbbb9322a8" prefix=" " category="inline-code"></block> 스크립트는 RHEL(Red Hat Enterprise Linux) 호스트 시스템에 XCP 파일 분석을 설치합니다. 설치 과정에서 스크립트는 Postgres Database, Apache HTTPD 서버 및 기타 필수 패키지를 호스트 Linux 시스템에 설치합니다. 지원되는 특정 RHEL 버전에 대한 자세한 내용은 를 참조하십시오 <block ref="277e95e57632f1d20d4cd8ea672c1493" category="inline-link-macro-rx"></block>. 필요에 따라 최신 버전으로 변경하거나 업데이트하고 보안 지침을 준수할 수 있습니다. 에 대해 자세히 알아보십시오<block ref="735003ab6f5797c8b8bdecbbbb9322a8" prefix=" " category="inline-code"></block> 스크립트, 를 실행합니다<block ref="c9e6e0c436ae9fb0ae9b2dbd71031566" prefix=" " category="inline-code"></block> 를 클릭합니다.</block>
+  <block id="24b433b7484fd8534f2758a3f1c07835" category="list-text">XCP 작업이 실행 중인 경우 NetApp 구성을 시작하기 전에 작업을 완료하는 것이 좋습니다.</block>
+  <block id="9006d8368c0451141a424c581daa4673" category="list-text">Linux 시스템에 방화벽이 구성되어 있는 경우 방화벽 설정을 변경하여 포트 5030을 활성화해야 합니다. 포트 5030은 XCP 서비스에서 사용됩니다.</block>
+  <block id="83665cc8f640f7d31e0111fa038e919b" category="open-title">파일 분석을 설치합니다</block>
+  <block id="d076d11b169432e433f473477c336200" category="list-text">로 이동합니다<block ref="430e727eb7fa4c8fdeb29b396f232465" prefix=" " category="inline-code"></block> 폴더를 선택하고 를 실행합니다<block ref="da2e8bb7b6693780728dfaf44a42c5eb" prefix=" " category="inline-code"></block> 스크립트.</block>
+  <block id="0948892f1f3963716f1ea89c2c91ebf1" category="paragraph">설치에 성공하면 다음 메시지가 표시됩니다.</block>
+  <block id="e1b70521691b346e65e9958318dacf2e" category="admonition">이 사용자 이름과 암호를 사용하여 File Analytics GUI에 로그인할 수 있습니다.</block>
+  <block id="366c2d7ffe8ad266421fea465e76182f" category="open-title">파일 분석을 업그레이드합니다</block>
+  <block id="2a98315fd4201cebbbb6d938823636fc" category="list-text">로 이동합니다<block ref="430e727eb7fa4c8fdeb29b396f232465" prefix=" " category="inline-code"></block> 폴더를 선택하고 실행합니다<block ref="b5e030b73727d125476b7c53beba4142" prefix=" " category="inline-code"></block>.</block>
+  <block id="7ef1f929ba40266342a7f855750e3c3c" category="list-text">프롬프트에서 를 입력합니다<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> 시스템을 정리하고 재구성합니다.</block>
+  <block id="a708001a589c308bd39a2ac681f9dfa7" category="paragraph">스크립트가 승인되면 기존 구성을 지우고 시스템을 다시 구성합니다.</block>
+  <block id="f5ed1028b425be910b1ffedab0b028b5" category="paragraph">성공하면 다음 메시지가 표시됩니다.</block>
+  <block id="dd30d0765f043033be3f305971f0b5e7" category="list-text">지원되는 브라우저에서 파일 분석을 시작합니다. * \https://&lt;ip 주소 of Linux &gt; /xCP *.</block>
+  <block id="be16d400539b1607e9a0d3a74fafc967" category="paragraph">을 참조하십시오 <block ref="3cd449c1c5d47073a7e303a49efe123e" category="inline-link-macro-rx"></block> 지원되는 브라우저에 대한 자세한 내용은</block>
+  <block id="537eb93e68db7a00b7493adb72a38d6f" category="paragraph">xCP 1.9.2부터 호스트에 각 작업에 충분한 리소스가 있는 경우 단일 xCP 호스트에서 여러 개의 xCP 작업 또는 명령을 실행할 수 있습니다. 여러 작업을 지원하는 명령을 실행하면 XCP는 최소 호스트 메모리를 사용하여 작업을 완료하므로 동일한 호스트 구성에서 추가 작업을 실행할 수 있는 용량이 생성됩니다.</block>
+  <block id="62b99230c0b2c5c3583167ab9dfa78cc" category="admonition">SMB 데이터 마이그레이션에는 동일한 호스트에서 여러 XCP 작업을 실행할 수 없습니다.</block>
+  <block id="050938c7ac42f7b10bd832a5841f7a10" category="paragraph">동일한 호스트에서 여러 XCP 작업을 실행할 수 있는 경우 다음 XCP 명령을 사용할 수 있습니다.</block>
+  <block id="33a674543ba02ee23aee431f514ab6fe" category="paragraph">동일한 호스트에서 여러 XCP 작업을 실행하는 것은 에서 지원되지 않습니다<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> 명령.</block>
+  <block id="a06060a624eec2a259a8cf550b7f95f1" category="summary">NTFS 대체 데이터 스트림 SMB를 위한 마이그레이션</block>
+  <block id="3b84355abf1b4d56b9caf1c19b79b59b" category="paragraph">XCP 1.9.3부터 XCP SMB는 를 사용하여 NTFS ADS(대체 데이터 스트림)의 마이그레이션을 지원합니다<block ref="c49e8400c997823541180a2559d2110e" prefix=" " category="inline-code"></block> XCP SMB 명령 옵션.</block>
+  <block id="bee250b62c0906f0bc060c3df37dc24b" category="section-title">지원되는 사용 사례</block>
+  <block id="fa44916805192fd6a7bb83303abc9eb9" category="paragraph">XCP SMB를 사용할 수 있습니다<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> 및<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> ADS 및 XCP SMB를 포함하는 데이터를 마이그레이션하는 명령입니다<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block> ADS에 대한 SMB 공유를 스캔하는 명령입니다.</block>
+  <block id="389cd41d4ef291a89b508abaaa3371dc" category="section-title">지원되는 XCP SMB 명령</block>
+  <block id="2b58def6b3aee7ceb139f7ea48547941" category="paragraph">다음 XCP SMB 명령은 를 지원합니다<block ref="c49e8400c997823541180a2559d2110e" prefix=" " category="inline-code"></block> 옵션:</block>
+  <block id="a4f108c6758a9ce630e9738c6a3d639c" category="list-text"><block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix="" category="inline-code"></block></block>
+  <block id="d5b7e4797a358d7d8ed35976e484c442" category="paragraph">다음 명령 예는 를 사용하는 방법을 보여 줍니다<block ref="c49e8400c997823541180a2559d2110e" prefix=" " category="inline-code"></block> 옵션:</block>
+  <block id="6d99815f2116be9f5277c78a2eb60336" category="list-text"><block ref="24dbbd8f44d282712df87ffdaa269aa8" prefix="" category="inline-code"></block></block>
+  <block id="4d1f659adec52a779af0bd4a40cf3803" category="list-text"><block ref="49ce806aa9683f16e550953d09c1bd68" prefix="" category="inline-code"></block></block>
+  <block id="14249cefbaa5a36b0b9cb5b2cfbbb57d" category="list-text"><block ref="c264f300fbf748e364ab837928b14ee8" prefix="" category="inline-code"></block></block>
+  <block id="b99588d251bf1019e0e822689ebaf7d2" category="list-text"><block ref="b9a9b1656ba3adc03b7fa7487e42a8f6" prefix="" category="inline-code"></block></block>
+  <block id="462f82c31411e99799f7e9026350b607" category="sidebar">NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터 마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 XCP 1.9.3 소프트웨어에 대한 문서를 찾을 수 있습니다. 이전 버전의 XCP에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.</block>
+  <block id="01fe75bfb5351e8cb287658bc7ee5325" category="sidebar">NetApp XCP 1.9.2</block>
 </blocks>

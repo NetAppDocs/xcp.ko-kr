@@ -41,7 +41,7 @@ xcp copy -newid <id> hdfs:///demo/user file:///mnt/dest
 xcp copy -newid <id> hdfs:///demo/user s3://my-bucket
 xcp copy -newid <id> -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> hdfs:///demo/user s3://my-bucket
 ----
-자세한 내용은 xCP 도움말 사본을 참조하십시오.
+실행 `xcp help copy` 를 참조하십시오.
 
 
 
@@ -59,7 +59,7 @@ xcp resume [options] -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> -
 
 NOTE: 기본적으로 XCP는 `resume` 명령은 에서 사용된 복사본 인덱스의 S3 엔드포인트 및 S3 프로필을 사용합니다 `copy` 명령. 그러나 새로운 경우 `-s3.endpoint` 및 `-s3.profile` 값은 와 함께 제공됩니다 `resume` 명령, 옵션의 새 값 및 사본에 사용되는 값이 사용됩니다 `command` 재정의됩니다.
 
-자세한 내용은 xCP 도움말 이력서를 참조하십시오.
+실행 `xcp help resume` 를 참조하십시오.
 
 
 
@@ -86,4 +86,4 @@ xcp verify hdfs:///user/demo1/data file:///user/demo1/dest
 xcp verify hdfs:///user/demo1/data s3://my-bucket
 xcp verify -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> hdfs:///demo/user s3://my-bucket
 ----
-자세한 내용은 xCP 도움말 검증 을 참조하십시오.
+실행 `xcp help verify` 를 참조하십시오.
