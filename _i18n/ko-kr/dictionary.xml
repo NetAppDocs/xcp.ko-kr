@@ -110,8 +110,6 @@
   <block id="14caca2b86bb5fc70d438c3f2e6b9d34" category="list-text">특수: 장치 파일 및 문자 파일이 있는 파일.</block>
   <block id="b7e264825d0167b0353f88e4a931eff9" category="list-text">디렉터리: 디렉터리가 있는 파일</block>
   <block id="04469d5cc45573e655231acc341bf212" category="list-text">접합: SMB에서만 사용 가능</block>
-  <block id="11047916a280f54b6bb638b4fa43d625" category="summary">xCP SMB 오류 문제 해결</block>
-  <block id="5bf172f77cc9d71e44a586eb796e8205" category="doc">xCP SMB 오류 문제 해결</block>
   <block id="2df6366012c9e039186e09dd0f83bf9c" category="paragraph">문제를 해결할 수 있는 해결 방법을 검토합니다.</block>
   <block id="642facf67e0ad311eee88b3ab8381590" category="cell">문제</block>
   <block id="49b21ad0d38942f635877e7bbc5d7a1e" category="cell">해결 방법</block>
@@ -951,4 +949,6 @@ xcp.log 파일에 기록된 오류 메시지:<block ref="e2ac862df70b5c80b24bb2e
   <block id="b99588d251bf1019e0e822689ebaf7d2" category="list-text"><block ref="b9a9b1656ba3adc03b7fa7487e42a8f6" prefix="" category="inline-code"></block></block>
   <block id="462f82c31411e99799f7e9026350b607" category="sidebar">NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터 마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 XCP 1.9.3 소프트웨어에 대한 문서를 찾을 수 있습니다. 이전 버전의 XCP에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.</block>
   <block id="01fe75bfb5351e8cb287658bc7ee5325" category="sidebar">NetApp XCP 1.9.2</block>
+  <block id="06c7c6fe1390b1e7519864e5fd3adc1b" category="summary">XCP SMB 오류 문제 해결</block>
+  <block id="103bae74aac9cad62c4f7826cc30141d" category="doc">XCP SMB 오류 문제 해결</block>
 </blocks>
