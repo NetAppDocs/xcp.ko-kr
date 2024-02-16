@@ -164,7 +164,6 @@
   <block id="2d79e432838e40bf14c022092a9ee7c7" category="section-title">루트 사용자</block>
   <block id="1b644fae3096d18c32ea2eb163d208d7" category="paragraph">Linux 시스템의 루트 사용자에게는 소스, 대상 및 카탈로그 볼륨을 마운트할 수 있는 권한이 있습니다.</block>
   <block id="b1330e2178f1e768cc94859ba49ae6bd" category="section-title">루트가 아닌 사용자</block>
-  <block id="85039b54d13b6d2bba23425f79f1e704" category="paragraph">루트가 아닌 사용자는 마운트된 볼륨에 대해 다음과 같은 권한을 가집니다.</block>
   <block id="ae489e7c64c7f4a4d143e12281642d7c" category="list-text">소스 볼륨에 대한 읽기 권한 액세스</block>
   <block id="3ec0238607113152ae7f227b92c2a43f" category="list-text">마운트된 대상 볼륨에 대한 읽기/쓰기 권한 액세스</block>
   <block id="9c3f740abe99e1e0002c446d4b4e72de" category="list-text">카탈로그 볼륨에 대한 읽기/쓰기 권한 액세스</block>
@@ -837,14 +836,12 @@ xcp.log 파일에 기록된 오류 메시지:<block ref="e2ac862df70b5c80b24bb2e
   <block id="947d36e55b7e5eaafa3b9365e2c2f048" category="list-text"><block ref="947d36e55b7e5eaafa3b9365e2c2f048" category="inline-link-macro-rx"></block></block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">시작하십시오</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">릴리스 정보</block>
-  <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">이전 버전</block>
   <block id="bb94e7367791f982596ac461b54c7eab" category="sidebar">NetApp XCP 1.9.1</block>
   <block id="1314b92278223dc2ab46c6dd8b3bf655" category="sidebar">NetApp XCP 1.9</block>
   <block id="0b883cd31dc0a70033ec3260cc84cde2" category="sidebar">NetApp XCP 1.8.1</block>
   <block id="c2349270a2c5b206946456729c613d88" category="sidebar">NetApp XCP 1.8</block>
   <block id="a6ec16db3258e39e9ea07a28c8bc6f0c" category="sidebar">NetApp XCP 1.7 이하</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">더 많은 리소스</block>
-  <block id="b5ebef46ca4c7353a47405db847d5f8d" category="sidebar">XCP 문서(참조 자료 포함)</block>
   <block id="d00f838899e1bae3eeafc63b8e4a4be2" category="sidebar">NetApp TechCommTV (NetApp XCP 비디오)</block>
   <block id="e0805d6bd6649b148eb00741ca006a8d" category="sidebar">NetApp XCP(라이센스를 취득하기 위한 링크 포함)</block>
   <block id="69325177d6c1169f9e91f28d3c39250a" category="sidebar">XCP용 NetApp 리소스입니다</block>
@@ -947,8 +944,17 @@ xcp.log 파일에 기록된 오류 메시지:<block ref="e2ac862df70b5c80b24bb2e
   <block id="4d1f659adec52a779af0bd4a40cf3803" category="list-text"><block ref="49ce806aa9683f16e550953d09c1bd68" prefix="" category="inline-code"></block></block>
   <block id="14249cefbaa5a36b0b9cb5b2cfbbb57d" category="list-text"><block ref="c264f300fbf748e364ab837928b14ee8" prefix="" category="inline-code"></block></block>
   <block id="b99588d251bf1019e0e822689ebaf7d2" category="list-text"><block ref="b9a9b1656ba3adc03b7fa7487e42a8f6" prefix="" category="inline-code"></block></block>
-  <block id="462f82c31411e99799f7e9026350b607" category="sidebar">NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터 마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 포함한 XCP 1.9.3 소프트웨어에 대한 문서를 찾을 수 있습니다. 이전 버전의 XCP에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.</block>
   <block id="01fe75bfb5351e8cb287658bc7ee5325" category="sidebar">NetApp XCP 1.9.2</block>
   <block id="06c7c6fe1390b1e7519864e5fd3adc1b" category="summary">XCP SMB 오류 문제 해결</block>
   <block id="103bae74aac9cad62c4f7826cc30141d" category="doc">XCP SMB 오류 문제 해결</block>
+  <block id="7419aab07885bbaf51b080c9e425bc30" category="paragraph">루트가 아닌 사용자는 마운트된 볼륨에 대해 다음 권한을 가져야 합니다.</block>
+  <block id="2026fedd5139e1b0c5c821a380478704" category="inline-link-macro">NetApp XCP 1.7에 대한 고지 사항</block>
+  <block id="2352ab4b1d15708f12e9c724073f0b08" category="list-text"><block ref="2352ab4b1d15708f12e9c724073f0b08" category="inline-link-macro-rx"></block></block>
+  <block id="755d31cf9123a00dd7a78550d0a499d4" category="inline-link-macro">NetApp XCP 1.2.2에 대한 고지 사항</block>
+  <block id="30deffa80c4bafbf914d65bc82f97dcf" category="list-text"><block ref="30deffa80c4bafbf914d65bc82f97dcf" category="inline-link-macro-rx"></block></block>
+  <block id="48c524e7571b2b12d796413bd2177ebb" category="inline-link-macro">NetApp XCP 1.6.1 참고 사항</block>
+  <block id="fa06a27bb648a5fc7a3c82f5acdaee31" category="list-text"><block ref="fa06a27bb648a5fc7a3c82f5acdaee31" category="inline-link-macro-rx"></block></block>
+  <block id="fa9d00e8e16d36faed7e27ef33cc9bb1" category="sidebar">NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터 마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 비롯하여 XCP 1.6.2 이상 소프트웨어에 대한 설명서를 찾을 수 있습니다. 1.6.2 이전 버전의 XCP 릴리스에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.</block>
+  <block id="0b5f5476de5c5e40cc0b9b6eac7b5003" category="sidebar">이전 릴리즈 노트 버전</block>
+  <block id="a0bdfc7755831681bc292330bc4e3777" category="sidebar">XCP 1.6.1 이하 버전에 대한 문서</block>
 </blocks>
