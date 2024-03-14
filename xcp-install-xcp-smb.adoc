@@ -66,7 +66,7 @@ VC++ 재배포 가능 설치에 대해 다음 단계를 따릅니다.
 .단계
 . Windows 클라이언트에서 라이센스 및 xCP SMB 바이너리 "NetApp_xCP_<version>.tgz"를 다운로드하십시오.
 . 'NetApp_xCP_<version>.tgz' 파일의 압축을 풉니다.
-. Windows C: 드라이브에 'xCP.exe' 파일을 복사합니다. 이 바이너리는 'tgz' 파일의 압축을 푼 후 'NetApp_xCP_1.8\NetApp_xCP_1.8\xCP\windows'에서 사용할 수 있습니다.
+. 를 복사합니다 `xcp.exe` 파일을 Windows C: 드라이브에 저장합니다. 이 바이너리는 에서 사용할 수 있습니다 `NETAPP_XCP_<version>\xcp\windows` 를 추출한 후 `tgz` 파일.
 . 시스템에서 이전 버전의 XCP로 'C:\NetApp\xCP' 경로를 사용할 수 있는지 확인합니다. 'C:\NetApp\xCP'를 사용할 수 있는 경우 'xcp.exe activate' 명령을 사용하여 xCP를 활성화하고 데이터 마이그레이션을 진행합니다.
 +
 'C:\NetApp\xCP'를 사용할 수 없는 경우, 'xcp.exe activate' 명령을 처음 실행하면 시스템에서 xCP 호스트 구성 디렉토리를 생성하여 'C:\NetApp\xCP'에 저장합니다. xcp.exe activate 명령이 실패하고 새 사용권을 요청하는 오류 메시지가 생성됩니다.

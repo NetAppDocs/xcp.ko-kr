@@ -55,7 +55,6 @@
   <block id="4db6b4b2c123aa3cd8ad45d8003538bc" category="paragraph">다음 단계에 따라 xCP SMB의 초기 설정을 수행합니다.</block>
   <block id="5dfa463a08f83c24c2d431cffb177fa8" category="list-text">Windows 클라이언트에서 라이센스 및 xCP SMB 바이너리 "NetApp_xCP_&lt;version&gt;.tgz"를 다운로드하십시오.</block>
   <block id="bdacdc2ce48f16d27d87fef257b0c28f" category="list-text">'NetApp_xCP_&lt;version&gt;.tgz' 파일의 압축을 풉니다.</block>
-  <block id="5721c375e95676c97876a49105a2b54c" category="list-text">Windows C: 드라이브에 'xCP.exe' 파일을 복사합니다. 이 바이너리는 'tgz' 파일의 압축을 푼 후 'NetApp_xCP_1.8\NetApp_xCP_1.8\xCP\windows'에서 사용할 수 있습니다.</block>
   <block id="17b92bb56c632debb93b565e92dbd987" category="list-text">시스템에서 이전 버전의 XCP로 'C:\NetApp\xCP' 경로를 사용할 수 있는지 확인합니다. 'C:\NetApp\xCP'를 사용할 수 있는 경우 'xcp.exe activate' 명령을 사용하여 xCP를 활성화하고 데이터 마이그레이션을 진행합니다.</block>
   <block id="c9dd31b110e2c919cd80441873e975fc" category="paragraph">'C:\NetApp\xCP'를 사용할 수 없는 경우, 'xcp.exe activate' 명령을 처음 실행하면 시스템에서 xCP 호스트 구성 디렉토리를 생성하여 'C:\NetApp\xCP'에 저장합니다. xcp.exe activate 명령이 실패하고 새 사용권을 요청하는 오류 메시지가 생성됩니다.</block>
   <block id="a93da960db5c5b4f48c763a05f304371" category="list-text">새로 생성된 폴더 'C:\NetApp\xCP:'에 라이센스를 복사합니다</block>
@@ -957,4 +956,5 @@ xcp.log 파일에 기록된 오류 메시지:<block ref="e2ac862df70b5c80b24bb2e
   <block id="fa9d00e8e16d36faed7e27ef33cc9bb1" category="sidebar">NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터 마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 비롯하여 XCP 1.6.2 이상 소프트웨어에 대한 설명서를 찾을 수 있습니다. 1.6.2 이전 버전의 XCP 릴리스에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.</block>
   <block id="0b5f5476de5c5e40cc0b9b6eac7b5003" category="sidebar">이전 릴리즈 노트 버전</block>
   <block id="a0bdfc7755831681bc292330bc4e3777" category="sidebar">XCP 1.6.1 이하 버전에 대한 문서</block>
+  <block id="50093a13cb17d2efa1a538b0678cc15e" category="list-text">를 복사합니다<block ref="42dc92c99a13a4f3e1ce5f5dbffb3d77" prefix=" " category="inline-code"></block> 파일을 Windows C: 드라이브에 저장합니다. 이 바이너리는 에서 사용할 수 있습니다<block ref="b83dd8b00a764f84f57961a6d4eb38c7" prefix=" " category="inline-code"></block> 를 추출한 후<block ref="05d1190d81e37d06607cc19e21f63ea7" prefix=" " category="inline-code"></block> 파일.</block>
 </blocks>
