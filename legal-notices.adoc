@@ -47,12 +47,8 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 
 통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.
 
+* link:media/xcp_1.9.3_notice.pdf["NetApp XCP 1.9.3에 대한 고지 사항"^]
 * link:media/xcp_1.9.2_notice.pdf["NetApp XCP 1.9.2 참고 사항"^]
 * link:media/xcp_1.9.1_notice.pdf["NetApp XCP 1.9.1 공지"^]
 * link:media/xcp_1.9_notice.pdf["NetApp XCP 1.9에 대한 고지 사항"^]
-* link:media/xcp_1.8.1_notice.pdf["NetApp XCP 1.1.1에 대한 고지 사항"^]
-* link:media/xcp_1.8_notice.pdf["NetApp XCP 1.8에 대한 고지 사항"^]
-* link:media/xcp_1.7_notice.pdf["NetApp XCP 1.7에 대한 고지 사항"^]
-* link:media/xcp_1.6.2_notice.pdf["NetApp XCP 1.2.2에 대한 고지 사항"^]
-* link:media/xcp_1.6.1_notice.pdf["NetApp XCP 1.6.1 참고 사항"^]
 

@@ -1,8 +1,7 @@
 ---
 indexpage:
-  lead: NetApp XCP는 클라이언트 기반 소프트웨어로, NetApp 간 데이터 마이그레이션 및 파일 분석을 위해 확장 가능한 고성능 데이터
-    마이그레이션을 지원합니다. 여기에서 XCP 설치, 구성 및 사용 방법을 비롯하여 XCP 1.6.2 이상 소프트웨어에 대한 설명서를 찾을 수
-    있습니다. 1.6.2 이전 버전의 XCP 릴리스에 대한 문서는 NetApp Support 사이트에서 확인할 수 있습니다.
+  lead: NetApp XCP는 모든 NetApp 제품 간 데이터 마이그레이션 및 파일 분석에 맞게 확장 가능한 고성능 데이터 마이그레이션을 허용하는
+    클라이언트 기반 소프트웨어 툴입니다. NetApp는 최신 버전의 XCP 툴과 세 가지 최신 버전에 대한 문서를 제공합니다.
   tiles:
   - title: 시작하십시오
     links:
@@ -10,24 +9,26 @@ indexpage:
       url: "/releasenotes.html"
     - title: xCP에 대해 자세히 알아보십시오
       url: "/xcp-index.html"
-  - title: 이전 릴리즈 노트 버전
+    - title: xCP를 설치합니다
+      url: "/xcp-install-xcp.html"
+    - title: XCP 참조
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872
+  - title: 이전 릴리스
     links:
-    - title: NetApp XCP 1.9.2
+    - title: NetApp XCP 1.9.2 릴리스 노트
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2885805
-    - title: NetApp XCP 1.9.1
+    - title: NetApp XCP 1.9.2 참조
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2885807
+    - title: NetApp XCP 1.9.1 릴리스 노트
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2884968
-    - title: NetApp XCP 1.9
+    - title: NetApp XCP 1.9.1 참조
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2883343
+    - title: NetApp XCP 1.9 릴리스 정보
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2883342
-    - title: NetApp XCP 1.8.1
-      url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2881500
-    - title: NetApp XCP 1.8
-      url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2880112
-    - title: NetApp XCP 1.7 이하
-      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
+    - title: NetApp XCP 1.9 참조
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2883343
   - title: 더 많은 리소스
     links:
-    - title: XCP 1.6.1 이하 버전에 대한 문서
-      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
     - title: NetApp TechCommTV (NetApp XCP 비디오)
       url: link:https://www.youtube.com/user/NetAppTechCommTV/search?query=xcp
     - title: NetApp XCP(라이센스를 취득하기 위한 링크 포함)
