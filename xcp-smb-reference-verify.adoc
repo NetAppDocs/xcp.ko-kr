@@ -1,0 +1,833 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-verify.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "verify" 명령 참조' 
+---
+= 확인합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+를 클릭합니다 `verify` 명령어는 소스 및 타겟 공유를 읽고 비교하며 다른 사항에 대한 정보를 제공합니다. 를 사용할 수 있습니다 `verify` 복사 또는 동기화 작업을 수행하는 데 사용된 도구에 관계없이 모든 소스 및 대상에 대한 명령
+
+.구문
+[source, cli]
+----
+xcp verify \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify  \\<IP address of SMB source server>\source_share  \\<IP address of SMB destination server>\dest_share
+xcp verify  \\<IP address of SMB source server>\source_share  \\ <IP address of SMB destination server>\dest_share
+
+xcp verify  \\<IP address of SMB source server>\source_share  \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+xcp verify  \\<IP address of SMB source server>\source_share  \\<IP address of SMB destination server>\dest_share
+Total Time : 3s
+STATUS : PASSED
+----
+====
+다음 표에는 가 나열되어 있습니다 `verify` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<smb_verify_help,verify -h,--help 를 참조하십시오>> | 이 도움말 메시지를 표시하고 종료합니다. 
+
+
+| <<검증 - v>> | 디버그 세부 정보 증가 
+
+
+| <<smb_verify_parallel,확인-병렬();n  | 동시 프로세스 수(기본값: <cpu-count>). 
+
+
+| <<smb_verify_match,확인-일치();필터();  | 필터와 일치하는 파일 및 디렉토리만 처리합니다(참조) `xcp help - match` 참조). 
+
+
+| <<smb_verify_exclude,확인-제외();필터();  | 필터에서 파일 및 디렉터리만 제외합니다. 
+
+
+| <<verify-preserve-atime 을 참조하십시오>> | 소스에서 마지막으로 액세스한 날짜를 복원합니다. 
+
+
+| <<Verify-NoData(확인 - 데이터 없음>> | 데이터를 확인하지 마십시오. 
+
+
+| <<확인-atime>> | 파일 액세스 시간을 확인합니다. 
+
+
+| <<noctime을 확인합니다>> | 파일 생성 시간을 확인하지 마십시오. 
+
+
+| <<Verify-nomtime(확인 - 명시>> | 파일 수정 시간을 확인하지 마십시오. 
+
+
+| <<verify-noattrs 를 참조하십시오>> | 특성을 검사하지 마십시오. 
+
+
+| <<소유권 확인>> | 소유권을 확인하지 마십시오. 
+
+
+| <<확인 광고>> | 소스 및 타겟 SMB 공유에서 대체 데이터 스트림의 변경 및 수정 사항을 검색합니다. 변경 사항이 있는 경우 변경 내용이 대상에 적용됩니다
+타겟이 소스와 동일한지 확인합니다. 
+
+
+| <<확인 - noacls>> | ACL을 확인하지 마십시오. 
+
+
+| <<verify_smb_atime,확인 - atimewindow(); 부동();  | 허용 가능한 액세스 시간 차이(초). 
+
+
+| <<verify_smb_ctime,확인-ctimewindow  | 허용 가능한 생성 시간 차이(초). 
+
+
+| <<verify_smb_mtime,확인-mtimewindow  | 허용되는 수정 시간 차이(초) 
+
+
+| <<verify-stats 를 참조하십시오>> | 소스 및 대상 트리를 병렬로 스캔하고 트리 통계를 비교합니다. 
+
+
+| <<verify -l(확인 - l>> | 출력 세부 사항을 높입니다. 
+
+
+| <<verify -ll(확인>> | 출력 세부 사항(git diff 형식)을 높입니다. 
+
+
+| <<verify_smb_acl,verify-fallback-user  | 로컬(도메인이 아닌) 소스 컴퓨터 사용자(예: domain\administrator)의 권한을 받기 위해 대상 컴퓨터의 Active Directory 사용자 또는 로컬(도메인이 아닌) 사용자입니다. 
+
+
+| <<verify_smb_acl,verify-fallback-group  | 로컬(도메인이 아닌) 소스 컴퓨터 그룹(예: domain\administrators)의 권한을 받기 위한 대상 컴퓨터의 Active Directory 그룹 또는 로컬(도메인이 아닌) 그룹입니다. 
+
+
+| <<smb_verify_root,verify-root 를 선택합니다>> | 루트 디렉토리에 대한 ACL을 동기화합니다. 
+
+
+| <<verify_smb_onlyacl,확인 - Only>> | 보안 정보만 복사합니다. 
+|===
+
+
+== verify -h,--help 를 참조하십시오
+
+를 사용합니다 `-h` 및 `–-help` 매개 변수 및 `verify` 명령을 사용하여 에 대한 자세한 정보를 표시합니다 `verify` 명령
+
+.구문
+[source, cli]
+----
+xcp verify –help
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Netapp\xcp>xcp verify –help
+usage: xcp verify [-h] [-v] [-parallel <n>] [-match <filter>] [-exclude <filter>][-preserve-atime]
+[-loglevel <name>] [-fallback-user FALLBACK_USER]
+[-fallback-group FALLBACK_GROUP] [-noacls] [-nodata] [-stats] [-l] [-root] [-noownership] [-onlyacl] [-noctime] [-nomtime] [-noattrs] [-atime]
+[-atimewindow <float>] [-ctimewindow <float>] [-mtimewindow <float>] [-ads] source target
+
+Note: ONTAP does not let a SMB client modify COMPRESSED or ENCRYPTED attributes. XCP sync will ignore these file attributes.
+
+positional arguments:
+   source
+   target
+
+optional arguments:
+-h, --help	           show this help message and exit
+-v	                    increase debug verbosity
+-parallel <n>	        number of concurrent processes (default: <cpu-count>)
+-match <filter>        only process files and directories that match the filter (see `xcp help -match` for details)
+-exclude <filter>      Exclude files and directories that match the filter (see `xcp help -exclude` for details)
+-preserve-atime	     restore last accessed date on source
+--help-diag           Show all options including diag.The diag options should be used only on recommendation by NetApp support.
+-loglevel <name>	     option to set log level filter (default:INFO)
+-fallback-user FALLBACK_USER
+                       a user on the target machine to translate the permissions of local (non-domain) source machine users (eg. domain\administrator)
+-fallback-group FALLBACK_GROUP
+                       a group on the target machine to translate the permissions of local (non- domain) source machine groups (eg. domain\administrators)
+-nodata	              do not check data
+-stats	              scan source and target trees in parallel and compare tree statistics
+-l	                    detailed file listing output
+-root	                 verify acl for root directory
+-noacls	              do not check acls
+-noownership	        do not check ownership
+-onlyacl	              verify only acls
+-noctime	              do not check file creation time
+-nomtime	              do not check file modification time
+-noattrs	              do not check attributes
+-atime	              verify acess time as well
+-atimewindow <float>   acceptable access time difference in seconds
+-ctimewindow <float>   acceptable creation time difference in seconds
+-mtimewindow <float>   acceptable modification time difference in seconds
+-ads	                 verify ntfs alternate data stream
+----
+====
+
+
+== 검증 - v
+
+를 사용합니다 `-v` 매개 변수 `verify` 자세한 디버그 정보를 제공하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -v \\<IP address of SMB source server>\source_share address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp> xcp verify -v \\<IP address of SMB source server>\source_share address of SMB destination server>\dest_share
+xcp verify -v  \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -v \\< IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== Verify - 병렬 <n>
+
+를 사용합니다 `-parallel <n>` 매개 변수 `verify` XCP 동시 프로세스의 수를 더 높거나 더 적게 설정하는 명령입니다. 를 클릭합니다 `verify -parallel <n>` 명령은 동시 프로세스의 수를 확인합니다(기본값: <cpu-count>).
+
+
+NOTE: n의 최대값은 61입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -v -parallel <n> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -v -parallel 8 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -v -parallel 8 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -v -parallel 8 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 4s
+STATUS : PASSED
+----
+====
+
+
+== Verify - <filter>를 일치시킵니다
+
+를 사용합니다 `-match <filter>` 매개 변수 `verify` 소스 및 타겟 트리를 검색하고 필터 인수와 일치하는 파일이나 디렉토리만 비교하는 명령입니다. 차이가 있는 경우 명령은 타겟에 필요한 작업을 적용하여 동기화되도록 합니다.
+
+.구문
+[source, cli]
+----
+xcp verify -v -match <filter> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -v -match "'Microsoft' in name" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -v -match "'Microsoft' in name" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -v -match 'Microsoft' in name \\<IP address of SMB source server> \source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 0 compared, 0 same, 0 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+== 확인 - <filter> 제외
+
+를 사용합니다 `-exclude <filter>` 매개 변수 `verify` 필터에서 파일 및 디렉터리만 제외하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -exclude <filter> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\netapp\xcp>xcp verify -exclude "path('*Exceptions*')" \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+
+210 scanned, 99 excluded, 6 compared, 5 same, 1 different, 0 missing, 0 errors, 5s
+210 scanned, 107 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 10s
+210 scanned, 107 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 15s
+210 scanned, 107 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 20s
+335 scanned, 253 excluded, 13 compared, 12 same, 1 different, 0 missing, 0 errors, 25s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 30s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 35s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 40s
+445 scanned, 427 excluded, 15 compared, 14 same, 1 different, 0 missing, 0 errors, 45s
+445 scanned, 427 excluded, 16 compared, 15 same, 1 different, 0 missing, 0 errors, 50s
+xcp verify -exclude path('*Exceptions*') \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+445 scanned, 427 excluded, 17 compared, 17 same, 0 different, 0 missing, 0 errors
+Total Time : 1m11s
+STATUS : PASSED
+----
+====
+
+
+== verify-preserve-atime 을 참조하십시오
+
+를 사용합니다 `-preserve-atime` 매개 변수 `verify` 재설정하는 명령입니다 `atime` XCP가 파일을 읽기 전의 원래 값으로.
+
+.구문
+[source, cli]
+----
+xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+374 scanned, 179 compared, 179 same, 0 different, 0 missing, 0 errors, 5s
+xcp verify -preserve-atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 8s
+STATUS : PASSED
+----
+====
+
+
+== Verify-NoData(확인 - 데이터 없음
+
+를 사용합니다 `-nodata` 매개 변수 `verify` 데이터를 비교하지 않는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -nodata \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -nodata \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -nodata \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -nodata \\<IP address of SMB source server> \source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== 확인-atime
+
+를 사용합니다 `-atime` 매개 변수 `verify` 소스에서 대상으로 파일 액세스 타임 스탬프를 비교하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -ll -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\Netapp\xcp> xcp verify -ll -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+WARNING: your license will expire in less than one week! You can renew your license at https://xcp.netapp.com
+dir1: Changed (atime)
+  atime
+     - 2023-04-14 10:28:47 (1681482527.564423)
+     + 2023-04-14 10:24:40 (1681482280.366317)
+dir2: Changed (atime)
+  atime
+     - 2023-04-14 10:28:47 (1681482527.564424)
+     + 2023-04-14 10:24:40 (1681482280.366318)
+<root>: Changed (atime)
+  atime
+     - 2023-04-14 10:28:47 (1681482527.054403)
+     + 2023-04-14 10:28:35 (1681482515.538801)
+xcp verify -ll -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+14 scanned, 13 compared, 10 same, 3 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : FAILED
+----
+====
+
+
+== noctime을 확인합니다
+
+를 사용합니다 `-noctime` 매개 변수 `verify` 소스에서 대상으로 파일 생성 타임 스탬프를 비교하지 않는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noctime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== Verify-nomtime(확인 - 명시
+
+를 사용합니다 `-nomtime` 매개 변수 `verify` 소스에서 대상으로 파일 수정 타임 스탬프를 비교하지 않는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -nomtime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verify-noattrs 를 참조하십시오
+
+를 사용합니다 `-noattrs` 매개 변수 `verify` 속성을 검사하지 않는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noattrs \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== 소유권 확인
+
+를 사용합니다 `-noownership` 매개 변수 `verify` 소유권을 확인하지 않는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -noownership \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noownership \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noownership	\\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noownership \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share : PASSED
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== 확인 광고
+
+사용 `-ads` 매개 변수 `verify` 소스와 대상에 대체 데이터 스트림이 있는지 확인하고 차이점을 표시하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -ads \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -ads \\<source_IP_address>\source_share\src \\<dest_IP_address>\dest_share
+
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	10s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	1m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	1m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	2m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	2m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	2m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	3m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	3m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	3m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	4m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	5m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	6m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	6m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	6m10s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	7m0s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	7m5s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	7m55s
+7	scanned,	5	compared,	5	same,	0	different,	0	missing,	0	errors,	8m0s
+
+xcp verify -ads \\source_Ip_address>\source_share\src \\<dest_IP_address>\dest_share
+7 scanned, 6 compared, 6 same, 0 different, 0 missing, 0 errors
+Total Time : 8m4s
+STATUS : PASSED
+----
+====
+
+
+== 확인 - noacls
+
+를 사용합니다 `-noacls` 매개 변수 `verify` ACL을 확인하지 않는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -noacls -noownership \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -noacls -noownership \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -noacls -noownership	\\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -noacls -noownership \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+318 scanned, 317 compared, 317 same, 0 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+=== noacls -noownership을 확인합니다
+
+를 사용합니다 `-noownership` 매개 변수가 포함된 경우 `verify -noacls`  소스에서 대상으로 ACL 또는 소유권을 확인하지 않습니다.
+
+.구문
+[source, cli]
+----
+xcp verify -noacls -noownership <source> <target>
+----
+
+
+== Verify-atimewindow <float>(확인-알림)
+
+를 사용합니다 `-atimewindow <float>` 매개 변수 `verify` 명령을 사용하여 에 대해 허용 가능한 차이를 초 단위로 지정합니다 `atime` 소스에서 목적지까지의 파일. XCP는 에서 차이가 있을 경우 파일을 다른 것으로 보고하지 않습니다 `atime` <value>보다 작습니다. 를 클릭합니다 `verify - atimewindow` 명령은 에서만 사용할 수 있습니다 `-atime` 깃발.
+
+.구문
+[source, cli]
+----
+xcp verify -atimewindow <float> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\Netapp\xcp> xcp verify -atimewindow 600 -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -atimewindow 600 -atime \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+14 scanned, 13 compared, 13 same, 0 different, 0 missing, 0 errors
+----
+====
+
+
+== verify-ctimewindow <float> 를 참조하십시오
+
+를 사용합니다 `-ctimewindow <float>` 매개 변수 `verify` 명령을 사용하여 에 대해 허용 가능한 차이를 초 단위로 지정합니다 `ctime` 소스에서 목적지까지의 파일. XCP는 의 차이가 있을 때 파일을 다른 것으로 보고하지 않습니다 `ctime` <value>보다 작습니다.
+
+.구문
+[source, cli]
+----
+xcp verify -ctimewindow <float> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -ctimewindow 600 \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -ctimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -ctimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verify-mtimewindow(확인-mtimewindow <float>
+
+를 사용합니다 `-mtimewindow <float>` 매개 변수 `verify` 명령을 사용하여 에 대해 허용 가능한 차이를 초 단위로 지정합니다 `mtime` 소스에서 목적지까지의 파일. XCP는 의 차이가 있을 때 파일을 다른 것으로 보고하지 않습니다 `mtime` <value>보다 작습니다.
+
+.구문
+[source, cli]
+----
+xcp verify -mtimewindow <float> \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -mtimewindow 600 \\<IP address of SMB sourceserver>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -mtimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -mtimewindow 600 \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verify-stats 를 참조하십시오
+
+를 사용합니다 `-stats` 매개 변수 `verify` 소스와 대상을 스캔하고 두 공유 간의 유사점이나 차이점을 보여 주는 트리 통계 보고서를 출력하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+       == Number of files ==
+	            empty    <8KiB    8-64KiB    64KiB-1MiB   1-10MiB   10-100MiB   >100MiB
+                               81        170            62         2
+on-target                    same       same          same      same
+on-source                    same       same          same      same
+
+       == Directory entries ==
+	            empty	  1-10     10-100	     100-1K	   1K-10K	     >10K
+        		                       1             1
+on-target                                same          same
+on-source			             same	      same
+
+       == Depth ==
+                  0-5	  6-10	    11-15	      16-20	   21-100	     >100
+	              317
+on-target           same
+on-source	      same
+
+       == Modified ==
+              >1 year	>1 month  1-31 days    1-24 hrs   <1 hour   <15 mins     future    invalid
+                  315                                    2
+on-target        same                                 same
+on-source        same                                 same
+
+Total count: 317 / same / same
+Directories: 2 / same / same
+Regular files: 315 / same / same
+Symbolic links:
+Junctions:
+Special files:
+xcp verify -stats \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+635 scanned, 0 errors Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+== verify -l(확인 - l
+
+를 사용합니다 `-l` 매개 변수 `verify` 명령을 사용하여 소스 및 대상에 있는 파일과 디렉토리 간의 차이점을 나열합니다.
+
+.구문
+[source, cli]
+----
+xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+다음 예에서는 복사하는 동안 소유권 정보가 전송되지 않았으며 명령 출력의 차이점을 볼 수 있습니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -l \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verify -ll(확인
+
+를 사용합니다 `-ll` 매개 변수 `verify` 소스 및 타겟과 파일 또는 디렉토리의 자세한 차이점을 나열하는 명령입니다. 형식은 git diff와 같습니다. 빨간색 값은 소스의 이전 값이고 녹색 값은 타겟의 새 값입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -ll \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+374 scanned, 373 compared, 373 same, 0 different, 0 missing, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== verify-fallback-user <fallback_user>-fallback-group <fallback_group>입니다
+
+를 사용합니다 `-fallback-user` 및 `-fallback-group` 매개 변수 및 `verify` 소스와 대상에서 파일과 디렉토리 간의 ACL 및 소유권 차이를 나열하는 명령입니다.
+
+
+NOTE: 를 사용하는 경우 `fallback-user` 및 `fallback-group` 복사 또는 동기화 작업의 경우 NetApp는 도 사용할 것을 권장합니다 `fallback-user` 및 `fallback-group` Verify 작업이 있는 매개 변수입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+
+
+=== verify-notorigrity-fallback-user <fallback_user>-fallback-group <fallback_group> 를 참조하십시오
+
+를 사용합니다 `-noownership,` `-fallback-user`, 및 `-fallback-group` 매개 변수 및 `verify` ACL 차이를 나열하고 소스와 대상에서 파일과 디렉토리 간의 소유권 확인을 건너뛰는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -noownership -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+
+
+=== verify-noacls-fallback-user <fallback_user>-fallback-group <fallback_group> 를 참조하십시오
+
+를 사용합니다 `-noacls`, `-fallback-user`, 및 `-fallback-group` 매개 변수 및 `verify` ACL의 확인을 건너뛰고 소스와 대상에서 파일과 디렉토리 간의 소유권을 확인하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -noacls -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+
+
+== verify-root 를 선택합니다
+
+를 사용합니다 `-root` 매개 변수 `verify` 루트 디렉터리의 ACL을 동기화하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -root -fallback-user <fallback_user> -fallback- group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\NetApp\XCP>xcp verify -root -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp verify -l -root -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+7 scanned, 6 compared, 6 same, 0 different, 0 missing, 0 errors
+Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+=== verify-onlyacl-fallback-user <fallback_user>-fallback-group <fallback_group> 를 참조하십시오
+
+를 사용합니다 `-onlyacl`, `-fallback-user` 및 `-fallback-group` 매개 변수 및 `verify` 소스와 대상 간의 보안 정보만 비교하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp verify -onlyacl -preserve-atime -fallback-user <fallback_user> -fallback- group <fallback_group> \\<IP address of SMB source server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Users\ctladmin\Desktop>xcp verify -onlyacl -preserve-atime -fallback-user "DOMAIN\User" -fallback- group "DOMAIN\Group" -ll \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+
+4,722	scanned,	0 compared, 0 same, 0 different, 0 missing, 0 errors, 5s
+7,142	scanned,	120 compared, 120 same, 0 different, 0 missing, 0 errors, 10s
+7,142	scanned,	856 compared, 856 same, 0 different, 0 missing, 0 errors, 15s
+7,142	scanned,	1,374 compared, 1,374 same, 0 different, 0 missing, 0 errors,	20s
+7,142	scanned,	2,168 compared, 2,168 same, 0 different, 0 missing, 0 errors,	25s
+7,142	scanned,	2,910 compared, 2,910 same, 0 different, 0 missing, 0 errors,	30s
+7,142	scanned,	3,629 compared, 3,629 same, 0 different, 0 missing, 0 errors,	35s
+7,142	scanned,	4,190 compared, 4,190 same, 0 different, 0 missing, 0 errors,	40s
+7,142	scanned,	4,842 compared, 4,842 same, 0 different, 0 missing, 0 errors,	45s
+7,142	scanned,	5,622 compared, 5,622 same, 0 different, 0 missing, 0 errors,	50s
+7,142	scanned,	6,402 compared, 6,402 same, 0 different, 0 missing, 0 errors,	55s
+7,142	scanned,	7,019 compared, 7,019 same, 0 different, 0 missing, 0 errors,	1m0s
+
+xcp verify -onlyacl -preserve-atime -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" -ll \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+7,142 scanned, 7,141 compared, 7,141 same, 0 different, 0 missing, 0 errors
+Total Time : 1m2s
+STATUS : PASSED
+----
+====

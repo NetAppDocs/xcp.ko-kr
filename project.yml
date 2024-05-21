@@ -90,7 +90,7 @@ sidebar:
     - title: SMB 데이터 마이그레이션
       url: "/xcp-migrate-smb-data.html"
       entries:
-      - title: NTFS 대체 데이터 스트림 SMB를 위한 마이그레이션
+      - title: SMB를 위한 NTFS 대체 데이터 스트림 마이그레이션
         url: "/xcp-smb-ads.html"
     - title: HDFS 데이터를 마이그레이션합니다
       url: "/xcp-migrate-hdfs-data.html"
@@ -106,5 +106,83 @@ sidebar:
       url: "/xcp-troubleshoot-xcp-smb-errors.html"
     - title: xCP File Analytics 오류 문제 해결
       url: "/xcp-troubleshoot-xcp-file-analytics-errors.html"
+  - title: XCP 참조
+    entries:
+    - title: XCP 명령 참조 개요
+      url: "/xcp-reference-overview.html"
+    - title: NFS 명령 참조입니다
+      entries:
+      - title: 도움말
+        url: "/xcp-nfs-reference-help.html"
+      - title: 표시
+        url: "/xcp-nfs-reference-show.html"
+      - title: 라이센스
+        url: "/xcp-nfs-reference-license.html"
+      - title: 활성화
+        url: "/xcp-nfs-reference-activate.html"
+      - title: 스캔
+        url: "/xcp-nfs-reference-scan.html"
+      - title: 복사
+        url: "/xcp-nfs-reference-copy.html"
+      - title: 동기화
+        url: "/xcp-nfs-reference-sync.html"
+      - title: 다시 시작
+        url: "/xcp-nfs-reference-resume.html"
+      - title: 확인합니다
+        url: "/xcp-nfs-reference-verify.html"
+      - title: chmod 를 클릭합니다
+        url: "/xcp-nfs-reference-chmod.html"
+      - title: 샤운
+        url: "/xcp-nfs-reference-chown.html"
+      - title: 로그 덤프
+        url: "/xcp-nfs-reference-logdump.html"
+      - title: 삭제
+        url: "/xcp-nfs-reference-delete.html"
+      - title: 견적
+        url: "/xcp-nfs-reference-estimate.html"
+      - title: 인덱스 삭제
+        url: "/xcp-nfs-reference-indexdelete.html"
+      - title: iSync 를 선택합니다
+        url: "/xcp-nfs-reference-isync.html"
+    - title: smb 명령 참조
+      entries:
+      - title: 도움말
+        url: "/xcp-smb-reference-help.html"
+      - title: 표시
+        url: "/xcp-smb-reference-show.html"
+      - title: 라이센스
+        url: "/xcp-smb-reference-license.html"
+      - title: 활성화
+        url: "/xcp-smb-reference-activate.html"
+      - title: 스캔
+        url: "/xcp-smb-reference-scan.html"
+      - title: 복사
+        url: "/xcp-smb-reference-copy.html"
+      - title: 동기화
+        url: "/xcp-smb-reference-sync.html"
+      - title: 확인합니다
+        url: "/xcp-smb-reference-verify.html"
+      - title: 구성
+        url: "/xcp-smb-reference-configure.html"
+      - title: 경청하십시오
+        url: "/xcp-smb-reference-listen.html"
+    - title: XCP 활용 사례
+      entries:
+      - title: XCP 활용 사례
+        url: "/xcp-reference-use-cases.html"
+    - title: XCP 로깅
+      entries:
+      - title: logConfig 옵션을 설정합니다
+        url: "/xcp-reference-logging-logconfig.html"
+      - title: EventLog 옵션을 설정합니다
+        url: "/xcp-reference-logging-eventlog.html"
+      - title: syslog 클라이언트를 활성화합니다
+        url: "/xcp-reference-logging-syslog.html"
+    - title: XCP 이벤트 로그
+      entries:
+      - title: NFS 이벤트 로그
+        url: "/xcp-reference-event-logs-nfs.html"
+      - title: SMB 이벤트 로그
+        url: "/xcp-reference-event-logs-smb.html"
   - title: 법적 고지
     url: "/legal-notices.html"

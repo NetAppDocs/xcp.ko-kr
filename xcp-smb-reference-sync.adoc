@@ -1,0 +1,777 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-sync.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "sync" 명령 참조' 
+---
+= 동기화
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+를 클릭합니다 `sync` 명령은 소스 및 타겟 공유의 변경 및 수정 사항을 병렬로 검색하고 타겟에 적절한 작업을 적용하여 타겟이 소스와 동일한지 확인합니다. 를 클릭합니다 `sync` 명령은 데이터 콘텐츠, 타임스탬프, 파일 속성, 소유권 및 보안 정보를 비교합니다.
+
+.구문
+[source, cli]
+----
+xcp sync \\<source SMB share> \\<IP address of SMB destination server>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+다음 표에는 가 나열되어 있습니다 `sync` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<smb_sync_help,sync -h, -- 도움말>> | 이 도움말 메시지를 표시하고 종료합니다. 
+
+
+| <<동기화 - v>> | 디버그 세부 정보 증가 
+
+
+| <<smb_sync_parallel,동기화 - 병렬();n  | 동시 프로세스 수(기본값: <cpu-count>). 
+
+
+| <<smb_sync_match,동기화 일치();필터();  | 필터와 일치하는 파일 및 디렉토리만 처리합니다(참조) `xcp help - match` 참조). 
+
+
+| <<smb_sync_exclude,동기화 - 제외(); 필터();  | 필터에서 파일 및 디렉터리만 제외합니다. 
+
+
+| <<sync-preserve-atime을 선택합니다>> | 소스에서 마지막으로 액세스한 날짜를 복원합니다. 
+
+
+| <<동기화 - noatime>> | 파일 액세스 시간을 확인하지 마십시오. 
+
+
+| <<동기화 - noctime>> | 파일 생성 시간을 확인하지 마십시오. 
+
+
+| <<동기화 - nomtime>> | 파일 수정 시간을 확인하지 마십시오. (이 옵션은 더 이상 사용되지 않습니다. 이 옵션 없이 동기화가 계속 실행됩니다.) 
+
+
+| <<sync-noattrs를 선택합니다>> | 특성을 검사하지 마십시오. 
+
+
+| <<동기화 - 소유권 없음>> | 소유권을 확인하지 마십시오. 
+
+
+| <<sync_smb_atime,동기화 - 타임윈도(), 부동(),  | 허용 가능한 액세스 시간 차이(초). 
+
+
+| <<sync_smb_ctime,동기화 - ctimewindow(); 부동();  | 허용 가능한 생성 시간 차이(초). 
+
+
+| <<sync_smb_mtime,동기화 - mtimewindow(); 부동();  | 허용되는 수정 시간 차이(초) 
+
+
+| <<sync_smb_acl,SYNC-ACL을 선택합니다>> | 보안 정보를 복사합니다. 
+
+
+| <<sync_smb_acl,sync-fallback-user  | 로컬(도메인이 아닌) 소스 컴퓨터 사용자(예: domain\administrator)의 권한을 받기 위해 대상 컴퓨터의 Active Directory 사용자 또는 로컬(도메인이 아닌) 사용자입니다. 
+
+
+| <<sync_smb_acl,sync-fallback-group  | 로컬(도메인이 아닌) 소스 컴퓨터 그룹(예: domain\administrators)의 권한을 받기 위한 대상 컴퓨터의 Active Directory 그룹 또는 로컬(도메인이 아닌) 그룹입니다. 
+
+
+| <<동기화 -l>> | 출력 세부 사항을 높입니다. 
+
+
+| <<smb_sync_root,동기화 루트>> | 루트 디렉토리에 대한 ACL을 동기화합니다. 
+
+
+| <<smb_sync_onlyacl,동기화 - 전용>> | 보안 정보만 복사합니다. 
+
+
+| <<smb_sync_aclverify,sync-aclverify {yes, no} >> | ACL 동기화 작업 중에 ACL 확인을 포함하거나 건너뛸 수 있는 옵션을 제공합니다. 
+
+
+| <<smb_sync_bs,동기화 - BS  | 읽기/쓰기 블록 크기(기본값: 1M). 
+
+
+| <<동기화 광고>> | 를 사용합니다 `sync` 명령과 함께 `-ads` 소스 및 타겟 SMB 공유에서 대체 데이터 스트림의 변경 및 수정 사항을 검색하는 플래그입니다. 변경 사항이 있는 경우 변경 내용이 대상에 적용됩니다
+타겟이 소스와 동일한지 확인합니다. 
+|===
+
+
+== sync -h, -- 도움말
+
+를 사용합니다 `-h` 및 `–-help` 매개 변수 및 `sync` 명령을 사용하여 에 대한 자세한 정보를 표시합니다 `sync` 명령
+
+.구문
+[source, cli]
+----
+xcp sync -–help
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Netapp\xcp>xcp sync --help
+usage: xcp sync [-h] [-v] [-parallel <n>] [-match <filter>] [-exclude <filter>] [-preserve-atime] [-noatime] [-noctime] [-nomtime] [-noattrs] [-atimewindow <float>]
+[-ctimewindow <float>] [-mtimewindow <float>] [-acl] [-fallback-user FALLBACK_USER] [-fallback-group FALLBACK_GROUP] [-loglevel <name>] [-l] [-root]
+[-noownership] [-onlyacl] [-aclverify {yes,no}] [-bs <n>] [-ads] source target
+
+Note: ONTAP does not let a SMB client modify COMPRESSED or ENCRYPTED attributes. XCP sync will ignore these file attributes.
+
+positional arguments:
+   source
+   target
+
+optional arguments:
+   -h, --help              show this help message and exit
+   -v                      increase debug verbosity
+   -parallel <n>           number of concurrent processes (default: <cpu-count>)
+   -match <filter>         only process files and directories that match the filter (see `xcp help -match` for details)
+   -exclude <filter>       Exclude files and directories that match the filter (see `xcp help -exclude` for details)
+   -preserve-atime	       restore last accessed date on source
+   -noatime                do not check file access time
+   -noctime                do not check file creation time
+   -nomtime                do not check file modification time
+   -noattrs                do not check attributes
+   -atimewindow <float>    acceptable access time difference in seconds
+   -ctimewindow <float>    acceptable creation time difference in seconds
+   -mtimewindow <float>    acceptable modification time difference in seconds
+   -acl                    copy security information
+   -fallback-user FALLBACK_USER
+                           the name of the user on the target machine to receive the permissions of local (non-domain) source machine users (eg. domain\administrator)
+   -fallback-group FALLBACK_GROUP
+                           the name of the group on the target machine to receive the permissions of local (non-domain) source machine groups (eg. domain\administrators)
+   -loglevel <name>        option to set log levelfilter
+   -l                      increase output detail
+   -root                   sync acl for root directory
+   -noownership            do not sync ownership
+   -onlyacl                sync only acls
+   -aclverify {yes,no}     choose whether you need to skip acl verification
+   -bs <n>                 read/write block size for sync (default: 1M)
+   -ads                    sync ntfs alternate data stream
+----
+====
+
+
+== 동기화 - v
+
+를 사용합니다 `-v` 매개 변수 `sync` 자세한 디버그 정보를 제공하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -v \\<IP address or hostname of SMB server>\vol_SMB_source_xxxxxx\warning \\<IP address of SMB destination server>\vol_SMB_target_xxxxxx
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\XCP>xcp sync -v \\<IP address or hostname of SMB server>\vol_SMB_source_xxxxxx\warning \\<IP address of SMB destination server>\vol_SMB_target_xxxxxx
+ERROR failed to remove from target "assembly\GAC_32\Microsoft.CertificateServices.PKIClient.Cmdlets\v4.0_6.3.0.0 31bf3856ad364e35\p ki.psd1": [Errno 13] Access is denied: '\\\\?\\UNC\\<IP address of SMB destination server>\\vol_SMB_tar shil\\assembly\\GAC_32\\Microsoft.CertificateServices.PKIClient.Cmdlets\\v4.0_6.3.0.0 31bf3856ad 364e35\\pki.psd1'
+ERROR failed to remove from target "assembly\GAC_64\Microsoft.GroupPolicy.AdmTmplEditor\v4.0_6.3.0.0 31bf3856ad364e35\Microsoft.Gro upPolicy.AdmTmplEditor.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\10.61.
+\vol_SMB_target_xxxxxx\\assembly\\GAC_64\\Microsoft.GroupPolicy.AdmTmplEditor\\v4.0_6.3.0.0 31bf 3856ad364e35\\Microsoft.GroupPolicy.AdmTmplEditor.dll'
+1,933 scanned, 1,361 compared, 2 errors, 0 skipped, 0 copied, 1,120 removed, 5s ERROR failed to remove from target
+"assembly\GAC_64\System.Printing\v4.0_4.0.0.0 31bf3856ad364e35\System.Printing.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\<IP address of SMB destination server>\\vol_SMB_target_xxxxxx\\assembly\
+4\\System.Printing\\v4.0_4.0.0.0 31bf3856ad364e35\\System.Printing.dll'
+ERROR failed to remove from target "assembly\GAC_MSIL\Microsoft.PowerShell.Workflow.ServiceCore\v4.0_3.0.0.0 31bf3856ad364e35\Micro soft.PowerShell.Workflow.ServiceCore.dll": [Errno 13] Access is denied: '\\\\
+\\<IP address of SMB destination server>\\vol_SMB_target_xxxxxx\\assembly\\GAC_MSIL\\Microsoft.PowerShell.Workflow.ServiceCore\\v4
+.0_3.0.0.0  31bf3856ad364e35\\Microsoft.PowerShell.Workflow.ServiceCore.dll' ERROR failed to remove from target "assembly\GAC_MSIL\Microsoft.RightsManagementServices.ServerManager.DeploymentPlugin\v4.0_6.3.0.0
+31bf3856ad364e35\Microsoft.RightsManagementServices.ServerManager.Deploymen n.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\<IP address of SMB destination
+server>\\vol_SMB_target_xxxxxx\\assembly\\GAC_MSIL\\Microsoft.RightsManagementServices.ServerMana ger.DeploymentPlugin\\v4.0_6.3.0.0 31bf3856ad364e35\\Mic
+.RightsManagementServices.ServerManager.DeploymentPlugin.dll'
+ERROR failed to remove from target
+"assembly\GAC_MSIL\Microsoft.WSMan.Management\v4.0_3.0.0.0 31bf3856ad364e35\Microsoft.WSMan.Mana gement.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\<IP address of SMB destination server>\\vol_SMB_
+_xxxxxx\\assembly\\GAC_MSIL\\Microsoft.WSMan.Management\\v4.0_3.0.0.0 31bf3856ad364e35\\Microsof t.WSMan.Management.dll'
+ERROR failed to remove from target
+"assembly\GAC_MSIL\PresentationUI\v4.0_4.0.0.0 31bf3856ad364e35\PresentationUI.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\<IP address of SMB destination server>\\vol_SMB_target_xxxxxx\\assembly\
+SIL\\PresentationUI\\v4.0_4.0.0.0 31bf3856ad364e35\\PresentationUI.dll'
+ERROR failed to remove from target "assembly\GAC_MSIL\System.IO.Compression.FileSystem\v4.0_4.0.0.0 b77a5c561934e089\System.IO.Comp ression.FileSystem.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\10.61.71.5
+_SMB_target_xxxxxx\\assembly\\GAC_MSIL\\System.IO.Compression.FileSystem\\v4.0_4.0.0.0 b77a5c561 934e089\\System.IO.Compression.FileSystem.dll'
+ERROR failed to remove from target "assembly\GAC_MSIL\System.IdentityModel.Selectors\v4.0_4.0.0.0 b77a5c561934e089\System.IdentityM odel.Selectors.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\<IP address of SMB destination server>\\v s_target_xxxxxx\\assembly\\GAC_MSIL\\System.IdentityModel.Selectors\\v4.0_4.0.0.0 b77a5c561934e0 89\\System.IdentityModel.Selectors.dll'
+2,747 scanned, 2,675 compared, 9 errors, 0 skipped, 0 copied, 2,624 removed, 10s ERROR failed to remove from target
+"assembly\GAC_MSIL\System.Web.DataVisualization\v4.0_4.0.0.0 31bf3856ad364e35\System.Web.DataVis ualization.dll": [Errno 13] Access is denied: '\\\\?\\UNC\\<IP address of SMB destination server>\\vol_c
+rget_xxxxxx\\assembly\\GAC_MSIL\\System.Web.DataVisualization\\v4.0_4.0.0.0 31bf3856ad364e35\\Sy stem.Web.DataVisualization.dll'
+cp sync -v \\<IP address or hostname of SMB server>\vol_SMB_source_xxxxxx\warning \\<IP address of SMB destination server>\vol_SMB_target_xxxxxx
+2,831 scanned, 0 copied, 2,831 compared, 0 removed, 10 errors Total Time : 10s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 - 병렬 <n>
+
+를 사용합니다 `-parallel <n>` 매개 변수 `sync` XCP 동시 프로세스의 수를 더 높거나 더 적게 설정하는 명령입니다. 를 클릭합니다 `sync -parallel <n>` 명령은 동시 프로세스의 수와 동기화됩니다(기본값: <cpu-count>).
+
+
+NOTE: n의 최대값은 61입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -parallel <n>> \\<IP address or hostname of SMB server>\volxcp\\<IP address of SMB destination server>\xcp1_test1
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\xcp>xcp sync -parallel 5 \\<IP address or hostname of SMB server>\volxcp\\<IP address of SMB destination server>\xcp1_test1
+658 scanned, 244 compared, 0 errors, 0 skipped, 0 copied, 0 removed, 5s
+658 scanned, 606 compared, 0 errors, 0 skipped, 0 copied, 0 removed, 10s
+658 scanned, 658 compared, 0 errors, 0 skipped, 0 copied, 0 removed, 10s
+Sending statistics...
+----
+====
+
+
+== Sync-Match(동기화 일치 <filter>)
+
+를 사용합니다 `-match <filter>` 매개 변수 `sync` 소스 및 타겟 트리를 검색하고 필터 인수와 일치하는 파일이나 디렉토리만 비교하는 명령입니다. 차이가 있는 경우 명령은 타겟에 필요한 작업을 적용하여 동기화되도록 합니다.
+
+.구문
+[source, cli]
+----
+xcp sync -match <filter> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -match "'gx' in name" \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -match "'gx' in name" \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -match 'gx' in name \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 10 compared, 0 removed, 0 errors
+Total Time : 2s
+STATUS : PASSED
+----
+====
+
+
+== SYNC - <filter> 제외
+
+를 사용합니다 `-exclude <filter>` 매개 변수 `sync` 필터에서 파일 및 디렉터리만 제외하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -exclude <filter> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\netapp\xcp>xcp sync -exclude "path('*Exceptions*')" \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -exclude path('*Exceptions*') \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+451 scanned, 427 excluded, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors
+Total Time : 2s
+STATUS : PASSED
+----
+====
+
+
+== sync-preserve-atime을 선택합니다
+
+를 사용합니다 `-preserve-atime` 매개 변수 `sync` XCP가 파일을 읽기 전에 "atime"을 원래 값으로 재설정하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -preserve-atime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -preserve-atime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -preserve-atime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -preserve-atime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 4s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 - noatime
+
+를 사용합니다 `-noatime` 매개 변수 `sync` 액세스 시간에만 차이가 있는 파일을 제외하고 소스의 모든 차이를 타겟에 동기화하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -noatime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -noatime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -noatime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -noatime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+
+----
+====
+
+
+== 동기화 - noctime
+
+를 사용합니다 `-noctime` 매개 변수 `sync` 생성 시간에만 차이가 있는 파일을 제외하고 소스의 모든 차이를 타겟에 동기화하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -noctime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -noctime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -noctime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -noctime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 - nomtime
+
+를 사용합니다 `-nomtime` 매개 변수 `sync` 수정 시간에만 차이가 있는 파일을 제외하고 소스의 모든 차이를 타겟에 동기화하는 명령입니다. (이 옵션은 더 이상 사용되지 않습니다. 를 클릭합니다 `sync` 명령은 이 옵션 없이 계속 실행됩니다.)
+
+.구문
+[source, cli]
+----
+xcp sync -nomtime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -nomtime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -nomtime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -nomtime \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== sync-noattrs를 선택합니다
+
+를 사용합니다 `-noattrs` 매개 변수 `sync` 파일 특성의 차이만 있는 파일을 제외하고 소스의 모든 차이를 타겟에 동기화하는 명령입니다. XCP는 컨텐츠가 다른 경우에만 파일을 복사합니다(ACL이 전송됨).
+
+.구문
+[source, cli]
+----
+xcp sync -noattrs \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -noattrs	\\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -noattrs	\\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -noattrs \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 - 소유권 없음
+
+를 사용합니다 `-noownership` 매개 변수 `sync` 소유권에 차이가 있는 파일만 제외하고 소스의 모든 차이를 타겟에 동기화하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -noownership \\<IP address or hostname of SMB server>\vol_SMB_source_xxxxxx \\<IP address of SMB destination server>\vol_SMB_target_xxxxxx
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+>xcp sync -acl -noownership -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+
+      Truncated Output
+302,909 scanned,    301,365 compared,	0	errors,	0	skipped,	0	copied,	0	removed, 9m46s
+307,632	scanned,	303,530	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 9m51s
+308,434	scanned,	305,462	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 9m56s
+310,824	scanned,	307,328	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 10m1s
+313,238	scanned,	310,083	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 10m6s
+314,867	scanned,	313,407	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 10m11s
+318,277	scanned,	315,856	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 10m17s
+321,005	scanned,	318,384	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 10m22s
+322,189	scanned,	321,863	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 10m27s
+323,906	scanned,	323,906	compared,	0	errors,	0	skipped,	0	copied,	0	removed, 10m29s
+
+xcp sync -acl -noownership -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+323,906 scanned, 0 copied, 323,906 compared, 0 removed, 0 errors
+Total Time : 10m29s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 방지 <float>
+
+를 사용합니다 `-atimewindow <float>` 매개 변수 `sync` 소스에서 목적지까지의 파일 시간에 대해 허용되는 차이(초)를 지정하는 명령입니다. atime의 차이가 <value>보다 작으면 XCP는 파일을 다른 것으로 보고하지 않습니다.
+
+.구문
+[source, cli]
+----
+xcp sync -atimewindow <float> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+다음 예제에서 xCP는 소스 파일과 대상 파일 간의 atime 차이를 최대 10분 이내로 받아들이고 타겟의 atime을 업데이트하지 않습니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -atimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\source_share
+xcp sync -atimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\source_share
+
+xcp sync -atimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\source_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== sync-ctimewindow <float> 를 참조하십시오
+
+를 사용합니다 `-ctimewindow <float>` 매개 변수 `sync` 소스에서 목적지까지의 파일 ctime에 대해 허용되는 차이(초)를 지정하는 명령입니다. xCP는 ctime의 차이가 <value>보다 작으면 파일을 다른 것으로 보고하지 않습니다.
+
+.구문
+[source, cli]
+----
+xcp sync -ctimewindow <float> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+다음 예제에서 xCP는 소스 파일과 대상 파일 간의 atime 차이를 최대 10분 동안 수락하고 타겟의 ctime을 업데이트하지 않습니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -ctimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -ctimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -ctimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 - mtimewindow <float>
+
+를 사용합니다 `-mtimewindow <float>` 매개 변수 `sync` 소스에서 목적지까지의 파일에 대한 mtime에 대한 허용 가능한 차이를 초 단위로 지정하는 명령입니다. mtime 차이가 <value>보다 작은 경우 XCP는 파일을 다른 것으로 보고하지 않습니다.
+
+.구문
+[source, cli]
+----
+xcp sync -mtimewindow <float> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -mtimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -mtimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -mtimewindow 600 \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== sync-acl-fallback-user <fallback_user>-fallback-group <fallback_group>입니다
+
+를 사용합니다 `-acl`, `-fallback-user` 및 `-fallback-group` 매개 변수 및 `sync` 소스의 데이터와 보안 정보를 타겟과 비교하고 타겟에 필요한 작업을 적용하는 명령입니다. 를 클릭합니다 `-fallback-user` 및 `-fallback-group` 옵션은 로컬(도메인이 아닌) 원본 사용자 또는 그룹의 권한을 받는 대상 컴퓨터 또는 Active Directory의 사용자 또는 그룹입니다.
+
+
+NOTE: 를 사용할 수 없습니다 `-acl` 를 사용하지 않는 옵션 `-fallback-user` 및 `-fallback-group` 옵션.
+
+.구문
+[source, cli]
+----
+xcp sync -acl -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address or hostname of SMB server>\performance_SMB_home_dirs \\<IP address of SMB destination server>\performance_SMB_home_dirs
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\xcp>xcp sync -acl -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+10,796	scanned,	4,002	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	s
+15,796	scanned,	8,038	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	0s
+15,796	scanned,	8,505	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	5s
+15,796	scanned,	8,707	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	0s
+15,796	scanned,	8,730	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	5s
+15,796	scanned,	8,749	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	0s
+15,796	scanned,	8,765	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	5s
+15,796	scanned,	8,786	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	0s
+15,796	scanned,	8,956	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	5s
+15,796	scanned,	9,320	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	0s
+15,796	scanned,	9,339	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	5s
+15,796	scanned,	9,363	compared,	0	errors,	0	skipped,	0	copied,	0	removed,	m0s
+15,796	scanned,	10,019	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m5s
+15,796	scanned,	10,042	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m10s
+15,796	scanned,	10,059	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m15s
+15,796	scanned,	10,075	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m20s
+15,796	scanned,	10,091	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m25s
+15,796	scanned,	10,108	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m30s
+15,796	scanned,	10,929	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m35s
+15,796	scanned,	12,443	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m40s
+15,796	scanned,	13,963	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m45s
+15,796	scanned,	15,488	compared,	0	errors,	0	skipped,    0	copied	0	removed,	1m50s
+15,796	scanned,	15,796	compared,	0	errors,	0	skipped,     0	copied	0	removed,	1m51s
+
+xcp sync -acl -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+15,796 scanned, 0 copied, 15,796 compared, 0 removed, 0 errors
+Total Time : 1m51
+STATUS : PASSED
+----
+====
+
+
+== 동기화 -l
+
+를 사용합니다 `-l` 매개 변수 `sync` target에서 XCP가 수행한 모든 동작에 대한 자세한 로깅 정보를 표준 출력으로 제공하는 명령어이다.
+
+.구문
+[source, cli]
+----
+xcp sync -l \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp sync -l \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -l \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+File "atime" changed, timestamps set for "agnostic"
+File "atime" changed, timestamps set for "<root>"
+xcp sync -l \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+634 scanned, 0 copied, 634 compared, 0 removed, 0 errors
+Total Time : 3s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 루트
+
+를 사용합니다 `-root` 매개 변수 `sync` 루트 디렉터리의 ACL을 동기화하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -acl -root -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\NetApp\XCP>xcp sync -acl -root -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -acl -root -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+12 scanned, 0 copied, 12 compared, 0 skipped, 0 removed, 0 errors, 1 acls copied
+Total Time : 2s
+STATUS : PASSED
+----
+====
+
+
+== sync-onlyacl-fallback-user <fallback_user>-fallback-group <fallback_group>의 약어입니다
+
+를 사용합니다 `-onlyacl`, `-fallback-user`, 및 `-fallback-group` 매개 변수 및 `sync` 소스와 대상 간의 보안 정보를 비교하고 대상에 필요한 작업을 적용하는 명령입니다. 를 클릭합니다 `-fallback-user` 및 `-fallback-group` 로컬(도메인이 아닌) 원본 사용자 또는 그룹의 권한을 받는 대상 컴퓨터 또는 Active Directory의 사용자 또는 그룹입니다.
+
+
+NOTE: 를 사용할 수 없습니다 `-onlyacl` 를 사용하지 않는 매개 변수입니다 `-fallback-user` 및 `-fallback-group` 옵션.
+
+.구문
+[source, cli]
+----
+xcp sync -onlyacl -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Users\ctladmin\Desktop>xcp sync -onlyacl -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+
+8,814 scanned,	0	copied,	620	compared,	0	skipped,	0	removed,	0	errors,	6s
+9,294 scanned,	0	copied,	2,064	compared,	0	skipped,	0	removed,	0	errors,	11s
+12,614 scanned,	0	copied,	3,729	compared,	0	skipped,	0	removed,	0	errors,	16s
+13,034 scanned,	0	copied,	5,136	compared,	0	skipped,	0	removed,	0	errors,	21s
+14,282 scanned,	0	copied,	7,241	compared,	0	skipped,	0	removed,	0	errors,	26s
+14,282 scanned,	0	copied,	8,101	compared,	0	skipped,	0	removed,	0	errors,	31s
+14,282 scanned,	0	copied,	8,801	compared,	0	skipped,	0	removed,	0	errors,	36s
+14,282 scanned,	0	copied,	9,681	compared,	0	skipped,	0	removed,	0	errors,	41s
+14,282 scanned,	0	copied,	10,405	compared,	0	skipped,	0	removed,	0	errors,	46s
+14,282 scanned,	0	copied,	11,431	compared,	0	skipped,	0	removed,	0	errors,	51s
+14,282 scanned,	0	copied,	12,471	compared,	0	skipped,	0	removed,	0	errors,	56s
+14,282 scanned,	0	copied,	13,495	compared,	0	skipped,	0	removed,	0	errors,	1m1s
+14,282 scanned,	0	copied,	14,282	compared,	0	skipped,	0	removed,	0	errors,	1m6s
+
+xcp sync -onlyacl -preserve-atime -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+14,282 scanned, 0 copied, 14,282 compared, 0 skipped, 0 removed, 0 errors
+Total Time : 1m7s
+STATUS : PASSED
+
+----
+====
+
+
+== sync-aclverify {yes, no}
+
+를 사용합니다 `-aclverify{yes,no}` 매개 변수 `sync` ACL sync 작업 중 ACL 검증을 포함하거나 건너뛸 수 있는 옵션을 제공하는 명령입니다. 이 옵션은 에서만 사용할 수 있습니다 `sync -acl` 및 `sync -onlyacl` 명령. ACL 동기화는 기본적으로 ACL 확인을 수행합니다. 를 설정하는 경우 `-aclverify` 옵션을 로 설정합니다 `no`, ACL 확인 및 를 건너뛸 수 있습니다 `fallback-user` 및 `fallback-group` 옵션이 필요하지 않습니다. 를 설정합니다 `-aclverify` 를 선택합니다 `yes`, 이 필요합니다 `fallback-user` 및 `fallback-group` 옵션을 선택합니다.
+
+.구문
+[source, cli]
+----
+xcp sync -acl -aclverify yes -fallback-user <fallback_user> -fallback-group <fallback_group> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\NetApp\xcp>xcp sync -acl -aclverify yes -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+
+25 scanned, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors, 5s, 0 acls copied
+25 scanned, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors, 10s, 0 acls copied
+25 scanned, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors, 15s, 0 acls copied xcp sync -acl -aclverify yes -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+25 scanned, 1 copied, 25 compared, 0 skipped, 0 removed, 0 errors, 12 acls copied Total Time : 16s
+STATUS : PASSED
+C:\NetApp\xcp>xcp sync -acl -aclverify no \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+
+xcp sync -acl -aclverify no \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+27 scanned, 1 copied, 27 compared, 0 skipped, 0 removed, 0 errors, 13 acls copied Total Time : 2s
+STATUS : PASSED
+C:\NetApp\xcp>xcp sync -onlyacl -aclverify yes -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+24 scanned, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors, 5s, 0 acls copied
+24 scanned, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors, 10s, 0 acls copied
+24 scanned, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors, 15s, 0 acls copied xcp sync -onlyacl -aclverify yes -fallback-user "DOMAIN\User" -fallback-group "DOMAIN\Group" \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+C:\NetApp\xcp>xcp sync -onlyacl -aclverify no \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+xcp sync -onlyacl -aclverify no \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+24 scanned, 0 copied, 24 compared, 0 skipped, 0 removed, 0 errors, 11 acls copied
+Total Time : 2s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 - BS <n>
+
+를 사용합니다 `-bs <n>` 매개 변수 `sync` 명령을 사용하여 읽기/쓰기 블록 크기를 제공합니다. 기본 크기는 1M입니다.
+
+.구문
+[source, cli]
+----
+xcp.exe sync -bs <n> \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Netapp\xcp>xcp.exe sync -bs 64k \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share
+1,136 scanned, 0 copied, 1,135 compared, 0 skipped, 95 removed, 0 errors, 5s
+xcp.exe sync -bs 64k \\<source_IP_address>\source_share \\<IP address of SMB destination server>\dest_share 1,136 scanned, 283 copied, 1,136 compared, 0 skipped, 283 removed, 0 errors
+Total Time : 10s
+STATUS : PASSED
+----
+====
+
+
+== 동기화 광고
+
+사용 `-ads` 매개 변수 `sync` 소스 및 타겟 SMB 공유에서 대체 데이터 스트림의 변경 및 수정 사항을 검색하는 명령입니다. 변경 사항이 있는 경우 타겟이 소스와 동일한지 확인하기 위해 변경 사항을 타겟에 적용합니다.
+
+.구문
+[source, cli]
+----
+xcp sync -ads \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\netapp\xcp>xcp sync -ads \\<source_IP_address>\source_share\src \\<dest_IP_address>\dest_share
+
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	5s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	10s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	15s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	20s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	25s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	30s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	1m0s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	2m50s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	2m55s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	3m0s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	3m55s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	4m0s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	4m55s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	5m0s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	5m5s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	5m10s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	5m55s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	6m0s, 1 ads copied
+13	scanned,	1	copied,	12	compared,	0	skipped,	0	removed,	0	errors,	6m5s, 1 ads copied
+xcp sync -ads \\<source_IP_address>\source_share\src \\<dest_IP_addess>\dest_share
+13 scanned, 1 copied, 13 compared, 0 skipped, 0 removed, 0 errors, 1 ads copied
+Total Time : 6m9s
+STATUS : PASSED
+----
+====

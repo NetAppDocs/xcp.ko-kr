@@ -1,0 +1,13 @@
+= 
+:allow-uri-read: 
+
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Users\Administrator\Desktop\xcp>xcp activate
+XCP activated
+----
+====

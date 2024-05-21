@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-listen.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "listen" 명령 참조' 
+---
+= 경청하십시오
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+를 클릭합니다 `listen` 명령어는 XCP 바이너리를 읽고 XCP 서비스를 시작합니다.
+
+.구문
+[source, cli]
+----
+xcp.exe listen
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\NetApp\XCP>xcp.exe listen
+* Serving Flask app "xcp_rest_smb_app" (lazy loading)
+* Environment: production
+  WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+* Debug mode: off
+----
+====

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-logging-logconfig.html 
+keywords: netapp, xcp, reference, event, logging 
+summary: XCP 로깅 
+---
+= logConfig 옵션을 설정합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+의 logConfig 옵션에 대해 알아봅니다 `xcpLogConfig.json` XCP NFS 및 SMB용 JSON 구성 파일입니다.
+
+다음 예제는 "logConfig" 옵션이 포함된 JSON 구성 파일 세트를 보여줍니다.
+
+* 예 *
+
+[listing]
+----
+{
+"level":"INFO",
+"maxBytes":"52428800",
+"name":"xcp.log"
+}
+----
+* 이 구성을 사용하면 에서 유효한 수준 값을 선택하여 심각도에 따라 메시지를 필터링할 수 있습니다 `CRITICAL`, `ERROR`, `WARNING`, `INFO`, 및 `Debug`.
+* 를 클릭합니다 `maxBytes` 설정을 사용하면 회전 로그 파일의 파일 크기를 변경할 수 있습니다. 기본값은 50MB입니다. 값을 0으로 설정하면 회전이 중지되고 모든 로그에 대해 단일 파일이 생성됩니다.
+* 를 클릭합니다 `name` 옵션은 로그 파일의 이름을 구성합니다.
+* 키 값 쌍이 누락된 경우 시스템은 기본값을 사용합니다. 기존 키의 이름을 잘못 지정하는 경우 새 키로 처리되며 새 키는 시스템 작동 방법이나 시스템 기능에 영향을 주지 않습니다.
+

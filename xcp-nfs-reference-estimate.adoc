@@ -1,0 +1,376 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-estimate.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: XCP NFS 명령 참조 
+---
+= 견적
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+xCP NFS입니다 `estimate` 명령을 사용하여 소스에서 타겟으로 기본 복제를 완료하는 데 필요한 시간을 추정합니다. CPU, RAM, 네트워크 및 기타 매개 변수와 같이 현재 사용 가능한 시스템 리소스를 모두 사용하여 기준 복사를 완료하는 데 필요한 예상 시간을 계산합니다. 를 사용할 수 있습니다 `-target` 샘플 복사 작업을 시작하고 예상 시간을 가져오는 옵션입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -id <name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client-01 linux]# ./xcp estimate -t 100 -id estimate01 -target 10.101.10.10:/temp8
+
+xcp: WARNING: your license will expire in less than 10 days! You can renew your license at https://xcp.netapp.com
+Job ID: Job_2023-04-12_08.09.16.126908_estimate
+Starting live test for 1m40s to estimate time to copy '10.101.10.10:/temp4' to
+'10.101.10.10:/temp8'...
+estimate regular file copy task completed before the 1m40s duration
+0 in (0/s), 0 out (0/s), 5s
+0 in (0/s), 0 out (0/s), 10s
+Estimated time to copy '10.101.12.11:/temp4' to '10.101.12.10:/temp8' based on a 1m40s live test:
+5.3s
+Xcp command : xcp estimate -t 100 -id estimate01 -target 10.101.12.10:/temp8
+Estimated Time : 5.3s
+Job ID : Job_2023-04-12_08.09.16.126908_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-12_08.09.16.126908_estimate.log
+STATUS : PASSED
+[root@client-01linux]#
+----
+====
+다음 표에는 가 나열되어 있습니다 `estimate` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<nfs_estimate_id,견적-id   | 이전 복사본 또는 스캔 인덱스의 카탈로그 이름을 지정합니다. 
+
+
+| <<nfs_estimate_gbit,추정 - 비트(); n   | 기가비트의 대역폭을 사용하여 최적의 시간을 예측합니다(기본값: 1). 
+
+
+| <<nfs_estimate_target,견적 - 타겟();경로    | 라이브 테스트 복사에 사용할 대상을 지정합니다. 
+
+
+| <<nfs_estimate_t,견적 - t n/s/m/h]  | 라이브 테스트 복사 기간을 지정합니다(기본값: 5m). 
+
+
+| <<nfs_estimate_bs,추정 - BS n[k]  | 읽기/쓰기 블록 크기를 지정합니다(기본값: 64k). 
+
+
+| <<nfs_estimate_dircount,예상 - dircount n[k]   | 디렉토리를 읽기 위한 요청 크기를 지정합니다(기본값: 64k). 
+
+
+| <<nfs_estimate_preserveatime,추정-보존-atime >> | 파일 또는 디렉토리의 액세스 시간을 유지합니다(기본값: False). 
+
+
+| <<nfs_estimate_loglevel,견적 - 로그 수준   | 로그 레벨을 설정합니다. 사용 가능한 레벨은 Info, debug(기본값: Info)입니다. 
+|===
+
+
+== Estimate-id <name>입니다
+
+를 사용합니다 `-id <name>` 매개 변수 `estimate` 필터와 일치하는 파일 및 디렉토리를 제외하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -id <name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp estimate -id csdata01
+
+xcp: WARNING: your license will expire in less than 11 days! You can renew your license at
+https://xcp.netapp.com
+xcp: WARNING: XCP catalog volume is low on disk space: 99.99% used, 62.0 MiB free space.
+Job ID: Job_2023-04-20_12.59.31.260914_estimate
+== Best-case estimate to copy ‘data-set:/user1given 1 gigabit of bandwidth ==
+112 TiB of data at max 128 MiB/s: at least 10d13h
+Xcp command : xcp estimate -id csdata01
+Estimated Time : 10d13h
+Job ID : Job_2023-04-20_12.59.31.260914_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-20_12.59.31.260914_estimate.log
+STATUS : PASSED
+xcp: WARNING: XCP catalog volume is low on disk space: 99.99% used, 62.0 MiB free space.
+[root@client1 linux]#
+----
+====
+
+
+== 예상 - Gbit <n>
+
+를 사용합니다 `-gbit <n>` 매개 변수 `estimate` 명령을 사용하여 최적의 시간을 예측합니다(기본값: 1). 이 옵션은 과 함께 사용할 수 없습니다 `-target` 옵션을 선택합니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -gbit <n> -id <name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client-01 linux]# ./xcp estimate -gbit 10 -id estimate01
+
+xcp: WARNING: your license will expire in less than 10 days! You can renew your license at
+https://xcp.netapp.com
+Job ID: Job_2023-04-12_08.12.28.453735_estimate
+== Best-case estimate to copy '10.101.12.11:/temp4' given 10 gigabits of bandwidth ==
+0 of data at max 1.25 GiB/s: at least 0.0s
+Xcp command : xcp estimate -gbit 10 -id estimate01
+Estimated Time : 0.0s
+Job ID : Job_2023-04-12_08.12.28.453735_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-12_08.12.28.453735_estimate.log
+STATUS : PASSED
+[root@client-01linux]#
+----
+====
+
+
+== 예상 - 대상 <path>
+
+를 사용합니다 `-target <path>` 매개 변수 `estimate` 라이브 테스트 복사본에 사용할 타겟을 지정하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -t 100 -id <name> -target <path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client-01 linux]# ./xcp estimate -t 100 -id estimate01 -target 10.101.12.11:/temp8
+
+xcp: WARNING: your license will expire in less than 10 days! You can renew your license at https://xcp.netapp.com
+Job ID: Job_2023-04-12_08.09.16.126908_estimate
+Starting live test for 1m40s to estimate time to copy '10.101.12.11:/temp4' to '10.101.12.11:/temp8'...
+estimate regular file copy task completed before the 1m40s duration
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-12_08.09.16.126908_estimate.log
+STATUS : PASSED
+[root@client-01linux]#
+----
+====
+
+
+== 추정 - t <n[s|m|h]>
+
+를 사용합니다 `-t <n[s|m|h]>` 매개 변수 `estimate` 라이브 테스트 복사 기간을 지정하는 명령입니다. 기본값은 5m입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -t <n[s|m|h]> -id <name> -target <path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client-01 linux]# ./xcp estimate -t 100 -id estimate01 -target 10.101.12.12:/temp8
+
+xcp: WARNING: your license will expire in less than 10 days! You can renew your license at
+https://xcp.netapp.com
+Job ID: Job_2023-04-12_08.09.16.126908_estimate
+Starting live test for 1m40s to estimate time to copy '10.101.12.11:/temp4' to
+'10.101.12.12:/temp8'...
+estimate regular file copy task completed before the 1m40s duration
+0 in (0/s), 0 out (0/s), 5s
+0 in (0/s), 0 out (0/s), 10s
+Estimated time to copy '10.101.12.11:/temp4' to '10.101.12.12:/temp8' based on a 1m40s live
+test: 5.3s
+
+Xcp command : xcp estimate -t 100 -id estimate01 -target 10.101.12.11:/temp8
+Estimated Time : 5.3s
+Job ID : Job_2023-04-12_08.09.16.126908_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-12_08.09.16.126908_estimate.log
+STATUS : PASSED
+[root@client-01linux]#
+----
+====
+
+
+== 추정 - BS <n[k]>
+
+를 사용합니다 `-bs <n[k]>` 매개 변수 `estimate` 명령을 사용하여 읽기/쓰기 블록 크기를 지정합니다. 기본값은 64k입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -id <name> -bs <n[k]>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp estimate -id estimate01 -bs 128k
+
+xcp: WARNING: your license will expire in less than 7 days! You can renew your license at
+https://xcp.netapp.com
+Job ID: Job_2023-04-24_08.44.12.564441_estimate
+63.2 KiB in (12.5 KiB/s), 2.38 KiB out (484/s), 5s
+== Best-case estimate to copy 'xxx' given 1 gigabit of bandwidth ==
+112 TiB of data at max 128 MiB/s: at least 10d13h
+Xcp command : xcp estimate -id estimate01 -bs 128k
+Estimated Time : 10d13h
+Job ID : Job_2023-04-24_08.44.12.564441_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-24_08.44.12.564441_estimate.log
+STATUS : PASSED
+[root@client1 linux]#
+----
+====
+
+
+== 예상 - dircount <n[k]>
+
+를 사용합니다 `-dircount <n[k]>` 매개 변수 `estimate` 명령을 사용하여 디렉토리를 읽기 위해 요청된 크기를 지정합니다. 기본값은 64k입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -id <name> -dircount <n[k]> -t <n> -target <path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp estimate -id csdata01 -dircount 128k -t 300 -target <path>
+
+xcp: WARNING: your license will expire in less than 11 days! You can renew your license at
+https://xcp.netapp.com
+xcp: WARNING: XCP catalog volume is low on disk space: 99.99% used, 61.6 MiB free space.
+Job ID: Job_2023-04-20_13.03.46.820673_estimate
+Starting live test for 5m0s to estimate time to copy ‘data-set:/user1 to `<path>`...
+1,909 scanned, 126 copied, 2 giants, 580 MiB in (115 MiB/s), 451 MiB out (89.5 MiB/s), 5s
+1,909 scanned, 134 copied, 2 giants, 1.23 GiB in (136 MiB/s), 1015 MiB out (112 MiB/s), 10s
+1,909 scanned, 143 copied, 2 giants, 1.88 GiB in (131 MiB/s), 1.54 GiB out (113 MiB/s), 15s
+.
+.
+.
+7,136 scanned, 2,140 copied, 4 linked, 8 giants, 33.6 GiB in (110 MiB/s), 32.4 GiB out (110
+MiB/s), 4m57s
+Sample test copy completed for, 300.03s
+0 in (-7215675436.180/s), 0 out (-6951487617.036/s), 5m2s
+2,186 scanned, 610 KiB in (121 KiB/s), 76.9 KiB out (15.3 KiB/s), 5m7s
+Estimated time to copy ‘data-set:/user1to '10.01.12.11:/mapr11' based on a 5m0s live test:
+7d6h
+Xcp command : xcp estimate -id csdata01 -dircount 128k -t 300 -target 10.101.12.11:/mapr11
+Estimated Time : 7d6h
+Job ID : Job_2023-04-20_13.03.46.820673_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-20_13.03.46.820673_estimate.log
+STATUS : PASSED
+xcp: WARNING: XCP catalog volume is low on disk space: 99.99% used, 61.6 MiB free space.
+[root@client1 linux]#
+----
+====
+
+
+== Estimate - 병렬 <n>
+
+를 사용합니다 `-parallel <n>` 매개 변수 `estimate` 최대 동시 배치 프로세스 수를 지정하는 명령입니다. 기본값은 7입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -loglevel <name> -parallel <n> -id <name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp estimate -loglevel DEBUG -parallel 8 -id estimate1
+
+xcp: WARNING: your license will expire in less than 11 days! You can renew your license at
+https://xcp.netapp.com
+Job ID: Job_2023-04-20_11.36.45.535209_estimate
+== Best-case estimate to copy '10.10.101.10:/users009/xxx/mnt' given 1 gigabit of bandwidth ==
+6.75 GiB of data at max 128 MiB/s: at least 54.0s
+Xcp command : xcp estimate -loglevel DEBUG -parallel 8 -id estimate1
+Estimated Time : 54.0s
+Job ID : Job_2023-04-20_11.36.45.535209_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-20_11.36.45.535209_estimate.log
+STATUS : PASSED
+[root@client1 linux]#
+----
+====
+
+
+== 추정-보존-atime
+
+를 사용합니다 `-preserve-atime` 매개 변수 `estimate` 파일 또는 디렉토리의 액세스 시간을 보존하는 명령입니다. 기본값은 false 입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -loglevel <name> -preserve-atime -id <name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+root@client1 linux]# ./xcp estimate -loglevel DEBUG -preserve-atime -id estimate1
+
+xcp: WARNING: your license will expire in less than 11 days! You can renew your license at
+https://xcp.netapp.com
+Job ID: Job_2023-04-20_11.19.04.050516_estimate
+== Best-case estimate to copy '10.10.101.10:/users009/xxx/mnt' given 1 gigabit of bandwidth
+==
+6.75 GiB of data at max 128 MiB/s: at least 54.0s
+Xcp command : xcp estimate -loglevel DEBUG -preserve-atime -id estimate1
+Estimated Time : 54.0s
+Job ID : Job_2023-04-20_11.19.04.050516_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-20_11.19.04.050516_estimate.log
+STATUS : PASSED
+[root@client1 linux]#
+----
+====
+
+
+== 견적 - 로그 수준 <name>
+
+를 사용합니다 `-loglevel <name>` 매개 변수 `estimate` 로그 레벨을 설정하는 명령입니다. 사용 가능한 레벨은 Info 및 debug입니다. 기본 레벨은 Info입니다.
+
+.구문
+[source, cli]
+----
+xcp estimate -loglevel <name> -id <name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client1 linux]# ./xcp estimate -loglevel DEBUG -parallel 8 -id estimate1
+
+xcp: WARNING: your license will expire in less than 11 days! You can renew your license at
+https://xcp.netapp.com
+Job ID: Job_2023-04-20_11.36.45.535209_estimate
+== Best-case estimate to copy '10.10.101.10:/users009/xxx/mnt' given 1 gigabit of bandwidth ==
+6.75 GiB of data at max 128 MiB/s: at least 54.0s
+Xcp command : xcp estimate -loglevel DEBUG -parallel 8 -id estimate1
+Estimated Time : 54.0s
+Job ID : Job_2023-04-20_11.36.45.535209_estimate
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_2023-04-20_11.36.45.535209_estimate.log
+STATUS : PASSED
+[root@client1 linux]#
+----
+====

@@ -1,0 +1,453 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-sync.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: XCP NFS 명령 참조 
+---
+= 동기화
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP에 대한 설명, 매개 변수 및 예를 봅니다 `sync` 명령을 실행합니다 `sync` 명령은 와 함께 사용됩니다 `dry run` 옵션을 선택합니다.
+
+
+
+== 동기화
+
+xCP NFS입니다 `sync` 명령은 카탈로그 인덱스 태그 이름 또는 이전 복제 작업의 번호를 사용하여 소스 NFS 디렉토리의 변경 및 수정 사항을 검색합니다. 소스에 대한 증가분 변경 사항이 복제되고 타겟 디렉토리에 적용됩니다. 이전 카탈로그 인덱스 번호는 동기화 작업 후 새 것으로 대체됩니다.
+
+
+NOTE: 동기화 작업 중에 수정된 파일과 디렉토리가 대상 NFSv3 내보내기로 다시 복제됩니다.
+
+.구문
+[source, cli]
+----
+xcp sync -id <catalog_name>
+----
+
+IMPORTANT: 를 클릭합니다 `-id <catalog_name>` 매개 변수는 에 필요합니다 `sync` 명령.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id autoname_copy_2020-03-04_01.10.22.338436
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id autoname_copy_2020-03-04_01.10.22.338436
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 26.4 KiB in (27.6 KiB/s), 22.7 KiB out (23.7 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+다음 표에는 가 나열되어 있습니다 `sync` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<sync_id,sync-id 동기화 ID 카탈로그_이름  | 이전 복사본 인덱스의 카탈로그 이름을 지정합니다. 의 필수 매개 변수입니다 `sync` 명령. 
+
+
+| <<sync_nonames,동기화 - 이름 없음>> | 파일 목록 및 보고서에서 사용자 및 그룹 이름을 제외합니다. 
+
+
+| <<sync_bs,동기화 - BS n[k]  | 읽기/쓰기 블록 크기를 지정합니다(기본값: 64k). 
+
+
+| <<sync_dircount,동기화 디렉토리 수(); n[k]  | 디렉터리를 읽을 때 요청 크기를 지정합니다. 
+
+
+| <<sync_parallel,동기화 - 병렬();n  | 동시 배치 프로세스의 최대 수를 지정합니다(기본값: 7). 
+
+
+| <<sync_preserve_atime,sync-preserve-atime을 선택합니다>> | 모든 파일을 소스에서 마지막으로 액세스한 날짜로 복원합니다. 
+|===
+
+
+=== 동기화 - 이름 없음
+
+를 사용합니다 `-nonames` 매개 변수 `sync` 파일 목록 또는 보고서에서 사용자 및 그룹 이름을 제외하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -id <catalog_name> -nonames
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -nonames
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -nonames
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 26.4 KiB in (22.2 KiB/s), 22.3 KiB out (18.8 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== 동기화 - BS <n[k]>
+
+를 사용합니다 `-bs <n[k]>` 매개 변수 `sync` 명령을 사용하여 읽기/쓰기 블록 크기를 지정합니다. 기본 블록 크기는 64K입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -id <catalog_name> -bs <n[k]>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -bs 32k
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -bs 32k
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 25.3 KiB in (20.4 KiB/s), 21.0 KiB out (16.9 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== sync-dircount <n[k]> 를 참조하십시오
+
+를 사용합니다 `-dircount <n[k]>` 매개 변수 `sync` 명령을 사용하여 디렉토리를 읽을 때 요청 크기를 지정합니다. 기본값은 64k입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -id <catalog_name> -dircount <n[k]>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -dircount 32k
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -dircount 32k
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 25.3 KiB in (27.8 KiB/s), 21.0 KiB out (23.0 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== 동기화 - 병렬
+
+를 사용합니다 `-parallel` 매개 변수 `sync` 최대 동시 배치 프로세스 수를 지정하는 명령입니다. 기본값은 7입니다.
+
+.구문
+[source, cli]
+----
+xcp sync -id <catalog_name> -parallel <n>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -parallel 4
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -parallel 4
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 25.3 KiB in (20.6 KiB/s), 21.0 KiB out (17.1 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== -preserve-atime
+
+를 사용합니다 `-preserve-atime` 매개 변수 `sync` 모든 파일을 소스에서 마지막으로 액세스한 날짜로 복구하는 명령입니다.
+
+를 클릭합니다 `-preserve-atime` 옵션은 액세스 시간을 XCP 읽기 작업 전에 설정된 원래 값으로 재설정합니다.
+
+.구문
+[source, cli]
+----
+xcp sync -preserve-atime -id <catalog_name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@client-1 linux]# ./xcp sync -preserve-atime -id XCP_copy_2022-06-30_14.22.53.742272
+
+xcp: Job ID: Job_XCP_copy_2022-06-30_14.22.53.742272_2022-06-30_14.27.28.660165_sync
+xcp: Index: {source: 101.10.10.10:/source_vol, target: 10.201.201.20:/dest_vol}
+xcp: diff 'XCP_copy_2022-06-30_14.22.53.742272': 55 reviewed, 55 checked at source, 1 modification,
+54 reindexed, 23.3 KiB in (15.7 KiB/s), 25.1 KiB out (16.9 KiB/s), 1s.
+xcp: sync 'XCP_copy_2022-06-30_14.22.53.742272': Starting search pass for 1 modified directory...
+xcp: find changes: 55 reviewed, 55 checked at source, 1 modification, 55 re-reviewed, 54 reindexed,
+28.0 KiB in (18.4 KiB/s), 25.3 KiB out (16.6 KiB/s), 1s.
+xcp: sync phase 2: Rereading the 1 modified directory...
+xcp: sync phase 2: 55 reviewed, 55 checked at source, 1 modification, 55 re-reviewed, 1 new dir, 54
+reindexed, 29.2 KiB in (19.0 KiB/s), 25.6 KiB out (16.7 KiB/s), 1s.
+xcp: sync 'XCP_copy_2022-06-30_14.22.53.742272': Deep scanning the 1 modified directory...
+xcp: sync 'XCP_copy_2022-06-30_14.22.53.742272': 58 scanned, 55 copied, 56 indexed, 55 reviewed, 55
+checked at source, 1 modification, 55 re-reviewed, 1 new dir, 54 reindexed, 1.28 MiB in (739
+KiB/s), 1.27 MiB out (732 KiB/s), 1s.
+Xcp command : xcp sync -preserve-atime -id XCP_copy_2022-06-30_14.22.53.742272
+Stats : 58 scanned, 55 copied, 56 indexed, 55 reviewed, 55 checked at source, 1 modification,
+55 re-reviewed, 1 new dir, 54 reindexed
+Speed : 1.29 MiB in (718 KiB/s), 1.35 MiB out (755 KiB/s)
+Total Time : 1s.
+Migration ID: XCP_copy_2022-06-30_14.22.53.742272
+Job ID : Job_XCP_copy_2022-06-30_14.22.53.742272_2022-06-30_14.27.28.660165_sync
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_XCP_copy_2022-06-30_14.22.53.742272_2022-06-
+30_14.27.28.660165_sync.log
+STATUS : PASSED
+----
+====
+
+
+== 동기화 드라이 런
+
+를 클릭합니다 `sync` 명령과 함께 `dry-run` 옵션은 복제 작업의 이전 카탈로그 인덱스 번호를 사용하여 소스 NFS 디렉토리의 변경 또는 수정 사항을 찾습니다. 또한 이 명령은 이전 복제 작업 이후 새 파일, 이동, 삭제 또는 이름이 변경된 파일 및 디렉터리를 검색합니다. 명령은 소스 변경 내용을 보고하지만 타겟에 적용하지는 않습니다.
+
+.구문
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name>
+----
+
+IMPORTANT: 를 클릭합니다 `-id <catalog_name>` 매개 변수는 에 필요합니다 `sync dry-run` 명령 옵션.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001
+0 matched, 0 error
+Speed : 15.2 KiB in (46.5 KiB/s), 5.48 KiB out (16.7 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+다음 표에는 가 나열되어 있습니다 `sync dry-run` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<sync_dry_run_id,동기화 dry-run-id  | 이전 복사본 인덱스의 카탈로그 이름을 지정합니다. 의 필수 매개 변수입니다 `sync` 명령. 
+
+
+| <<sync_dry_run_stats,드라이 런 통계를 동기화합니다>> | 수정된 디렉토리에 대한 상세 검사를 수행하고 모든 것을 보고합니다
+새로운 기능. 
+
+
+| <<sync_dry_run_l,Dry-run-l을 동기화합니다>> | 변경된 파일 및 디렉토리에 대한 세부 정보를 인쇄합니다. 
+
+
+| <<sync_dry_run_nonames,동기화 dry-run-nonames>> | 파일 목록 및 보고서에서 사용자 및 그룹 이름을 제외합니다. 
+
+
+| <<sync_dry_run_dircount,동기화 dry-run-dircount n[k]  | 디렉터리를 읽을 때 요청 크기를 지정합니다. 
+
+
+| <<sync_dry_run_parallel,동기화 건식 병렬 병렬();n  | 동시 배치 프로세스의 최대 수를 지정합니다(기본값: 7). 
+|===
+
+
+=== dry-run-id <catalog_name> 동기화
+
+를 사용합니다 `-id <catalog_name>` 매개 변수가 포함된 경우 `sync dry-run` 이전 복사본 인덱스의 카탈로그 이름을 지정합니다.
+
+
+IMPORTANT: 를 클릭합니다 `-id <catalog_name>` 매개 변수는 에 필요합니다 `sync dry-run` 명령 옵션.
+
+.구문
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001
+0 matched, 0 error
+Speed : 15.2 KiB in (21.7 KiB/s), 5.48 KiB out (7.81 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== 드라이 런 통계를 동기화합니다
+
+를 사용합니다 `-stats` 매개 변수가 포함된 경우 `sync dry-run` 수정된 디렉토리를 자세히 검사하고 새로운 모든 사항을 보고합니다.
+
+.구문
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -stats
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -stats
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+4,895 reviewed, 43,163 checked at source, 12.8 MiB in (2.54 MiB/s), 5.49 MiB out (1.09 MiB/s),
+5s
+4,895 reviewed, 101,396 checked at source, 19.2 MiB in (1.29 MiB/s), 12.8 MiB out (1.47 MiB/s),
+10s
+Xcp command : xcp sync dry-run -id ID001 -stats
+0 matched, 0 error
+Speed : 22.9 MiB in (1.74 MiB/s), 17.0 MiB out (1.29 MiB/s)
+Total Time : 13s.
+STATUS : PASSED
+----
+====
+
+
+=== Dry-run-l을 동기화합니다
+
+를 사용합니다 `-l` 매개 변수가 포함된 경우 `sync dry-run` 변경된 파일 및 디렉토리에 대한 세부 정보를 인쇄합니다.
+
+.구문
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -l
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -l
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -l
+0 matched, 0 error
+Speed : 15.2 KiB in (13.6 KiB/s), 5.48 KiB out (4.88 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== 동기화 dry-run-nonames
+
+를 사용합니다 `-nonames` 매개 변수가 포함된 경우 `sync dry-run` 파일 목록 또는 보고서에서 사용자 및 그룹 이름을 제외합니다.
+
+.구문
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -nonames
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -nonames
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -nonames
+0 matched, 0 error
+Speed : 15.2 KiB in (15.8 KiB/s), 5.48 KiB out (5.70 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== Dry-run-dircount <n[k]> 동기화
+
+를 사용합니다 `-dircount <n[k]>` 매개 변수가 포함된 경우 `sync dry-run` 디렉토리를 읽을 때 요청 크기를 지정합니다. 기본값은 64k입니다.
+
+.구문
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -dircount <n[k]>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -dircount 32k
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -dircount 32k
+0 matched, 0 error
+Speed : 15.2 KiB in (32.5 KiB/s), 5.48 KiB out (11.7 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== 건식 병렬 동기화
+
+를 사용합니다 `-parallel` 매개 변수가 포함된 경우 `sync dry-run` 동시 배치 프로세스의 최대 수를 지정합니다. 기본값은 7입니다.
+
+.구문
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -parallel <n>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -parallel 4
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -parallel 4
+0 matched, 0 error
+Speed : 15.2 KiB in (25.4 KiB/s), 5.48 KiB out (9.13 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====

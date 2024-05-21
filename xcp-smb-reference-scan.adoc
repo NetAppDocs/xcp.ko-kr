@@ -1,0 +1,1107 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-scan.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "scan" 명령 참조' 
+---
+= 스캔
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SMB입니다 `scan` 명령은 전체 SMB 공유를 재귀적으로 검색하고 끝에 있는 모든 파일을 나열합니다 `scan` 명령.
+
+.구문
+[source, cli]
+----
+xcp scan \\<SMB share path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Users\Administrator\Desktop\xcp>xcp scan \\<IP address or hostname of SMB server>\volxcp
+c:\netapp\xcp\xcp scan \\<IP address of SMB destination server>\source_share
+volxcp\3333.txt
+volxcp\SMB.txt
+volxcp\SMB1.txt
+volxcp\com.txt
+volxcp\commands.txt
+volxcp\console.txt
+volxcp\linux.txt
+volxcp\net use.txt
+volxcp\newcom.txt
+volxcp\notepad.txt
+c:\netapp\xcp\xcp scan \\<IP address of SMB destination server>\source_share
+60,345 scanned, 0 matched, 0 errors
+Total Time : 8s
+STATUS : PASSED
+C:\Users\Administrator\Desktop\xcp>Parameters
+----
+====
+다음 표에는 가 나열되어 있습니다 `scan` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<smb_scan_help,scan -h,–-help 를 참조하십시오>> | scan 명령 사용 방법에 대한 자세한 정보를 표시합니다. 
+
+
+| <<스캔 - v>> | 디버그 세부 정보를 증가시킵니다. 
+
+
+| <<smb_scan_parallel,스캔 - 병렬();n  | 동시 프로세스의 수를 지정합니다(기본값: <cpu-count>). 
+
+
+| <<smb_scan_match_filter,스캔 일치();필터();  | 필터와 일치하는 파일 및 디렉터리만 처리합니다. 
+
+
+| <<smb_scan_exclude_filter,스캔 - 제외(); 필터();  | 필터에서 파일과 디렉터리만 제외합니다. 
+
+
+| <<스캔-보존-atime>> | 소스에서 마지막으로 액세스한 날짜를 복원합니다. 
+
+
+| <<smb_scan_depth,스캔 깊이();n  | 검색 깊이를 n 레벨로 제한합니다. 
+
+
+| <<스캔 - 통계>> | 트리 통계 보고서 형식으로 파일을 나열합니다. 
+
+
+| <<스캔 - HTML>> | 트리 통계 HTML 보고서 형식으로 파일을 나열합니다. 
+
+
+| <<스캔 - CSV>> | 트리 통계 CSV 보고서 형식으로 파일을 나열합니다. 
+
+
+| <<scan-l(스캔 - l>> | 긴 목록 출력 형식으로 파일을 나열합니다. 
+
+
+| <<스캔 소유권>> | 소스에 있는 파일 및 디렉토리의 소유권 정보를 검색합니다
+있습니다. 
+
+
+| <<스캔 - du>> | 하위 디렉토리를 포함하여 각 디렉토리의 공간 사용량을 요약합니다. 
+
+
+| <<smb_scan_fmt,스캔 - FMT(); 표현();  | Python 표현식에 따라 파일 목록을 포맷합니다(참조) `xcp help -fmt` 참조). 
+
+
+| <<스캔 광고>> | 전체 SMB 공유를 반복적으로 검색하고 모든 파일과 관련된 대체 데이터 스트림을 나열합니다. 
+|===
+
+
+== scan -h,–-help 를 참조하십시오
+
+를 사용합니다 `-h` 및 `–-help` 매개 변수 및 `scan` 명령 - 스캔 명령 사용 방법에 대한 자세한 정보를 표시합니다.
+
+.구문
+[source, cli]
+----
+xcp scan --help
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\netapp\xcp>xcp scan --help
+
+usage: xcp scan [-h] [-v] [-parallel <n>] [-match <filter>] [-exclude <filter>] [-preserve-atime] [-depth
+<n>] [-loglevel <name>] [-stats] [-l] [-ownership] [-du]
+                [-fmt <expression>] [-html] [-csv] [-edupe] [-bs <n>] [-ads]
+                source
+positional arguments:
+   source
+optional arguments:
+   -h, --help           show this help message and exit
+   -v                   increase debug verbosity
+   -parallel <n>        number of concurrent processes (default: <cpu-count>)
+   -match <filter>      only process files and directories that match the filter (see `xcp help -match` for     details)
+   -exclude <filter>    Exclude files and directories that match the filter (see `xcp help -exclude` for details)
+   -preserve-atime      restore last accessed date on source
+   -depth <n>           limit the search depth
+   -loglevel <name>     option to set log level filter (default:INFO)
+   -stats               print tree statistics report
+   -l                   detailed file listing output
+   -ownership           retrieve ownership information
+   -du                  summarize space usage of each directory including subdirectories
+   -fmt <expression>    format file listing according to the python expression (see `xcp help -fmt` for details)
+   -html                Save HTML statistics report
+   -csv                 Save CSV statistics report
+   -edupe               Include dedupe and sparse data estimate in reports (see documentation for details)
+   -bs <n>              read/write block size for scans which read data with -edupe (default: 64k)
+   -ads                 scan NTFS alternate data stream
+----
+====
+
+
+== 스캔 - v
+
+를 사용합니다 `-v` 매개 변수 `scan` 오류 또는 경고가 보고될 때 문제를 해결하거나 디버깅하기 위해 자세한 로깅 정보를 제공하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -v \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -v \\<IP address or hostname of SMB server>\source_share
+xcp scan -v \\<IP address or hostname of SMB server>\source_share
+---Truncated output----
+source_share\ASUP.pm
+source_share\ASUP_REST.pm
+source_share\Allflavors_v2.pm
+source_share\Armadillo.pm
+source_share\AsupExtractor.pm
+source_share\BTS_Config.pm
+source_share\Backup.pm
+source_share\Aggregate.pm
+source_share\Burt.pm
+source_share\CConfig.pm
+source_share\CIFS.pm
+source_share\CR.pm
+source_share\CRC.pm
+source_share\CSHM.pm
+source_share\CSM.pm
+source_share\agnostic\SFXOD.pm
+source_share\agnostic\Snapmirror.pm
+source_share\agnostic\VolEfficiency.pm
+source_share\agnostic\flatfile.txt
+source_share\agnostic
+source_share
+xcp scan \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 병렬 <n>
+
+를 사용합니다 `-parallel <n>` 매개 변수 `scan` XCP 동시 프로세스의 수를 더 높거나 더 적게 설정하는 명령입니다.
+
+
+NOTE: n의 최대값은 61입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -parallel <n> \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -parallel 8 \\<IP address or hostname of SMB server>\cifs_share
+xcp scan -parallel 8 \\<IP address or hostname of SMB server>\cifs_share
+
+cifs_share\ASUP.pm
+cifs_share\ASUP_REST.pm
+cifs_share\Allflavors_v2.pm
+cifs_share\Armadillo.pm
+cifs_share\AsupExtractor.pm
+cifs_share\BTS_Config.pm
+cifs_share\Backup.pm
+cifs_share\Aggregate.pm
+cifs_share\agnostic\CifsAccess.pm
+cifs_share\agnostic\DU_Cmode.pm
+cifs_share\agnostic\Flexclone.pm
+cifs_share\agnostic\HyA_Clone_Utils.pm
+cifs_share\agnostic\Fileclone.pm
+cifs_share\agnostic\Jobs.pm
+cifs_share\agnostic\License.pm
+cifs_share\agnostic\Panamax_Clone_Utils.pm
+cifs_share\agnostic\LunCmds.pm
+cifs_share\agnostic\ProtocolAccess.pm
+cifs_share\agnostic\Qtree.pm
+cifs_share\agnostic\Quota.pm
+cifs_share\agnostic\RbacCmdFetcher.pm
+cifs_share\agnostic\RbacCmdFetcher_ReadMe
+cifs_share\agnostic\SFXOD.pm
+cifs_share\agnostic\Snapmirror.pm
+cifs_share\agnostic\VolEfficiency.pm
+cifs_share\agnostic\flatfile.txt
+cifs_share\agnostic
+cifs_share
+xcp scan -parallel 8 \\<IP address or hostname of SMB server>\cifs_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 - 일치 <filter>
+
+를 사용합니다 `-match <filter>` 매개 변수 `scan` 필터와 일치하는 파일 및 디렉토리만 처리하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -match <filter> \\<IP address or hostname of SMB server>\source_share
+----
+다음 예에서는 `scan -match` 1개월에서 1년 사이에 변경된 모든 파일을 스캔하고 검색된 각 파일에 대해 콘솔에 행을 인쇄합니다. 마지막 수정 시간의 ISO 형식, 사람이 읽을 수 있는 파일 크기, 파일 형식 및 상대 경로가 각 파일에 대해 반환됩니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -match "1*month < modified < 1*year" -fmt "'{:>15} {:>7}{}
+{}'.format(iso(mtime), humanize_size(size), type, relpath)" \\<IP address or hostname of SMB server>\source_share
+xcp scan -match "1*month < modified < 1*year" -fmt "'{:>15} {:>7} {} {}'.format(iso(mtime), humanize_size(size), type, relpath)" \\<IP address or hostname of SMB server>\source_share
+
+xcp scan -match 1*month < modified < 1*year -fmt '{:>15} {:>7} {} {}'.format(iso(mtime), humanize_size(size), type, relpath) \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+다음 예에서는 `scan -match` 3개월 이상 수정되지 않은 파일과 크기가 4MB를 초과하는 파일을 나열합니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -match "modified > 3*month and size > 4194304" -fmt "'{},{},
+{}'.format(iso(mtime), humanize_size(size), relpath)" \\<IP address or hostname of SMB
+server>\source_share
+xcp scan -match "modified > 3*month and size > 4194304" -fmt "'{}, {}, {}'.format(iso(mtime), humanize_size(size), relpath)" \\<IP address or hostname of SMB server>\source_share
+
+xcp scan -match modified > 3*month and size > 4194304 -fmt '{}, {}, {}'.format(iso(mtime), humanize_size(size), relpath) \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+다음 두 예제 중 첫 번째 예제에서는 디렉터리와 일치하며 형식 지정에서는 변수 "mtime", "relative path" 및 "depth" 사이에 쉼표를 추가합니다.
+
+두 번째 예제에서는 동일한 출력을 "name.csv"로 리디렉션합니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -match "type is directory" -fmt "','.join(map(str, [iso(mtime), relpath, depth]))" \\<IP address or hostname of SMB server>\source_share
+xcp scan -match "type is directory" -fmt "','.join(map(str, [iso(mtime), relpath, depth]))" \\<IP address or hostname of SMB server>\source_share
+
+2013-03-07_15:41:40.376072,source_share\agnostic,1
+2020-03-05_04:15:07.769268,source_share,0
+
+xcp scan -match type is directory -fmt ','.join(map(str, [iso(mtime), relpath, depth])) \\<IP address or hostname of SMB server>\source_share
+317 scanned, 2 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -match "type is directory" -fmt "','.join(map(str, [iso(mtime), relpath, depth]))" \\<IP address or hostname of SMB server>\source_share > name.csv
+xcp scan -match "type is directory" -fmt "','.join(map(str, [iso(mtime), relpath, depth]))" \\<IP address or hostname of SMB server>\source_share > name.csv
+----
+====
+다음 예에서는 전체 경로와 RAW를 인쇄합니다 `mtime` 디렉토리가 아닌 모든 파일의 값입니다. 를 클릭합니다 `mtime` 값이 70자로 채워져 읽을 수 있는 콘솔 보고서를 쉽게 만들 수 있습니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -match "type is not directory" -fmt "'{}{:>70}'.format(abspath, mtime)" \\<IP address or hostname of SMB server>\source_share
+xcp scan -match "type is not directory" -fmt "'{} {:>70}'.format(abspath, mtime)" \\<IP address or hostname of SMB server>\source_share
+
+--truncated output--
+\\<IP address or hostname of SMB server>\source_share\ASUP.pm
+1362688899.238098
+\\<IP address or hostname of SMB server>\source_share\ASUP_REST.pm
+1362688899.264073
+\\<IP address or hostname of SMB server>\source_share\Allflavors_v2.pm
+1362688899.394938
+\\<IP address or hostname of SMB server>\source_share\Armadillo.pm
+1362688899.402936
+\\<IP address or hostname of SMB server>\source_share\AsupExtractor.pm
+1362688899.410922
+\\<IP address or hostname of SMB server>\source_share\BTS_Config.pm
+1362688899.443902
+\\<IP address or hostname of SMB server>\source_share\Backup.pm
+1362688899.444905
+\\<IP address or hostname of SMB server>\source_share\Aggregate.pm
+1362688899.322019
+\\<IP address or hostname of SMB server>\source_share\Burt.pm
+1362688899.446889
+\\<IP address or hostname of SMB server>\source_share\CConfig.pm
+1362688899.4479
+\\<IP address or hostname of SMB server>\source_share\CIFS.pm
+1362688899.562795
+\\<IP address or hostname of SMB server>\source_share\agnostic\ProtocolAccess.pm
+1362688900.358093
+\\<IP address or hostname of SMB server>\source_share\agnostic\Qtree.pm
+1362688900.359095
+\\<IP address or hostname of SMB server>\source_share\agnostic\Quota.pm
+1362688900.360094
+\\<IP address or hostname of SMB server>\source_share\agnostic\RbacCmdFetcher.pm
+1362688900.3611
+\\<IP address or hostname of SMB server>\source_share\agnostic\RbacCmdFetcher_ReadMe
+1362688900.362094
+\\<IP address or hostname of SMB server>\source_share\agnostic\SFXOD.pm
+1362688900.363094
+\\<IP address or hostname of SMB server>\source_share\agnostic\Snapmirror.pm
+1362688900.364092
+\\<IP address or hostname of SMB server>\source_share\agnostic\VolEfficiency.pm
+1362688900.375077
+\\<IP address or hostname of SMB server>\source_share\agnostic\flatfile.txt
+1362688900.376076
+
+xcp scan -match type is not directory -fmt '{} {:>70}'.format(abspath, mtime) \\<IP address or hostname of SMB server>\source_share
+317 scanned, 315 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 - <filter> 제외
+
+를 사용합니다 `-exclude <filter>` 를 사용하여 `scan` 필터에서 패턴을 기준으로 디렉토리 및 파일을 제외하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -exclude <filter> \\<IP address or hostname of SMB server>\source_share
+----
+다음 예에서는 `scan -exclude` 1개월에서 1년 사이에 변경된 파일을 제외하고 제외되지 않은 각 파일에 대해 콘솔에 행을 인쇄합니다. 각 파일에 대해 인쇄된 세부 정보는 최종 수정 시간의 ISO 형식, 사람이 읽을 수 있는 파일 크기, 유형 및 상대 경로입니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -exclude "1*month < modified < 1*year" -fmt "'{:>15} {:>7}{}
+{}'.format(iso(mtime), humanize_size(size), type, relpath)" \\<IP address or hostname ofSMB server>\localtest\arch\win32\agnostic
+xcp scan -exclude "1*month < modified < 1*year" -fmt "'{:>15} {:>7} {}{}'.format(iso(mtime), humanize_size(size), type, relpath)" \\<IP address or hostname of SMB server>\localtest\arch\win32\agnostic
+2013-03-07_15:39:22.852698 46 regular agnostic\P4ENV
+2013-03-07_15:40:27.093887 8.40KiB regular agnostic\Client_outage.thpl
+2013-03-07_15:40:38.381870 23.0KiB regular agnostic\IPv6_RA_Configuration_Of_LLA_In_SK_BSD.thpl
+2013-03-07_15:40:38.382876 12.0KiB regular agnostic\IPv6_RA_Default_Route_changes.thpl
+2013-03-07_15:40:38.383870 25.8KiB regular agnostic\IPv6_RA_Port_Role_Change.thpl
+2013-03-07_15:40:38.385863 28.6KiB regular
+agnostic\IPv6_RA_processing_And_Default_Route_Installation.thpl
+2013-03-07_15:40:38.386865 21.8KiB regular agnostic\IPv6_RA_processing_large_No_Prefix.thpl
+2013-03-07_15:40:40.323163          225 regular agnostic\Makefile
+2013-03-07_15:40:40.324160          165 regular agnostic\Makefile.template
+----truncated output ----
+2013-03-07_15:45:36.668516            0 directory agnostic\tools\limits_finder\vendor\symfony\src
+2013-03-07_15:45:36.668514            0 directory agnostic\tools\limits_finder\vendor\symfony
+2013-03-07_15:45:40.782881            0 directory agnostic\tools\limits_finder\vendor
+2013-03-07_15:45:40.992685            0 directory agnostic\tools\limits_finder
+2013-03-07_15:45:53.242817            0 directory agnostic\tools
+2013-03-07_15:46:11.334815            0 directory agnostic
+
+xcp scan -exclude 1*month < modified < 1*year -fmt '{:>15} {:>7} {} {}'.format(iso(mtime), humanize_size(size), type, relpath) \\<IP address or hostname of SMB server>\localtest\arch\win32\agnostic
+140,856 scanned, 1 excluded, 0 errors
+Total Time : 46s
+STATUS : PASSED
+----
+====
+다음 예에서는 `scan -exclude` 3개월 이상 수정되지 않았고 크기가 5.5KB보다 큰 제외 안 된 파일을 나열합니다. 각 파일에 대해 인쇄되는 세부 정보는 최종 수정 시간의 ISO 형식, 사람이 읽을 수 있는 파일 크기, 형식 및 상대 경로입니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -exclude "modified > 3*month and size > 5650" -fmt "'{}, {}, {}'.format(iso(mtime), humanize_size(size), relpath)" \\<IP address or hostname of SMB server>\localtest\arch\win32\agnostic\snapmirror
+xcp scan -exclude "modified > 3*month and size > 5650" -fmt "'{}, {}, {}'.format(iso(mtime), humanize_size(size) relpath)" \\<IP address or hostname of SMB server>\localtest\arch\win32\agnostic\snapmirror
+
+2013-03-07_15:44:53.713279, 4.31KiB, snapmirror\rsm_abort.thpl
+2013-03-07_15:44:53.714269, 3.80KiB, snapmirror\rsm_break.thpl
+2013-03-07_15:44:53.715270, 3.99KiB, snapmirror\rsm_init.thpl
+2013-03-07_15:44:53.716268, 2.41KiB, snapmirror\rsm_quiesce.thpl
+2013-03-07_15:44:53.717263, 2.70KiB, snapmirror\rsm_release.thpl
+2013-03-07_15:44:53.718260, 4.06KiB, snapmirror\rsm_resume.thpl
+2013-03-07_15:44:53.720256, 4.77KiB, snapmirror\rsm_resync.thpl
+2013-03-07_15:44:53.721258, 3.83KiB, snapmirror\rsm_update.thpl
+2013-03-07_15:44:53.724256, 4.74KiB, snapmirror\sm_quiesce.thpl
+2013-03-07_15:44:53.725254, 4.03KiB, snapmirror\sm_resync.thpl
+2013-03-07_15:44:53.727249, 4.30KiB, snapmirror\sm_store_complete.thpl
+2013-03-07_15:44:53.729250, 0, snapmirror
+
+xcp scan -exclude modified > 3*month and size > 5650 -fmt '{}, {}, {}'.format(iso(mtime), humanize_size(size), relpath) \\<IP address or hostname of SMB server>\localtest\arch\win32\agnostic\snapmirror
+18 scanned, 6 excluded, 0 errors Total Time : 0s
+STATUS : PASSED
+----
+====
+다음 예제에서는 디렉터리를 제외합니다. 변수 사이에 쉼표를 추가하는 서식과 함께 제외되지 않은 파일이 나열됩니다 `mtime`, `relpath`, 및 `depth`.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -exclude "type is directory" -fmt "','.join(map(str, [iso(mtime), relpath, depth]))" \\<IP address or hostname of SMB server>\localtest\arch\win32\agnostic\snapmirror
+xcp scan -exclude "type is directory" -fmt "','.join(map(str, [iso(mtime), relpath,depth]))"
+\\<IP address or hostname of SMBserver>\localtest\arch\win32\agnostic\snapmirror
+2013-03-07_15:44:53.712271,snapmirror\SMutils.pm,1
+2013-03-07_15:44:53.713279,snapmirror\rsm_abort.pm,1
+2013-03-07_15:44:53.714269,snapmirror\rsm_break.pm,1
+2013-03-07_15:44:53.715270,snapmirror\rsm_init.thpl,1
+2013-03-07_15:44:53.716268,snapmirror\rsm_quiesce.thpl,1
+2013-03-07_15:44:53.717263,snapmirror\rsm_release.thpl,1
+2013-03-07_15:44:53.718260,snapmirror\rsm_resume.thpl,1
+2013-03-07_15:44:53.720256,snapmirror\rsm_resync.thpl,1
+2013-03-07_15:44:53.721258,snapmirror\rsm_update.thpl,1
+2013-03-07_15:44:53.722261,snapmirror\sm_init.thpl,1
+2013-03-07_15:44:53.723257,snapmirror\sm_init_complete.thpl,1
+2013-03-07_15:44:53.724256,snapmirror\sm_quiesce.thpl,1
+2013-03-07_15:44:53.725254,snapmirror\sm_resync.thpl,1
+2013-03-07_15:44:53.726250,snapmirror\sm_retrieve_complete.thpl,1
+2013-03-07_15:44:53.727249,snapmirror\sm_store_complete.thpl,1
+2013-03-07_15:44:53.728256,snapmirror\sm_update.thpl,1
+2013-03-07_15:44:53.729260,snapmirror\sm_update_start.thpl,1
+
+xcp scan -exclude type is directory -fmt ','.join(map(str, [iso(mtime), relpath, depth])) \\<IP address or hostname of SMB server>\localtest\arch\win32\agnostic\snapmirror
+18 scanned, 1 excluded, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+다음 예에서는 전체 파일 경로와 RAW를 인쇄합니다 `mtimevalue` 디렉토리가 아닌 모든 파일 를 클릭합니다 `mtimevalue` 콘솔 보고서를 쉽게 읽을 수 있도록 70자로 패딩됩니다.
+
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -exclude "type is not directory" -fmt "'{} {:>70}'.format(abspath, mtime)" \\<IP address or hostname of SMBserver>\source_share
+
+xcp scan -exclude type is not directory -fmt '{} {:>70}'.format(abspath, mtime) \\<IP address or hostname of SMB server>\source_share
+18 scanned, 17 excluded, 0errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔-보존-atime
+
+를 사용합니다 `-preserve-atime` 매개 변수 `scan` 소스에 있는 모든 파일의 마지막 액세스 날짜를 복원하고 를 재설정하는 명령입니다 `atime` XCP가 파일을 읽기 전의 원래 값으로.
+
+SMB 공유를 스캔하면 파일에 대한 액세스 시간이 수정됩니다(스토리지 시스템이 수정하도록 구성된 경우) `atime` XCP가 파일을 하나씩 읽고 있기 때문입니다. XCP는 를 변경하지 않습니다 `atime`파일을 읽기만 하면 업데이트가 시작됩니다 `atime`.
+
+.구문
+[source, cli]
+----
+xcp scan -preserve-atime \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -preserve-atime \\<IP address or hostname of SMB server>\source_share
+xcp scan -preserve-atime \\<IP address or hostname of SMB server>\source_share
+
+source_share\ASUP.pm
+source_share\ASUP_REST.pm
+source_share\Allflavors_v2.pm
+source_share\Armadillo.pm
+source_share\AsupExtractor.pm
+source_share\BTS_Config.pm
+source_share\Backup.pm
+source_share\Aggregate.pm
+source_share\Burt.pm
+source_share\CConfig.pm
+source_share\agnostic\ProtocolAccess.pm
+source_share\agnostic\Qtree.pm
+source_share\agnostic\Quota.pm
+source_share\agnostic\RbacCmdFetcher.pm
+source_share\agnostic\RbacCmdFetcher_ReadMe
+source_share\agnostic\SFXOD.pm
+source_share\agnostic\Snapmirror.pm
+source_share\agnostic\VolEfficiency.pm
+source_share\agnostic\flatfile.txt
+source_share\agnostic
+source_share
+
+xcp scan -preserve-atime \\<IP address or hostname of SMBserver>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 깊이 <n>
+
+를 사용합니다 `-depth <n>` 매개 변수 `scan` 명령을 사용하여 SMB 공유 내에 있는 디렉터리의 검색 수준을 제한합니다.
+
+
+NOTE: 를 클릭합니다 `–depth` 옵션은 XCP가 파일을 하위 디렉토리로 스캔할 수 있는 정도를 지정합니다.
+
+.구문
+[source, cli]
+----
+xcp scan -depth <2> \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -depth 2 \\<IP address or hostname of SMB server>\source_share
+xcp scan -depth 2 \\<IP address or hostname of SMB server>\source_share
+
+source_share\ASUP.pm
+source_share\ASUP_REST.pm
+source_share\Allflavors_v2.pm
+source_share\Armadillo.pm
+source_share\AsupExtractor.pm
+source_share\BTS_Config.pm
+source_share\Backup.pm
+source_share\Aggregate.pm
+source_share\Burt.pm
+source_share\CConfig.pm
+source_share\CIFS.pm
+source_share\CR.pm
+source_share\CRC.pm
+source_share\CSHM.pm
+source_share\agnostic\Fileclone.pm
+source_share\agnostic\Jobs.pm
+source_share\agnostic\License.pm
+source_share\agnostic\Panamax_Clone_Utils.pm
+source_share\agnostic\LunCmds.pm
+source_share\agnostic\ProtocolAccess.pm
+source_share\agnostic\Qtree.pm
+source_share\agnostic\Quota.pm
+source_share\agnostic\RbacCmdFetcher.pm
+source_share\agnostic\RbacCmdFetcher_ReadMe
+source_share\agnostic\SFXOD.pm
+source_share\agnostic\Snapmirror.pm
+source_share\agnostic\VolEfficiency.pm
+source_share\agnostic\flatfile.txt
+source_share\agnostic
+source_share
+
+xcp scan -depth 2 \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 - 통계
+
+를 사용합니다 `-stats` 매개 변수 `scan` 트리 통계 보고서 형식으로 파일을 나열하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -stats \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\netapp\xcp>xcp scan -stats \\<IP address or hostname of SMB server>\cifs_share
+
+== Maximum Values ==
+        Size      Depth      Namelen     Dirsize
+     88.2MiB          3          108          20
+
+== Average Values ==
+        Size      Depth      Namelen    Dirsize
+     4.74MiB          2          21            9
+
+== Top File Extensions ==
+no extension      .PDF       .exe       .html      .whl     .py      other
+   22               2          2           2         2        1        9
+  20.0KiB        1.54MiB    88.4MiB     124KiB    1.47MiB  1.62KiB   98.3MiB
+
+== Number of files ==
+  empty    <8KiB    8-64KiB    64KiB-1MiB    1-10MiB    10-100MiB    >100MiB
+      2       24          2             7          2            3
+
+== Space used ==
+  empty    <8KiB    8-64KiB    64KiB-1MiB    1-10MiB    10-100MiB     >100MiB
+      0  24.0KiB     124KiB       2.87MiB    2.91MiB       184MiB           0
+
+== Directory entries ==
+  empty     1-10     10-100        100-1K     1K-10K         >10K
+               4          1
+== Depth ==
+    0-5     6-10      11-15         16-20     21-100         >100
+     45
+
+== Modified ==
+>1 year  9-12 months  6-9 months  3-6 months  1-3 months  1-31 days  1-24 hrs  <1
+hour     <15 mins       future      <1970       invalid
+                                                                   44         1
+                                                               190MiB
+
+== Created ==
+>1 year  9-12 months  6-9 months  3-6 months  1-3 months  1-31 days  1-24 hrs  <1
+hour     <15 mins       future      <1970       invalid
+                                                                   45
+                                                               190MiB
+Total count: 45
+Directories: 5
+Regular files: 40
+Symbolic links:
+Junctions:
+Special files:
+Total space for regular files: 190MiB
+Total space for directories: 0
+Total space used: 190MiB
+Dedupe estimate: N/A
+Sparse data: N/A
+xcp scan -stats \\<IP address or hostname of SMB server>\cifs_share
+45 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 - HTML
+
+를 사용합니다 `-html` 매개 변수 `scan` HTML 통계 보고서에 파일을 나열하는 명령입니다.
+
+
+NOTE: XCP 보고서(.csv, .html)는 XCP 바이너리와 동일한 위치에 저장됩니다. 파일 이름은 <xcp_process_id>_<time_stamp>.html 형식입니다. XCP는 SID(보안 식별자)를 소유자 이름에 매핑할 수 없는 경우 SID에서 마지막 "–" 뒤에 있는 마지막 몇 자리를 사용하여 소유자를 나타냅니다. 예를 들어, XCP가 SID S-1-5-21-1896871423-3211229150-3383017265-4854184를 소유자에 매핑할 수 없는 경우 4854184를 사용하여 소유자를 나타냅니다.
+
+.구문
+[source, cli]
+----
+xcp scan -stats -html -preserve-atime -ownership \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+Z:\scripts\xcp\windows>xcp scan -stats -html -preserve-atime -ownership \\<IP address or hostname of SMB server>\source_share
+1,972 scanned, 0 matched, 0 errors, 7s
+4,768 scanned, 0 matched, 0 errors,12s
+7,963 scanned, 0 matched, 0 errors,17s
+10,532 scanned, 0 matched, 0 errors,22s
+12,866 scanned, 0 matched, 0 errors,27s
+15,770 scanned, 0 matched, 0 errors,32s
+17,676 scanned, 0 matched, 0 errors,37s
+
+== Maximum Values ==
+     Size      Depth     Namelen     Dirsize
+   535KiB         16          33          45
+
+== Average Values ==
+     Size      Depth     Namelen     Dirsize
+  10.3KiB          7          11           6
+
+== Top File SIDs ==
+S-1-5-21-1896871423-3211229150-3383017265-4854184 S-1-5-32-544 S-1-5-21-1896871423-3211229150-3383017265-3403389
+     9318       8470           1
+
+== Top Space SIDs ==
+S-1-5-21-1896871423-3211229150-3383017265-4854184 S-1-5-32-544 S-1-5-21-1896871423-3211229150-3383017265-3403389
+  76.8MiB    69.8MiB           0
+
+== Top File Extensions ==
+       py	      .rst	     .html  no	extension	    .txt	    .png	    other
+     5418	      3738	      1974	         1197    	630      	336	      1344
+
+== Number of files ==
+    empty	     <8KiB	   8-64KiB	   64KiB-1MiB   1-10MiB	 10-100MiB	 >100MiB
+      168	     11466	      2709	          294
+
+== Space used ==
+    empty     <8KiB      8-64KiB     64KiB-1MiB   1-10MiB  10-100MiB   >100MiB
+        0     24.4MiB    55.3MiB        66.9MiB
+
+== Directory entries ==
+    empty      1-10       10-100         100-1K    1K-10K       >10K
+       42      2690          420
+
+== Depth ==
+      0-5	     6-10	       11-15	          16-20	   21-100	      >100
+     3832	    12527	        1424	              6
+
+== Modified ==
+  >1 year	  >1 month	  1-31 days	     1-24 hrs	  <1 hour	   <15 mins	  future	  invalid
+  	11718       2961                                 3110
+== Created ==
+  >1 year  	>1 month    1-31 days	     1-24 hrs   <1 hour    <15 mins	  future	  invalid
+                                              1    	17788
+== Accessed ==
+  >1 year 	>1 month	  1-31 days	     1-24 hrs	  <1 hour	   <15 mins	  future	  invalid
+			                                              14624	       3165
+
+Total count: 17789
+Directories: 3152
+Regular files: 14637
+Symbolic links:
+Junctions:
+Special files:
+Total space for regular files:147MiB
+Total space for directories: 0
+Total space used: 147MiB
+Dedupe estimate: N/A
+Sparse data: N/A
+xcp scan -stats -html -preserve-atime -ownership \\<IP address or hostname ofSMB
+server>\source_share
+17,789 scanned, 0 matched, 0errors
+Total Time : 39s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 - CSV
+
+를 사용합니다 `-csv` 매개 변수 `scan` CSV 트리 통계 보고서에 파일을 나열하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -stats -csv -preserve-atime -ownership \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+Z:\scripts\xcp\windows>xcp scan -stats -csv -preserve-atime -ownership \\<IP address or hostname of SMB server>\source_share
+
+1,761 scanned, 0 matched, 0 errors, 6s
+4,949 scanned, 0 matched, 0 errors,11s
+7,500 scanned, 0 matched, 0 errors,16s
+10,175 scanned, 0 matched, 0 errors,21s
+12,371 scanned, 0 matched, 0 errors,26s
+15,330 scanned, 0 matched, 0 errors,31s
+17,501 scanned, 0 matched, 0 errors,36s
+
+== Maximum Values ==
+    Size      Depth	     Namelen     Dirsize
+  535KiB	       16	          33	        45
+
+== Average Values ==
+    Size	    Depth	     Namelen	   Dirsize
+ 10.3KiB	        7	          11	         6
+
+== Top File SIDs ==
+S-1-5-21-1896871423-3211229150-3383017265-4854184 S-1-5-32-544 S-1-5-21-1896871423-3211229150- 3383017265-3403389
+    9318	     8470	           1
+
+== Top Space SIDs ==
+S-1-5-21-1896871423-3211229150-3383017265-4854184 S-1-5-32-544 S-1-5-21-1896871423-3211229150- 3383017265-3403389
+ 76.8MiB	  69.8MiB	           0
+
+== Top File Extensions ==
+	  .py	    .rst	   .html	no extension      .txt       .png	    other
+	 5418	    3738	    1974          1197       630        336	     1344
+
+==	Number of files ==
+    empty      <8KiB	     8-64KiB    64KiB-1MiB	  1-10MiB	10-100MiB  	>100MiB
+	  168	   11466	        2709           294
+
+== Space used ==
+   empty	   <8KiB	    8-64KiB    64KiB-1MiB	 1-10MiB	10-100MiB	  >100MiB
+      0	     24.4MiB        55.3MiB	      66.9MiB	       0          0         0
+
+== Directory entries ==
+	empty	     1-10	  10-100        100-1K    1K-10K       >10K
+	   42	     2690	     420
+
+==	Depth ==
+	  0-5	     6-10	   11-15	       16-20	  21-100       >100
+	 3832	    12527	    1424             6
+
+==	Modified ==
+ >1 year	 >1 month   1-31 days	 1-24 hrs  	<1 hour  	<15 mins	future	invalid
+	 11718	     2961		             3110
+
+== Created ==
+ >1 year	 >1 month   1-31 days	 1-24 hrs  	<1 hour	  <15 mins	future	invalid
+                                        17789
+
+== Accessed ==
+ >1 year	 >1 month   1-31 days	 1-24 hrs	  <1 hour	  <15 mins	future	invalid
+		                                15754	     2035
+
+Total count: 17789
+Directories: 3152
+Regular files: 14637 Symbolic links:
+Junctions:
+Special files:
+Total space for regular files: 147MiB Total space for directories: 0 Total space used: 147MiB
+Dedupe estimate: N/A Sparse data: N/A
+xcp scan -stats -csv -preserve-atime -ownership \\<IP address or hostname of SMB server>\source_share
+17,789 scanned, 0 matched, 0 errors Total Time : 40s
+STATUS : PASSED
+----
+====
+
+
+== scan-l(스캔 - l
+
+를 사용합니다 `-l` 매개 변수 `scan` 긴 목록 출력 형식으로 파일을 나열하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -l \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -l \\<IP address or hostname of SMB server>\source_share xcp scan -l \\<IP address or hostname of SMB server>\source_share
+
+f   195KiB   7y0d source_share\ASUP.pm
+f  34.7KiB   7y0d source_share\ASUP_REST.pm
+f  4.11KiB	 7y0d source_share\Allflavors_v2.pm
+f  38.1KiB	 7y0d source_share\Armadillo.pm
+f  3.83KiB	 7y0d source_share\AsupExtractor.pm
+f  70.1KiB	 7y0d source_share\BTS_Config.pm
+f  2.65KiB	 7y0d source_share\Backup.pm
+f  60.3KiB	 7y0d source_share\Aggregate.pm
+f  36.9KiB	 7y0d source_share\Burt.pm
+f  8.98KiB	 7y0d source_share\CConfig.pm
+f  19.3KiB 	 7y0d source_share\CIFS.pm
+f  20.7KiB	 7y0d source_share\CR.pm
+f  2.28KiB   7y0d source_share\CRC.pm
+f  18.7KiB   7y0d source_share\CSHM.pm
+f  43.0KiB   7y0d source_share\CSM.pm
+f  19.7KiB	 7y0d source_share\ChangeModel.pm
+f  33.3KiB	 7y0d source_share\Checker.pm
+f  3.47KiB	 7y0d source_share\Class.pm
+f  37.8KiB	 7y0d source_share\Client.pm
+f   188KiB   7y0d source_share\agnostic\Flexclone.pm
+f  15.9KiB   7y0d source_share\agnostic\HyA_Clone_Utils.pm
+f  13.4KiB   7y0d source_share\agnostic\Fileclone.pm
+f  41.8KiB   7y0d source_share\agnostic\Jobs.pm
+f  24.0KiB   7y0d source_share\agnostic\License.pm
+f  34.8KiB   7y0d source_share\agnostic\Panamax_Clone_Utils.pm
+f  30.2KiB   7y0d source_share\agnostic\LunCmds.pm
+f  40.9KiB   7y0d source_share\agnostic\ProtocolAccess.pm
+f  15.7KiB   7y0d source_share\agnostic\Qtree.pm
+f  29.3KiB   7y0d source_share\agnostic\Quota.pm
+f  13.7KiB   7y0d source_share\agnostic\RbacCmdFetcher.pm
+f  5.55KiB   7y0d source_share\agnostic\RbacCmdFetcher_ReadMe
+f  3.92KiB   7y0d source_share\agnostic\SFXOD.pm
+f  35.8KiB   7y0d source_share\agnostic\Snapmirror.pm
+f  40.4KiB   7y0d source_share\agnostic\VolEfficiency.pm
+f  6.22KiB   7y0d source_share\agnostic\flatfile.txt
+d	     0   7y0d source_share\agnostic
+d	     0 19h17m source_share
+
+xcp scan -l \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 소유권
+
+를 사용합니다 `-ownership` 매개 변수 `scan` 파일에 대한 소유권 정보를 검색하는 명령입니다.
+
+
+NOTE: 만 사용할 수 있습니다 `-ownership` 를 사용하여 `-l`, `-match`, `-fmt`, 또는 `-stats` 매개 변수.
+
+.구문
+[source, cli]
+----
+xcp scan -l -ownership \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -l -ownership \\<IP address or hostname of SMB server>\source_share xcp scan -l -ownership \\<IP address or hostname of SMB server>\source_share
+
+f	BUILTIN\Administrators	195KiB	7y0d	source_share\ASUP.pm
+f	BUILTIN\Administrators	34.7KiB	7y0d	source_share\ASUP_REST.pm
+f	BUILTIN\Administrators	4.11KiB	7y0d	source_share\Allflavors_v2.pm
+f	BUILTIN\Administrators	38.1KiB	7y0d	source_share\Armadillo.pm
+f	BUILTIN\Administrators	3.83KiB	7y0d	source_share\AsupExtractor.pm
+f	BUILTIN\Administrators	70.1KiB	7y0d	source_share\BTS_Config.pm
+f	BUILTIN\Administrators	2.65KiB	7y0d	source_share\Backup.pm
+f	BUILTIN\Administrators	60.3KiB	7y0d	source_share\Aggregate.pm
+f	BUILTIN\Administrators	36.9KiB	7y0d	source_share\Burt.pm
+f	BUILTIN\Administrators	8.98KiB	7y0d	source_share\CConfig.pm
+f	BUILTIN\Administrators	19.3KiB	7y0d	source_share\CIFS.pm
+f	BUILTIN\Administrators	20.7KiB	7y0d	source_share\CR.pm
+f	BUILTIN\Administrators	2.28KiB	7y0d	source_share\CRC.pm
+f	BUILTIN\Administrators	18.7KiB	7y0d	source_share\CSHM.pm
+f	BUILTIN\Administrators	43.0KiB	7y0d	source_share\CSM.pm
+f	BUILTIN\Administrators	19.7KiB	7y0d	source_share\ChangeModel.pm
+f	BUILTIN\Administrators	33.3KiB	7y0d	source_share\Checker.pm
+f	BUILTIN\Administrators	3.47KiB	7y0d	source_share\Class.pm
+f	BUILTIN\Administrators	37.8KiB	7y0d	source_share\Client.pm
+f	BUILTIN\Administrators	2.44KiB	7y0d	source_share\ClientInfo.pm
+f	BUILTIN\Administrators	37.2KiB	7y0d	source_share\ClientMgr.pm
+f	BUILTIN\Administrators	17.1KiB	7y0d	source_share\ClientRPC.pm
+f	BUILTIN\Administrators	9.21KiB	7y0d	source_share\ClusterAgent.pm
+f   BUILTIN\Administrators  15.7KiB 7y0d source_share\agnostic\Qtree.pm
+f   BUILTIN\Administrators  29.3KiB 7y0d source_share\agnostic\Quota.pm
+f   BUILTIN\Administrators  13.7KiB 7y0d source_share\agnostic\RbacCmdFetcher.pm
+f   BUILTIN\Administrators  5.55KiB 7y0d source_share\agnostic\RbacCmdFetcher_ReadMe
+f   BUILTIN\Administrators  3.92KiB 7y0d source_share\agnostic\SFXOD.pm
+f   BUILTIN\Administrators  35.8KiB 7y0d source_share\agnostic\Snapmirror.pm
+f   BUILTIN\Administrators  40.4KiB 7y0d source_share\agnostic\VolEfficiency.pm
+f   BUILTIN\Administrators  6.22KiB 7y0d source_share\agnostic\flatfile.txt
+d   BUILTIN\Administrators  7y0d source_share\agnostic
+d   BUILTIN\Administrators
+
+xcp scan -l -ownership \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors Total Time : 1s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 - du
+
+를 사용합니다 `-du` 매개 변수 `scan` 하위 디렉토리를 포함하여 각 디렉토리의 공간 사용량을 요약하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -du \\<IP address or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -du \\<IP address or hostname of SMB server>\source_share xcp scan -du \\<IP address or hostname of SMB server>\source_share
+
+  569KiB source_share\agnostic
+  19.8MiB source_share
+
+xcp scan -du \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 - FMT <expression>
+
+를 사용합니다 `-fmt <expression>` 매개 변수 `scan` 정의된 식에 따라 파일 목록의 형식을 지정하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp scan -fmt "', '.join(map(str, [relpath, name, size, depth]))" \\<IPaddress or hostname of SMB server>\source_share
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+c:\netapp\xcp>xcp scan -fmt "', '.join(map(str, [relpath, name, size, depth]))"	\\<IP address or hostname of SMB server>\source_share
+xcp scan -fmt "', '.join(map(str, [relpath, name, size, depth]))"	\\<IP address or hostname of SMB server>\source_share
+
+source_share\ASUP.pm, ASUP.pm, 199239, 1
+source_share\ASUP_REST.pm, ASUP_REST.pm, 35506, 1
+source_share\Allflavors_v2.pm, Allflavors_v2.pm, 4204, 1
+source_share\Armadillo.pm, Armadillo.pm, 39024, 1
+source_share\AsupExtractor.pm, AsupExtractor.pm, 3924, 1
+source_share\BTS_Config.pm, BTS_Config.pm, 71777, 1
+source_share\Backup.pm, Backup.pm, 2714, 1
+source_share\Aggregate.pm, Aggregate.pm, 61699, 1
+source_share\Burt.pm, Burt.pm, 37780, 1
+source_share\CConfig.pm, CConfig.pm, 9195, 1
+source_share\CIFS.pm, CIFS.pm, 19779, 1
+source_share\CR.pm, CR.pm, 21215, 1
+source_share\CRC.pm, CRC.pm, 2337, 1
+source_share\agnostic\LunCmds.pm, LunCmds.pm, 30962, 2
+source_share\agnostic\ProtocolAccess.pm, ProtocolAccess.pm, 41868, 2
+source_share\agnostic\Qtree.pm, Qtree.pm, 16057,2
+source_share\agnostic\Quota.pm, Quota.pm, 30018,2
+source_share\agnostic\RbacCmdFetcher.pm, RbacCmdFetcher.pm, 14067, 2
+source_share\agnostic\RbacCmdFetcher_ReadMe, RbacCmdFetcher_ReadMe, 5685, 2
+source_share\agnostic\SFXOD.pm, SFXOD.pm, 4019, 2
+source_share\agnostic\Snapmirror.pm, Snapmirror.pm, 36624, 2
+source_share\agnostic\VolEfficiency.pm, VolEfficiency.pm, 41344, 2
+source_share\agnostic\flatfile.txt, flatfile.txt, 6366, 2
+source_share\agnostic, agnostic, 0, 1
+source_share, , 0, 0
+xcp scan -fmt ', '.join(map(str, [relpath, name, size, depth])) \\<IP address or hostname of SMB server>\source_share
+317 scanned, 0 matched, 0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+
+
+== 스캔 광고
+
+를 사용합니다 `-ads` 에 플래그 매개 변수를 추가합니다 `scan` 명령을 사용하여 전체 SMB 공유를 반복적으로 스캔하고 모든 파일 및 연결된 대체 데이터 스트림을 나열합니다.
+
+.구문
+[source, cli]
+----
+xcp scan -ads \\<source_ip_address>\source_share\src
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\netapp\xcp>xcp scan -ads \\<source_ip_address>\source_share\src
+
+src\file1.txt:ads1
+src\file1.txt:ads_file1.txt_1697037934.4154522.txt
+src\file1.txt
+src\file2.txt:ads1
+src\file2.txt:ads_file2.txt_1697037934.5873265.txt
+src\file2.txt
+src\test1.txt:ads_test1.txt_1697037934.7435765.txt
+src\test1.txt
+src\dir1\dfile1.txt:ads1
+src\dir1\dfile1.txt:ads_dfile1.txt_1697037934.1185782.txt
+src\dir1\dfile1.txt:ads_xcp.exe
+src\dir1\dfile1.txt:ads_tar
+src\dir1\dfile1.txt:java_exe
+src\dir1\dfile1.txt:cmdzip
+src\dir1\dfile1.txt:ads1_2GB
+src\dir1\dfile1.txt
+src\dir1:ads1
+src\dir1:ads_dir1_1697038504.087317.txt
+src\dir1
+src:ads_src_1697038504.7123322.txt
+src
+
+xcp scan -ads \\<source_ip_address>\source_share\src
+6 scanned, 0 matched, 0 errors, 15 ads scanned
+Total Time : 2s
+STATUS : PASSED
+----
+====

@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-activate.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: XCP NFS 명령 참조 
+---
+= 활성화
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NFS `activate` 명령을 실행하면 XCP 라이센스가 활성화됩니다.
+
+
+NOTE: 이 명령을 실행하기 전에 라이센스 파일이 다운로드되어 에 복사되었는지 확인하십시오 `opt/NetApp/xFiles/xcp/` xCP Linux 클라이언트 호스트의 디렉토리입니다.
+
+.구문
+[source, cli]
+----
+xcp activate
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp activate
+
+XCP activated
+----
+====

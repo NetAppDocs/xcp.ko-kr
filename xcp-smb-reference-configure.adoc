@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-configure.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "configure" 명령 참조' 
+---
+= 구성
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+를 클릭합니다 `configure` 명령은 SMB 시스템을 구성하고 PostgreSQL 데이터베이스가 실행 중인 시스템에 연결합니다.
+
+.구문
+[source, cli]
+----
+xcp.exe configure
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\NetApp\XCP>xcp.exe configure
+
+Please choose the menu you want to start:
+1. Configure xcp.ini file
+0. Quit
+----
+====

@@ -29,7 +29,7 @@ NOTE: 복사 작업 중에 '-preserve-atime' 플래그를 'copy' 명령과 함�
 
 [listing]
 ----
-C:\xcp>xcp copy \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp copy \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 실행 `xcp help copy` 를 참조하십시오.
 
@@ -48,7 +48,7 @@ NOTE: 동기화 작업 중에 '-preserve-atime' 플래그를 'Sync' 명령과 �
 
 [listing]
 ----
-C:\xcp>xcp sync \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp sync \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 실행 `xcp help sync` 를 참조하십시오.
 
@@ -67,6 +67,6 @@ Verify 작업 중에 '-preserve-atime' 플래그를 riting 명령과 함께 사�
 
 [listing]
 ----
-C:\xcp>xcp verify \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp verify \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 실행 `xcp help verify` 를 참조하십시오.

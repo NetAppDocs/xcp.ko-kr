@@ -26,7 +26,7 @@ copy 명령은 전체 소스 디렉토리 구조를 검사하여 대상 NFSv3 �
 
 [listing]
 ----
-xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
+xcp copy <source_nfs_export_path> <destination_nfs_export_path>
 ----
 * POSIX 경로 예: *
 
@@ -46,7 +46,7 @@ xcp copy -newid <id> file:///mnt/source file:///mnt/dest
 
 [listing]
 ----
-xcp resume [options] -id <id used for copy>
+xcp resume -id <catalog_name>
 ----
 실행 `xcp help resume` 를 참조하십시오.
 
@@ -60,7 +60,7 @@ xcp resume [options] -id <id used for copy>
 
 [listing]
 ----
-xcp sync [options] -id <id used for copy>
+xcp sync -id <catalog_name>
 ----
 실행 `xcp help sync` 를 참조하십시오.
 
@@ -74,7 +74,7 @@ xcp sync [options] -id <id used for copy>
 
 [listing]
 ----
-xcp verify src_server:/src_export dst_server:/dst_export
+xcp verify <source_ip_address>:/source_vol <destination_ip_address>:/dest_vol
 ----
 * POSIX 경로 예: *
 

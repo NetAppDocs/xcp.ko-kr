@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-activate.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "activate" 명령 참조' 
+---
+= 활성화
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SMB입니다 `activate` 명령을 실행하면 XCP 라이센스가 활성화됩니다. 이 명령을 실행하기 전에 라이센스 파일이 XCP 호스트 또는 클라이언트 시스템의 C:\NetApp\xCP 디렉토리에 다운로드되어 복사되었는지 확인하십시오. 라이센스는 호스트 수에 관계없이 활성화할 수 있습니다.
+
+.구문
+[source, cli]
+----
+xcp activate
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Users\Administrator\Desktop\xcp>xcp activate
+XCP activated
+----
+====

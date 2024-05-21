@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-overview.html 
+keywords: netapp, xcp, reference, smb, nfs, logging, use case, commands 
+summary: XCP SMB 명령 참조 
+---
+= XCP 명령 참조 개요
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP 명령 참조는 XCP NFS 및 SMB에 사용할 수 있는 명령의 예를 제공합니다. 각 명령에는 필요에 따라 단독으로 또는 조합하여 사용할 수 있는 추가 매개 변수가 있습니다. XCP는 심각도 수준에 따라 로그 파일 순환 및 로그 필터링을 지원합니다.

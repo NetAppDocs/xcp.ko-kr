@@ -1,0 +1,169 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-chmod.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: XCP NFS 명령 참조 
+---
+= chmod 를 클릭합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+xCP NFS입니다 `chmod` 명령은 지정된 디렉토리 구조에 대한 모든 파일의 파일 권한을 검사하고 변경합니다. 'chmod' 명령에는 모드 또는 참조, NFS 공유 또는 POSIX 경로가 변수로 필요합니다. xCP입니다 `chmod` 명령은 지정된 경로에 대한 사용 권한을 반복적으로 변경합니다. 명령 출력에는 스캔된 총 파일과 출력에서 변경된 권한이 표시됩니다.
+
+.구문
+[source, cli]
+----
+xcp chmod -mode <value> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -mode <IP address>:/source_vol
+
+Xcp command : xcp chmod -mode <IP address>://source_vol
+Stats : 6 scanned, 4 changed mode
+Speed : 1.96 KiB in (2.13 KiB/s), 812 out (882/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux] #
+----
+====
+다음 표에는 가 나열되어 있습니다 `chmod` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<nfs_chmod_exclude,chmod-제외();필터();   | 필터와 일치하는 파일 및 디렉토리를 제외합니다. 
+
+
+| <<nfs_chmod_match,chmod-match   | 필터와 일치하는 파일 및 디렉토리만 처리합니다. 
+
+
+| <<nfs_chmod_reference,chmod-참조();참조();  | 참조된 파일 또는 디렉터리 지점을 지정합니다. 
+
+
+| <<nfs_chmod_v,chmod -v 를 입력합니다 >> | 처리된 모든 개체에 대한 출력을 보고합니다. 
+|===
+
+
+== chmod - <filter> 제외
+
+를 사용합니다 `-exclude <filter>` 매개 변수 `chmod` 필터와 일치하는 파일 및 디렉토리를 제외하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chmod -exclude <filter> -mode <value> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -exclude "fnm('3.img')" -mode 770 101.11.10.10:/s_v1/D3/
+
+Excluded: 1 excluded, 0 did not match exclude criteria
+Xcp command : xcp chmod -exclude fnm('3.img') -mode 770 101.11.10.10:/s_v1/D3/
+Stats : 5 scanned, 1 excluded, 5 changed mode
+Speed : 2.10 KiB in (7.55 KiB/s), 976 out (3.43 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== chmod - <filter> 일치
+
+를 사용합니다 `-match <filter>` 매개 변수 `chmod` 필터와 일치하는 파일 및 디렉토리만 처리하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chmod -match <filter>  -mode <value> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -match "fnm('2.img')" -mode 777 101.11.10.10:/s_v1/D2/
+
+Filtered: 1 matched, 5 did not match
+Xcp command : xcp chmod -match fnm('2.img') -mode 101.11.10.10:/s_v1/D2/
+Stats : 6 scanned, 1 matched, 2 changed mode
+Speed : 1.67 KiB in (1.99 KiB/s), 484 out (578/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]
+----
+====
+
+
+== chmod - 참조 <reference>
+
+를 사용합니다 `-reference <reference>` 매개 변수 `chmod` 참조된 파일 또는 디렉토리 지점을 지정하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chmod -reference <reference> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -reference 101.11.10.10:/s_v1/D1/1.txt 102.21.10.10:/s_v1/D2/
+
+Xcp command : xcp chmod -reference 101.11.10.10:/s_v1/D1/1.txt 102.21.10.10:/s_v1/D2/
+Stats : 6 scanned, 6 changed mode
+Speed : 3.11 KiB in (3.15 KiB/s), 1.98 KiB out (2.00 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== chmod -v 를 입력합니다
+
+를 사용합니다 `-v` 매개 변수 `chmod` 명령을 사용하여 처리된 모든 개체에 대한 출력을 보고합니다.
+
+.구문
+[source, cli]
+----
+chmod -mode <value> -v <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -mode 111 -v file:///mnt/s_v1/D1/
+
+mode of 'file:///mnt/s_v1/D1' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/1.txt' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/softlink_1.img' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/softlink_to_hardlink_1.img' changed from 0777 to 0111 mode
+of 'file:///mnt/s_v1/D1/1.img' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/hardlink_1.img' changed from 0777 to 0111 mode of
+'file:///mnt/s_v1/D1/1.img1' changed from 0777 to 0111
+Xcp command : xcp chmod -mode 111 -v file:///mnt/s_v1/D1/ Stats : 7 scanned, 7
+changed mode
+Speed : 0 in (0/s), 0 out (0/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====

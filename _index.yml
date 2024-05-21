@@ -11,10 +11,12 @@ indexpage:
       url: "/xcp-index.html"
     - title: xCP를 설치합니다
       url: "/xcp-install-xcp.html"
-    - title: XCP 참조
-      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872
   - title: 이전 릴리스
     links:
+    - title: NetApp XCP 1.9.3 릴리스 정보
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2886695
+    - title: NetApp XCP 1.9.3 참조
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872
     - title: NetApp XCP 1.9.2 릴리스 노트
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2885805
     - title: NetApp XCP 1.9.2 참조
@@ -22,10 +24,6 @@ indexpage:
     - title: NetApp XCP 1.9.1 릴리스 노트
       url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2884968
     - title: NetApp XCP 1.9.1 참조
-      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2883343
-    - title: NetApp XCP 1.9 릴리스 정보
-      url: https://library.netapp.com/ecm/ecm_get_file/ECMLP2883342
-    - title: NetApp XCP 1.9 참조
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2883343
   - title: 더 많은 리소스
     links:
@@ -37,3 +35,9 @@ indexpage:
       url: https://www.netapp.com/search/#q=xcp&sort=relevancy&f:@language=English
     - title: NetApp 커뮤니티(포럼)
       url: link:https://community.netapp.com
+  - title: XCP 참조
+    links:
+    - title: NFS 명령 참조입니다
+      url: "/xcp-nfs-reference-help.html"
+    - title: smb 명령 참조
+      url: "/xcp-smb-reference-help.html"

@@ -1,0 +1,302 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-chown.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: XCP NFS 명령 참조 
+---
+= 샤운
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+xCP NFS입니다 `chown` 명령은 지정된 디렉토리 구조에 대한 모든 파일의 소유권을 검사하고 변경합니다. 를 클릭합니다 `chown` 명령을 실행하려면 NFS 공유 또는 POSIX 경로가 변수로 필요합니다. XCP chown은 지정된 경로에 대한 소유권을 재귀적으로 변경합니다. 를 클릭합니다 `chown` Command는 파일의 변경된 UID(사용자 ID)를 표시합니다.
+
+.구문
+[source, cli]
+----
+xcp chown -user/-group <user-name/group-name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user user2 -v 101.101.10.110:/s_v1/smaple_set/D1
+
+Sat Apr 2 23:06:05 2022
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1 from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/1.txt from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/softlink_1.img from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/1.img from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/hardlink_1.img from 1001:0 to 1004:0
+changed ownership of 101.101.10.110:/s_v1/smaple_set/D1/softlink_to_hardlink_1.img from 1001:0 to
+1004:0
+Xcp command : xcp chown -user user2 -v 101.101.10.110:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (1.82 KiB/s), 1.11 KiB out (923/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+다음 표에는 가 나열되어 있습니다 `chown` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| <<nfs_chown_exclude,채널 - 제외(); 필터();   | 필터와 일치하는 파일 및 디렉토리를 제외합니다. 
+
+
+| <<nfs_chown_match,채널 일치();필터();   | 필터와 일치하는 파일 및 디렉토리만 처리합니다. 
+
+
+| <<nfs_chown_group,채널 그룹();그룹();   | 소스에서 Linux GID(Group ID)를 설정합니다. 
+
+
+| <<nfs_chown_user,채널 사용자();사용자();  | 소스에서 Linux UID를 설정합니다. 
+
+
+| <<nfs_chown_user_from,chown-user-from 채널 사용자 - 원본();  | UID를 변경합니다. 
+
+
+| <<nfs_chown_group_from,chown-group-from 채널-그룹-시작    | GID를 변경합니다. 
+
+
+| <<nfs_chown_reference,채널 - 참조(); 참조();  | 참조된 파일 또는 디렉터리 지점을 지정합니다. 
+
+
+| <<nfs_chown_v,채널 - v >> | 처리된 모든 개체에 대한 출력을 보고합니다. 
+|===
+
+
+== chown - <filter> 제외
+
+를 사용합니다 `-exclude <filter>` 매개 변수 `chown` 필터와 일치하는 파일 및 디렉토리를 제외하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chown -exclude <filter> -user <user_name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -exclude "fnm('1.img')" -user user2 101.101.10.210:/s_v1/smaple_set/D1
+
+Excluded: 1 excluded, 0 did not match exclude criteria
+Xcp command : xcp chown -exclude fnm('1.img') -user user2101.101.10.210:/s_v1/smaple_set/D1
+Stats : 5 scanned, 1 excluded, 5 changed ownership
+Speed : 2.10 KiB in (1.75 KiB/s), 976 out (812/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown - <filter> 일치
+
+를 사용합니다 `-match <filter>` 매개 변수 `chown` 필터와 일치하는 파일 및 디렉토리만 처리하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chown -match <filter>  -user <user_name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -exclude "fnm('1.img')" -user user2 101.101.10.210:/s_v1/smaple_set/D1
+
+Excluded: 1 excluded, 0 did not match exclude criteria
+Xcp command : xcp chown -exclude fnm('1.img') -user user2101.101.10.210:/s_v1/smaple_set/D1
+Stats : 5 scanned, 1 excluded, 5 changed ownership
+Speed : 2.10 KiB in (1.75 KiB/s), 976 out (812/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown - 그룹 <group>
+
+를 사용합니다 `-group <group>` 매개 변수 `chown` 명령어로 소스에서 Linux GID를 설정합니다.
+
+.구문
+[source, cli]
+----
+xcp chown -match <filter> -user <user_name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -group group1 101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -group group1 101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (1.92 KiB/s), 1.11 KiB out (974/s)
+Total Time : 1s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== chown - 사용자 <user>
+
+를 사용합니다 `-user <user>` 매개 변수 `chown` 소스에 Linux UID를 설정하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chown -user -user <user_name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user user1 102.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -user user1 102.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (3.12 KiB/s), 1.11 KiB out (1.55 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown-user - 출처: <user_from>
+
+를 사용합니다 `-user-from <user_from>` 매개 변수 `chown` UID를 변경하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chown -user-from user1 -user <user_name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user-from user1 -user user2
+101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -user-from user1 -user user2 102.108.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (2.44 KiB/s), 1.11 KiB out (1.21 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown-group-from <group_from>(채널 그룹)
+
+를 사용합니다 `-group-from <group_from>` 매개 변수 `chown` GID를 변경하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chown -group-from <group_name> -group <group_name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -group-from group1 -group group2
+101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -group-from group1 -group group2
+101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (4.99 KiB/s), 1.11 KiB out (2.47 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== Chown - 참조 <reference>
+
+를 사용합니다 `-reference <reference>` 매개 변수 `chown` 참조된 파일 또는 디렉토리 지점을 지정하는 명령입니다.
+
+.구문
+[source, cli]
+----
+xcp chown -reference <reference> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -reference 101.101.10.210:/s_v1/smaple_set/D2/2.img 101.101.10.210:/s_v1/smaple_set/D1
+
+Xcp command : xcp chown -reference 101.101.10.210:/s_v1/smaple_set/D2/2.img
+101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 3.11 KiB in (6.25 KiB/s), 2.01 KiB out (4.05 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== 채널 - v
+
+를 사용합니다 `-v` 매개 변수 `chown` 명령을 사용하여 처리된 모든 개체에 대한 출력을 보고합니다.
+
+.구문
+[source, cli]
+----
+xcp chown -user-from <user_name> -v -user <user_name> <source NFS export path>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chown -user-from user2 -v -user user1
+101.101.10.210:/s_v1/smaple_set/D1
+
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1 from 1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/1.img from 1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/1.txt from 1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/softlink_1.img from 1004:1003 to
+1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/softlink_to_hardlink_1.img from
+1004:1003 to 1001:1003
+changed ownership of 101.101.10.210:/s_v1/smaple_set/D1/hardlink_1.img from 1004:1003 to
+1001:1003
+Xcp command : xcp chown -user-from user2 -v -user user1
+101.101.10.210:/s_v1/smaple_set/D1
+Stats : 6 scanned, 6 changed ownership
+Speed : 2.25 KiB in (2.02 KiB/s), 1.11 KiB out (1.00 KiB/s)
+Total Time : 1s.
+
+STATUS : PASSED
+[root@user-1]
+----
+====

@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-show.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "show" 명령 참조' 
+---
+= 표시
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SMB입니다 `show` 명령은 하나 이상의 스토리지 서버의 RPC 서비스와 NFS 내보내기를 쿼리합니다. 또한 이 명령은 사용 가능한 서비스 및 내보내기와 각 내보내기의 사용 가능한 용량 및 사용 가능한 용량을 나열한 다음 각 내보내기의 루트 속성을 나열합니다.
+
+.구문
+를 클릭합니다 `show` 명령을 사용하려면 NFSv3 내보낸 시스템의 호스트 이름 또는 IP 주소가 필요합니다.
+
+[source, cli]
+----
+xcp show \\<IP address or hostname of SMB server>
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Users\Administrator\Desktop\xcp>xcp show \\<IP address or hostname of SMB server>
+Shares Errors Server
+7 0 <IP address or hostname of SMB server>
+== SMB Shares ==
+Space Space Current
+Free Used Connections Share Path Folder Path
+0 0 N/A \\<IP address or hostname of SMB server>\IPC$ N/A
+533GiB 4.72GiB 0 \\<IP address or hostname of SMB server>\ETC$ C:\etc
+533GiB 4.72GiB 0 \\<IP address or hostname of SMB server>\HOME C:\vol\vol0\home
+533GiB 4.72GiB 0 \\<IP address or hostname of SMB server>\C$ C:\
+972MiB 376KiB 0 \\<IP address or hostname of SMB server>\testsecureC:\vol\testsecure
+12 XCP SMB v1.6 User Guide © 2020 NetApp, Inc. All rights reserved.
+47.8GiB 167MiB 1 \\<IP address or hostname of SMB server>\volxcp C:\vol\volxcp
+9.50GiB 512KiB 1 \\<IP address or hostname of SMB server>\jl C:\vol\jl
+== Attributes of SMB Shares ==
+Share Types Remark
+IPC$ PRINTQ,IPC,SPECIAL,DEVICE Remote IPC
+ETC$ SPECIAL Remote Administration
+HOME DISKTREE Default Share
+C$ SPECIAL Remote Administration
+testsecure DISKTREE for secure copy
+volxcp DISKTREE for xcpSMB
+jl DISKTREE
+== Permissions of SMB Shares ==
+Share Entity Type
+IPC$ Everyone Allow/Full Control
+ETC$ Administrators Allow/FullControl
+HOME Everyone Allow/Full Control
+C$ Administrators Allow/Full Control
+
+xcp show \\<IP address or hostname of SMB server>
+0 errors
+Total Time : 0s
+STATUS : PASSED
+----
+====
+다음 표에는 가 나열되어 있습니다 `show` 매개 변수 및 설명
+
+[cols="2*"]
+|===
+| 매개 변수 | 설명 
+
+
+| show-v | IP 주소 또는 호스트 이름을 사용하여 SMB 서버에 대한 세부 정보를 인쇄합니다. 
+
+
+| show -h,--help | 명령 사용 방법에 대한 자세한 정보를 표시합니다. 
+|===

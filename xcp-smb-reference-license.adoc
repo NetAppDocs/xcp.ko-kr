@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-smb-reference-license.html 
+keywords: netapp, xcp, reference, smb, command, commands 
+summary: 'XCP SMB "license" 명령 참조' 
+---
+= 라이센스
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SMB입니다 `license` Command는 XCP 라이센스 정보를 표시합니다.
+
+.구문
+[source, cli]
+----
+xcp license
+----
+.예제 보기
+[%collapsible]
+====
+[listing]
+----
+C:\Users\Administrator\Desktop\xcp>xcp license
+xcp license
+XCP <version>; (c) yyyy NetApp, Inc.; Licensed to XXX [NetApp Inc] until Mon Dec 31 00:00:00 yyyy
+License type: SANDBOX
+License status: ACTIVE
+Customer name: N/A
+Project number: N/A
+Offline Host: Yes
+Send statistics: No
+Host activation date: N/A
+License management URL: https://xcp.netapp.com
+----
+====
