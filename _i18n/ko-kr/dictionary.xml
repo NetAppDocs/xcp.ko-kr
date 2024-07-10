@@ -334,8 +334,6 @@
   <block id="95b2f11d1aece0b4ddfc5cba00384742" category="summary">xCP를 설치합니다</block>
   <block id="5157096b4994925e784b5ccc913a425c" category="section-title">워크플로를 설치하고 구성합니다</block>
   <block id="dda26d898eec39eecd399e188771288e" category="paragraph">이 문서에서는 NFS 및 SMB 시스템에 XCP를 설치하고 설정하기 위한 간단한 워크플로우를 제공합니다.</block>
-  <block id="341d84aa26cb4521474864e04ea2a63b" category="inline-image-macro">오류: 그래픽 이미지가 없습니다</block>
-  <block id="e0cc20d4c07649f34c6795a45c8f54ec" category="paragraph"><block ref="e0cc20d4c07649f34c6795a45c8f54ec" category="inline-image-macro-rx" type="image"></block></block>
   <block id="af4c2fb6e7c29314dbe63e8b1d277ff8" category="section-title">xCP 다운로드</block>
   <block id="83008f4493bba0b08400133371c2e80c" category="paragraph">NetApp Support 사이트에서 XCP를 다운로드하고 xCP 사이트에서 라이센스를 받으십시오.</block>
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">NetApp Support 사이트</block>
@@ -2214,4 +2212,8 @@ false는 syslog 구성을 무시합니다.</block>
   <block id="7abd8bc01e56757cc6d2d51936b79c34" category="sidebar">XCP 이벤트 로그</block>
   <block id="64b873b5723d0186c94db0f344f92d2b" category="sidebar">NFS 이벤트 로그</block>
   <block id="4749766868b7c96046bdc8c12e4653fb" category="sidebar">SMB 이벤트 로그</block>
+  <block id="10f9a2d4423674460e3651820224566e" category="inline-image-macro">XCP 설치 및 구성 워크플로우</block>
+  <block id="d00c1e93acb215a134bcc17a6aafed7e" category="paragraph"><block ref="d00c1e93acb215a134bcc17a6aafed7e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e53491994f0709110c81f65b9c6dcbf5" category="cell">타사 에서 NetApp NTFS ACL(액세스 제어 목록)</block>
+  <block id="0ce0e45a25c05fb4a79ccca92ab31b0a" category="cell">XCP SMB는 타사 ACL을 비NetApp에서 NetApp 시스템으로 마이그레이션할 수 없습니다.</block>
 </blocks>

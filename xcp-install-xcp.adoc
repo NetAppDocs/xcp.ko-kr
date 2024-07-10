@@ -22,7 +22,7 @@ summary: xCP를 설치합니다
 
 이 문서에서는 NFS 및 SMB 시스템에 XCP를 설치하고 설정하기 위한 간단한 워크플로우를 제공합니다.
 
-image:xcp_image16.PNG["오류: 그래픽 이미지가 없습니다"]
+image:xcp_image16.PNG["XCP 설치 및 구성 워크플로우"]
 
 
 

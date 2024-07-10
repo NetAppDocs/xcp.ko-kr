@@ -49,6 +49,9 @@ summary: 일부 기능은 XCP NFS 또는 XCP SMB에서 지원되지 않습니다
 | 피처 이름 | 설명 
 
 
+| 타사 에서 NetApp NTFS ACL(액세스 제어 목록) | XCP SMB는 타사 ACL을 비NetApp에서 NetApp 시스템으로 마이그레이션할 수 없습니다. 
+
+
 | NFS 심볼 링크(symlink) | xCP SMB에서는 NFS symlink가 지원되지 않습니다 
 
 
