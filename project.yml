@@ -14,7 +14,6 @@ sidebar:
   - title: 릴리즈 노트
     url: "/releasenotes.html"
   - title: xCP를 시작하십시오
-    type: solutions
     entries:
     - title: xCP에 대해 자세히 알아보십시오
       url: "/xcp-index.html"
@@ -61,8 +60,9 @@ sidebar:
     - title: S3 커넥터를 구성합니다
       url: "/xcp-configure-s3-connector-nfs.html"
   - title: 데이터 마이그레이션 계획
-    url: "/xcp-plan-data-migration.html"
     entries:
+    - title: 개요
+      url: "/xcp-plan-data-migration.html"
     - title: NFS 데이터 마이그레이션 계획
       url: "/xcp-plan-nfs-data-migration.html"
     - title: SMB 데이터 마이그레이션 계획
@@ -89,6 +89,7 @@ sidebar:
       url: "/xcp-migrate-data.html"
     - title: SMB 데이터 마이그레이션
       url: "/xcp-migrate-smb-data.html"
+    - title: SMB를 위한 NTFS 대체 데이터 스트림 마이그레이션
       entries:
       - title: SMB를 위한 NTFS 대체 데이터 스트림 마이그레이션
         url: "/xcp-smb-ads.html"
