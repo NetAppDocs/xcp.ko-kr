@@ -79,8 +79,7 @@ STATUS : PASSED
 | <<소유권 확인>> | 소유권을 확인하지 마십시오. 
 
 
-| <<확인 광고>> | 소스 및 타겟 SMB 공유에서 대체 데이터 스트림의 변경 및 수정 사항을 검색합니다. 변경 사항이 있는 경우 변경 내용이 대상에 적용됩니다
-타겟이 소스와 동일한지 확인합니다. 
+| <<확인 광고>> |  `verify` `-ads`매개 변수가 있는 명령은 소스와 대상에 있는 대체 데이터 스트림을 확인하고 차이점을 표시합니다. 
 
 
 | <<확인 - noacls>> | ACL을 확인하지 마십시오. 
@@ -110,10 +109,10 @@ STATUS : PASSED
 | <<verify_smb_acl,verify-fallback-group  | 로컬(도메인이 아닌) 소스 컴퓨터 그룹(예: domain\administrators)의 권한을 받기 위한 대상 컴퓨터의 Active Directory 그룹 또는 로컬(도메인이 아닌) 그룹입니다. 
 
 
-| <<smb_verify_root,verify-root 를 선택합니다>> | 루트 디렉토리에 대한 ACL을 동기화합니다. 
+| <<smb_verify_root,verify-root 를 선택합니다>> | 루트 디렉토리에 대한 ACL을 확인합니다. 
 
 
-| <<verify_smb_onlyacl,확인 - Only>> | 보안 정보만 복사합니다. 
+| <<verify_smb_onlyacl,확인 - Only>> | 보안 정보만 확인합니다. 
 |===
 
 
@@ -477,7 +476,7 @@ STATUS : PASSED
 
 == 확인 광고
 
-사용 `-ads` 매개 변수 `verify` 소스와 대상에 대체 데이터 스트림이 있는지 확인하고 차이점을 표시하는 명령입니다.
+ `-ads`명령과 함께 매개 변수를 사용하여 `verify` 소스와 대상에 대체 데이터 스트림이 있는지 확인하고 차이점을 표시합니다.
 
 .구문
 [source, cli]
@@ -774,7 +773,7 @@ xcp verify -noacls -fallback-user <fallback_user> -fallback-group <fallback_grou
 
 == verify-root 를 선택합니다
 
-를 사용합니다 `-root` 매개 변수 `verify` 루트 디렉터리의 ACL을 동기화하는 명령입니다.
+ `-root`매개 변수를 `verify` 명령과 함께 사용하여 루트 디렉토리의 ACL을 확인합니다.
 
 .구문
 [source, cli]
