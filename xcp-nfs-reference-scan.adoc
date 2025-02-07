@@ -199,9 +199,13 @@ STATUS : PASSED
 
 를 사용합니다 `-stats`, `-csv`, 및 `-html` 매개 변수 및 `scan` 트리 통계 보고서 형식으로 파일을 나열하는 명령입니다.
 
+[NOTE]
+====
+* 이 `-stats` 옵션은 사람이 읽을 수 있는 보고서를 콘솔에 인쇄합니다. 다른 보고서 형식 옵션은 `-html` 또는 `-csv`입니다. CSV(쉼표로 구분된 값) 형식에는 정확한 값이 있습니다. 카탈로그가 있는 경우 CSV 및 HTML 보고서가 카탈로그에 자동으로 저장됩니다.
+* XCP 보고서(.csv, .html)는 파일에 지정된 카탈로그 위치에 `xcp.ini` 저장됩니다. 파일은 `<catalog path>/catalog/indexes/1/reports` 폴더에 저장됩니다. 에서 샘플 보고서를 볼 수 link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872["NetApp XCP 1.9.3 참조"^]있습니다.
 
-NOTE: XCP 보고서(.csv, .html)는 에 지정된 카탈로그 위치에 저장됩니다 `xcp.ini` 파일. 파일은 에 저장됩니다 `<catalog path>/catalog/indexes/1/reports` 폴더. 부록에서 샘플 보고서를 볼 수 있습니다.
 
+====
 .구문
 [source, cli]
 ----
