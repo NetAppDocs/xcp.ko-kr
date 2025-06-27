@@ -2223,6 +2223,6 @@ false는 syslog 구성을 무시합니다.</block>
   <block id="94e333b8fe7eeb24ad8148da30611a12" category="list-text">XCP 보고서(.csv, .html)는 파일에 지정된 카탈로그 위치에<block ref="d509f49d5d9a07934f91eefcf45a7334" prefix=" " category="inline-code"></block> 저장됩니다. 파일은<block ref="4ab06dfafbc06c813ac00690ec02817f" prefix=" " category="inline-code"></block> 폴더에 저장됩니다. 에서 샘플 보고서를 볼 수 <block ref="4e380b3bd4c911d8ac7f28200efc937b" category="inline-link-macro-rx"></block>있습니다.</block>
   <block id="1ce3aa5c05c910125de58745a6c5c442" category="admonition">stats 옵션은 사람이 읽을 수 있는 보고서를 콘솔에 인쇄합니다. 다른 보고서 형식 옵션은 -html 또는 -csv입니다. CSV(쉼표로 구분된 값) 형식에는 정확한 값이 있습니다. 카탈로그가 있는 경우 CSV 및 HTML 보고서가 카탈로그에 자동으로 저장됩니다.</block>
   <block id="7db7336d37e2a7cbb5ab4d9e623c5961" category="paragraph">릴리스 노트에 액세스하려면 NetApp 지원 사이트에 로그인해야 합니다.</block>
-  <block id="6f9bf328f7fea62d92188f9c4c08614b" category="doc">XCP v1.9.4 릴리스 정보</block>
-  <block id="3b61885b697e1edb6c215f90afdd792e" category="paragraph">그만큼 <block ref="98899b177c8da430fcd78f8fb0f1ab8b" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제점, 알려진 제한 사항, 알려진 문제점을 설명합니다.</block>
+  <block id="5cb2823040d5c096016e66f50cb537d9" category="doc">XCP v1.9.4P1 릴리스 정보</block>
+  <block id="1ffdd60f2e1036fd9fdd193a4b1f40c8" category="paragraph">그만큼 <block ref="c72f9149922a980ca48dffb603f15c20" category="inline-link-macro-rx"></block> 새로운 기능, 업그레이드 노트, 해결된 문제점, 알려진 제한 사항, 알려진 문제점을 설명합니다.</block>
 </blocks>
